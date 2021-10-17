@@ -51,22 +51,27 @@
       h1 {
         font-size: 1.6rem;
       }
+
       h2 {
         font-size: 1.4rem;
       }
+
       h3 {
         font-size: 1.4rem;
       }
+
       #calcform,
       #calcform2 {
         padding: 20px;
         max-width: 500px;
         background: #eee8d5;
       }
+
       #calcform .btn span {
         font-weight: bold;
         font-size: large;
       }
+
       #radical,
       #radical2 {
         font-size: 3em;
@@ -74,6 +79,7 @@
         margin-right: -5px;
         color: #555;
       }
+
       #num,
       #num2 {
         border-top: 2px solid #555;
@@ -81,13 +87,16 @@
         margin-top: 12px;
         width: calc(100% - 30px);
       }
+
       #inappend {
         width: calc(100% - 120px);
       }
+
       #n {
         width: 70px;
         flex: unset;
       }
+
       #calcform .btn span,
       #calcform2 .btn span {
         font-weight: bold;
@@ -95,8 +104,8 @@
       }
     </style>
   </head>
-  <body>
 
+  <body>
     <div id="wrapper">
       <div id="nav">
         <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
@@ -360,6 +369,7 @@
         if (x > 0) y = "\u00B1" + y;
         document.getElementById("y").value = y;
       }
+
       function oncalc2() {
         document.getElementById("y2").value = "";
         var n = document.getElementById("n").value;
@@ -377,6 +387,7 @@
         if (minus) y = "-" + y;
         document.getElementById("y2").value = y;
       }
+
       function oncopy1() {
         const elem = document.getElementById("y");
         elem.focus();
@@ -391,6 +402,7 @@
           document.execCommand("copy");
         }
       }
+
       function oncopy2() {
         const elem = document.getElementById("y2");
         elem.focus();

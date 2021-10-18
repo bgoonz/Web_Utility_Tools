@@ -14,7 +14,7 @@ body {
   min-height: 100%;
 }
 #header {
-  background: #f0f0d0;
+  background: #939b9a;;
   padding: 10px 20px 7px;
   height: 55px;
   width: 100%;
@@ -90,12 +90,12 @@ body {
   padding-right: 7px;
 }
 #nav a:hover {
-  background: #f0f0d0;
+  background: #939b9a;
 }
 #lcol {
   display: inline-block;
   vertical-align: top;
-  width: 650px;
+  width: 750px;
   padding-right: 10px;
 }
 #doc {

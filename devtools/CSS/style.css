@@ -17,7 +17,7 @@ h4 {
 }
 
 #calcform {
-  background: #eee8d5;
+  background: #687070;
   width: 100%;
   border: 1px solid #eee;
   padding: 15px 10px;
@@ -155,7 +155,7 @@ body {
 }
 
 #header {
-  background: #f0f0d0;
+  background: #939b9a;;
   padding: 10px 20px 7px;
   height: 55px;
   width: 100%;
@@ -246,13 +246,13 @@ body {
 }
 
 #nav a:hover {
-  background: #f0f0d0;
+  background: #939b9a;;
 }
 
 #lcol {
   display: inline-block;
   vertical-align: top;
-  width: 650px;
+  width: 750px;
   padding-right: 10px;
 }
 

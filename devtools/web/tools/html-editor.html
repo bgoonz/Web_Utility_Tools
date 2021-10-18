@@ -141,7 +141,7 @@
         window.cookieconsent.initialise({
           palette: {
             popup: {
-              background: "#f0f0d0",
+              background: "#939b9a;",
               text: "#333333",
             },
             button: {
@@ -152,7 +152,8 @@
         });
       });
     </script>
-  </head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
+</head>
   <body>
     <header>
       <table>
@@ -260,7 +261,8 @@
   <script>
     $(document).ready(function () {
       var s =
-        '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n</head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
+        '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
+</head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
       if (localStorage.html_editor_text != "undefined")
         s = localStorage.html_editor_text;
       $("#codeArea").val(s);
@@ -288,7 +290,8 @@
     function OnNew() {
       cancelSaveFile();
       var s =
-        '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n</head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
+        '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
+</head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
       $("#codeArea").val(s);
       $("#iview").attr("srcdoc", s);
       $("#codeArea").focus();

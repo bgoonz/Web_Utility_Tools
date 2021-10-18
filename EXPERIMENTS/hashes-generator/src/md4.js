@@ -7,7 +7,7 @@
  * @copyright Yi-Cyuan Chen 2015
  * @license MIT
  */
-(root => {
+((root) => {
   "use strict";
 
   const NODE_JS =
@@ -25,7 +25,8 @@
   const SHIFT = [0, 8, 16, 24];
   const OUTPUT_TYPES = ["hex", "array", "digest", "buffer"];
 
-  let blocks = [], buffer8;
+  let blocks = [],
+    buffer8;
   if (ARRAY_BUFFER) {
     var buffer = new ArrayBuffer(68);
     buffer8 = new Uint8Array(buffer);
@@ -70,8 +71,8 @@
    * @example
    * md4.buffer('The quick brown fox jumps over the lazy dog');
    */
-  const createOutputMethod = outputType => {
-    return message => {
+  const createOutputMethod = (outputType) => {
+    return (message) => {
       return new Md4(true).update(message)[outputType]();
     };
   };
@@ -101,7 +102,7 @@
     method.create = () => {
       return new Md4();
     };
-    method.update = message => {
+    method.update = (message) => {
       return method.create().update(message);
     };
     for (let i = 0; i < OUTPUT_TYPES.length; ++i) {
@@ -245,7 +246,8 @@
                 blocks[i >> 2] |= (0x80 | (code & 0x3f)) << SHIFT[i++ & 3];
               } else if (code < 0xd800 || code >= 0xe000) {
                 blocks[i >> 2] |= (0xe0 | (code >> 12)) << SHIFT[i++ & 3];
-                blocks[i >> 2] |= (0x80 | ((code >> 6) & 0x3f)) << SHIFT[i++ & 3];
+                blocks[i >> 2] |=
+                  (0x80 | ((code >> 6) & 0x3f)) << SHIFT[i++ & 3];
                 blocks[i >> 2] |= (0x80 | (code & 0x3f)) << SHIFT[i++ & 3];
               } else {
                 code =
@@ -255,7 +257,8 @@
                 blocks[i >> 2] |= (0xf0 | (code >> 18)) << SHIFT[i++ & 3];
                 blocks[i >> 2] |=
                   (0x80 | ((code >> 12) & 0x3f)) << SHIFT[i++ & 3];
-                blocks[i >> 2] |= (0x80 | ((code >> 6) & 0x3f)) << SHIFT[i++ & 3];
+                blocks[i >> 2] |=
+                  (0x80 | ((code >> 6) & 0x3f)) << SHIFT[i++ & 3];
                 blocks[i >> 2] |= (0x80 | (code & 0x3f)) << SHIFT[i++ & 3];
               }
             }
@@ -279,7 +282,8 @@
         return;
       }
       this.finalized = true;
-      const blocks = this.blocks, i = this.lastByteIndex;
+      const blocks = this.blocks,
+        i = this.lastByteIndex;
       blocks[i >> 2] |= EXTRA[i & 3];
       if (i >= 56) {
         if (!this.hashed) {
@@ -483,7 +487,10 @@
     hex() {
       this.finalize();
 
-      const h0 = this.h0, h1 = this.h1, h2 = this.h2, h3 = this.h3;
+      const h0 = this.h0,
+        h1 = this.h1,
+        h2 = this.h2,
+        h3 = this.h3;
 
       return (
         HEX_CHARS[(h0 >> 4) & 0x0f] +
@@ -534,7 +541,10 @@
     digest() {
       this.finalize();
 
-      const h0 = this.h0, h1 = this.h1, h2 = this.h2, h3 = this.h3;
+      const h0 = this.h0,
+        h1 = this.h1,
+        h2 = this.h2,
+        h3 = this.h3;
       return [
         h0 & 0xff,
         (h0 >> 8) & 0xff,

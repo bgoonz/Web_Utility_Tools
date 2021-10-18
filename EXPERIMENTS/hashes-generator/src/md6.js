@@ -63,7 +63,8 @@ const md6hash = () => {
   }
 
   function _shl(x, n) {
-    const a = x[0] | 0x0, b = x[1] | 0x0;
+    const a = x[0] | 0x0,
+      b = x[1] | 0x0;
 
     if (n >= 32) {
       return [b << (n - 32), 0x0];
@@ -73,7 +74,8 @@ const md6hash = () => {
   }
 
   function _shr(x, n) {
-    const a = x[0] | 0x0, b = x[1] | 0x0;
+    const a = x[0] | 0x0,
+      b = x[1] | 0x0;
 
     if (n >= 32) {
       return [0x0, a >>> (n - 32)];
@@ -83,7 +85,8 @@ const md6hash = () => {
   }
 
   function crop(size, hash, right) {
-    const length = Math.floor((size + 7) / 8), remain = size % 8;
+    const length = Math.floor((size + 7) / 8),
+      remain = size % 8;
 
     if (right) {
       hash = hash.slice(hash.length - length);

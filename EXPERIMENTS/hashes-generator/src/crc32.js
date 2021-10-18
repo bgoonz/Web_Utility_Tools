@@ -1,6 +1,6 @@
 /* https://github.com/SheetJS/js-crc32 */
 let CRC32;
-(factory => {
+((factory) => {
   if (typeof DO_NOT_EXPORT_CRC === "undefined") {
     if ("object" === typeof exports) {
       factory(exports);
@@ -16,7 +16,7 @@ let CRC32;
   } else {
     factory((CRC32 = {}));
   }
-})(CRC32 => {
+})((CRC32) => {
   CRC32.version = "0.3.0";
   /* see perf/crc32table.js */
   function signed_crc_table() {

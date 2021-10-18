@@ -37,8 +37,8 @@
   let b;
   for (i = 0; i < Modules.length; ++i) {
     var m = Modules[i];
-    m.method = (m => {
-      return message => {
+    m.method = ((m) => {
+      return (message) => {
         return crc(message, m);
       };
     })(m);

@@ -1,7 +1,7 @@
 /* adler32.js (C) 2014 SheetJS -- http://sheetjs.com */
 /* vim: set ts=2: */
 const ADLER32 = {};
-(ADLER32 => {
+((ADLER32) => {
   ADLER32.version = "0.2.0";
   /* consult README.md for the magic number */
   /* charCodeAt is the best approach for binary strings */

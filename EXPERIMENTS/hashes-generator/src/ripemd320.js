@@ -1,4 +1,4 @@
-(Math => {
+((Math) => {
   // Shortcuts
   const C = CryptoJS;
   const C_lib = C.lib;

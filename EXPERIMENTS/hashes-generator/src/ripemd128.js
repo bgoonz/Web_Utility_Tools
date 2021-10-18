@@ -1,4 +1,4 @@
-(Math => {
+((Math) => {
   // Shortcuts
   const C = CryptoJS;
   const C_lib = C.lib;
@@ -28,8 +28,12 @@
     13, 13, 7, 5, 15, 5, 8, 11, 14, 14, 6, 14, 6, 9, 12, 9, 12, 5, 15, 8,
   ]);
 
-  const _hl = WordArray.create([0x00000000, 0x5a827999, 0x6ed9eba1, 0x8f1bbcdc]);
-  const _hr = WordArray.create([0x50a28be6, 0x5c4dd124, 0x6d703ef3, 0x00000000]);
+  const _hl = WordArray.create([
+    0x00000000, 0x5a827999, 0x6ed9eba1, 0x8f1bbcdc,
+  ]);
+  const _hr = WordArray.create([
+    0x50a28be6, 0x5c4dd124, 0x6d703ef3, 0x00000000,
+  ]);
 
   /**
    * RIPEMD128 hash algorithm.

@@ -45,9 +45,11 @@
     0x9f, 0x11, 0x83, 0x14,
   ];
 
-  const M = [], X = [], C = [];
+  const M = [],
+    X = [],
+    C = [];
 
-  const md2 = message => {
+  const md2 = (message) => {
     let code;
     let i;
     let j;

@@ -96,7 +96,7 @@
       <div>
         <div id="logo" class="box">
           <p>
-            <a href="../index.html">RapidTables</a>
+            <a href="../index.html">WebDevHubTools</a>
           </p>
         </div>
       </div>
@@ -324,24 +324,7 @@
             ></ins>
           </div>
         </div>
-        <div id="fdbk">
-          <h2><a id="feedback"></a>Write how to improve this page</h2>
-          <form id="fdbkform">
-            <textarea
-              id="fdbkarea"
-              rows="4"
-              minlength="30"
-              maxlength="1000"
-              placeholder="Your message ..."
-              required
-              class="form-control"
-            ></textarea>
-            <span id="fdbkmsg"></span>
-            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
-              Submit Feedback
-            </button>
-          </form>
-        </div>
+     
       </div>
       <div id="rcol">
         <ins
@@ -353,7 +336,7 @@
         <h5>CONVERTER EXAMPLES</h5>
         <ul>
           <li>
-            <a href="https://www.rapidtables.com/convert/bmi-calculator.html"
+            <a href="https://www.WebDevHubTools/convert/bmi-calculator.html"
               >BMI calculator</a
             >
           </li>
@@ -362,7 +345,7 @@
         <ul>
           <li>
             <a
-              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.WebDevHubTools"
               >Recommend Site</a
             >
           </li>
@@ -384,23 +367,12 @@
       <a href="index.html">Converters</a> |
       <a href="../tools/index.html">Tools</a>
       <p>
-        &copy; <a href="../index.html">RapidTables.com</a> |
-        <a href="../about/about.html" rel="nofollow">About</a> |
-        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
-        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
-        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+        &copy; <a href="../index.html">WebDevHubTools</a> |
+
       </p>
     </div>
     <div id="banner">
-      <div>
-        This website uses cookies to improve your experience, analyze traffic
-        and display ads.
-        <a href="../about/privacy.html">Learn more</a>
-      </div>
-      <div>
-        <a id="banokbtn">OK</a>
-        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
-      </div>
+  
     </div>
 
     <script>
@@ -432,7 +404,7 @@
             ylabel.innerHTML = decodeURIComponent(params.ylabel);
             yunit.innerHTML = decodeURIComponent(params.yunit);
             url.value = window.location.href;
-            linkelem.value = "<a href="https://www.rapidtables.com/convert/\&quot;&quot;+window.location.href+&quot;\&quot;">"+params.title+"</a>";
+            linkelem.value = "<a href="https://www.WebDevHubTools/convert/\&quot;&quot;+window.location.href+&quot;\&quot;">"+params.title+"</a>";
             xelem.readOnly = false;
             f.readOnly = true;
             title.setAttribute("contenteditable", false);
@@ -469,7 +441,7 @@
       }
       function OnRun() {
          //var uri="http://localhost/convert/custom-converter.html";
-         var uri="https://www.rapidtables.com/convert/custom-converter.html";
+         var uri="https://www.WebDevHubTools/convert/custom-converter.html";
          uri+="?title="+encodeURIComponent(title.innerHTML);
          uri+="&xlabel="+encodeURIComponent(xlabel.innerHTML);
          uri+="&xunit="+encodeURIComponent(xunit.innerHTML);

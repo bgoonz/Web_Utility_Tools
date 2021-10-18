@@ -133,7 +133,7 @@
             dismiss: "OK",
             message:
               "This website uses cookies to improve your experience, analyze traffic and display ads.",
-            href: "https://www.rapidtables.com/about/privacy.html",
+            href: "https://www.WebDevHubTools/about/privacy.html",
           },
         });
       });
@@ -360,7 +360,7 @@
       			selectTable[i]={};
       			selectTable[i].icon = i;
       			selectTable[i].selected = false;
-      			s = "<td><a data-role=\"button\"><img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/food_full/png/48x48/&quot;+iconTable[i].file+&quot;\&quot;"></a></td>";
+      			s = "<td><a data-role=\"button\"><img src="https://www.WebDevHubTools/tools/\&quot;/lib/icons/food_full/png/48x48/&quot;+iconTable[i].file+&quot;\&quot;"></a></td>";
       			$("#icons_tbl>tbody>tr:last").append(s);
       		}
       	}
@@ -378,7 +378,7 @@
       		{
       			s="Add to home screen:\n";
       			s+="<ol>";
-      			s+="<li>Click the Share button&nbsp&nbsp<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_065_share.png\&quot;">.</li>";
+      			s+="<li>Click the Share button&nbsp&nbsp<img src="https://www.WebDevHubTools/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_065_share.png\&quot;">.</li>";
       			s+="<li>Select <b>Add to Home Screen</b>.</li>";
       			s+="</ol>";
       		}
@@ -386,8 +386,8 @@
       		{
       			s="Add to home screen:\n";
       			s+="<ol>";
-      			s+="<li>Click the Settings button&nbsp&nbsp<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_011_3dot.png\&quot;">.</li>";
-      			s+="<li>Click the Star button&nbsp&nbsp<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_006_star-empty.png\&quot;">.</li>";
+      			s+="<li>Click the Settings button&nbsp&nbsp<img src="https://www.WebDevHubTools/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_011_3dot.png\&quot;">.</li>";
+      			s+="<li>Click the Star button&nbsp&nbsp<img src="https://www.WebDevHubTools/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_006_star-empty.png\&quot;">.</li>";
       			s+="<li>Select <b>Add shortcut to home screen</b>.</li>";
       			s+="</ol>";
       		}
@@ -395,7 +395,7 @@
       		{
       			s="Add to desktop:\n";
       			s+="<ol>";
-      			s+="<li>Click the Chrome menu&nbsp&nbsp<img src="https://www.rapidtables.com/tools/\&quot;//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/images/icons-png/bars-black.png\&quot;">.</li>";
+      			s+="<li>Click the Chrome menu&nbsp&nbsp<img src="https://www.WebDevHubTools/tools/\&quot;//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/images/icons-png/bars-black.png\&quot;">.</li>";
       			s+="<li>Select <b>Tools</b>.</li>";
       			s+="<li>Select <b>Create application shortcuts</b>.</li>";
       			s+="</ol>";
@@ -403,7 +403,7 @@
       		else if( browser=='Firefox' )
       		{
       			s="Add to desktop:\n";
-      			s+="Drag the address bar icon &nbsp<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_134_globe.png\&quot;"> to the desktop.";
+      			s+="Drag the address bar icon &nbsp<img src="https://www.WebDevHubTools/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_134_globe.png\&quot;"> to the desktop.";
       		}
       		$("#short_div").html(s);
           });
@@ -520,15 +520,15 @@
           	itemsCount++;
 
       	s =	"<li>"+
-      			"<a href="https://www.rapidtables.com/tools/\&quot;#\"">"+
+      			"<a href="https://www.WebDevHubTools/tools/\&quot;#\"">"+
       				"<input type=\"checkbox\" id=\"ck"+itemsCount+"\" class=\"item_checkbox\" value=\"false\" />"+
       				"<label for=\"ck"+itemsCount+"\"></label>"+
       				"<input type=\"text\" id=\"num"+itemsCount+"\" value=\"1\" />"+
-      				"<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/food_full/png/48x48/&quot;+iconTable[i].file+&quot;\&quot;/">"+
+      				"<img src="https://www.WebDevHubTools/tools/\&quot;/lib/icons/food_full/png/48x48/&quot;+iconTable[i].file+&quot;\&quot;/">"+
       				"<div>"+s+"</div>"+
       				"<div>"+i+"</div>"+
       			"</a>"+
-      			"<a href="https://www.rapidtables.com/tools/\&quot;#\"" data-icon=\"delete\"></a>"+
+      			"<a href="https://www.WebDevHubTools/tools/\&quot;#\"" data-icon=\"delete\"></a>"+
       		"</li>";
           	$("#list").append(s).listview("refresh");
           	$("#ck"+itemsCount).checkboxradio().trigger('create');

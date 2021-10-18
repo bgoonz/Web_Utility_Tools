@@ -3,7 +3,7 @@
   "name": "Notepad",
   "description": "Notepad free online",
   "start_url": "/tools/notepad.html",
-  "scope": "https://www.rapidtables.com/",
+  "scope": "https://www.WebDevHubTools/",
   "icons": [
     {
       "src": "/lib/favicon/notepad/android-chrome-192x192.png",

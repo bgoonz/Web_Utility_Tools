@@ -7,166 +7,141 @@
   <title> directory </title>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title></title>
+  <title> Web Dev Tools</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>
-    document.getElementsByTagName( "html" )[ 0 ].className = "js";
-    $( '.iframe' ).responsiveIframes();
+    document.getElementsByTagName("html")[0].className = "js";
+    $('.iframe').responsiveIframes();
   </script>
   <style>
-    iframe {
-      resize: both;
+   iframe {
+                resize: both;
+                zoom: 0.8;
+            }
 
-    }
 
-    a {
-      color: black;
-    }
+            /* iframe */
 
-    li {
-      border: 1px solid black !important;
-      font-size: 20px;
-      letter-spacing: 0px;
-      font-weight: 700;
-      line-height: 16px;
-      text-decoration: none !important;
-      text-transform: uppercase;
-      background: #194ccdaf !important;
-      color: black !important;
-      border: none;
-      cursor: pointer;
-      justify-content: center;
-      padding: 30px 60px;
-      height: 48px;
-      text-align: center;
-      white-space: normal;
-      border-radius: 10px;
-      min-width: 45em;
-      padding: 1.2em 1em 0;
-      box-shadow: 0 0 5px;
-      margin: 1em;
-      display: grid;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-    }
+            .iframe {
+                border: 3px solid gold;
+                background: #fff;
+                border-radius: 25px;
+            }
 
-    /* iframe */
+            .iframe {
+                border: 3px solid #131C28;
+                overflow: auto;
+                background: #fff;
+            }
 
-    .iframe {
-      border: 3px solid #131C28;
-      overflow: hidden;
-      background: #fff;
-      border-radius: 15px;
-    }
+            .iframe iframe {
+                width: 100%;
+                height: 100%;
+                border: 0;
+                display: block;
+            }
 
-    .iframe iframe {
-      width: 100%;
-      height: 400px;
-      border: 0;
-      display: block;
-    }
+            .iframe-header {
+                display: none;
+            }
 
-    .iframe-header {
-      display: none;
-    }
+            .js .iframe-header {
+                display: block;
+            }
 
-    .js .iframe-header {
-      display: block;
-    }
+            .iframe-content {
+                /* ipad iframe hack */
+                height: 600px;
+                width:450px;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
+            }
 
-    .iframe-content {
-      /* ipad iframe hack */
-      height: 500px;
-      overflow: auto;
-      -webkit-overflow-scrolling: touch;
-    }
+            .iframe-header a {
+                font-size: 15px;
+                color: white;
+                background: #000000;
+                display: block;
+                padding: 15px;
+                text-align: center;
+                border-bottom: 3px solid #000000;
+            }
 
-    .iframe-header a {
-      font-size: 18px;
-      color: white;
-      background: #000000;
-      display: block;
-      padding: 15px;
-      text-align: center;
-      border-bottom: 3px solid #131C28;
-    }
+            .iframe-header a:hover,
+            .iframe-header a:focus {
+                background: #000000;
+            }
 
-    .iframe-header a:hover,
-    .iframe-header a:focus {
-      background: #00122c;
-    }
+            .iframe-full-screen .iframe-header {
+                display: block;
+                position: absolute;
+                height: 50px;
+                width: 100%;
+            }
 
-    .iframe-full-screen .iframe-header {
-      display: block;
-      position: absolute;
-      height: 50px;
-      width: 100%;
-    }
+            .iframe-full-screen .iframe-content {
+                position: absolute;
+                top: 30px;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+            }
 
-    .iframe-full-screen .iframe-content {
-      position: absolute;
-      top: 50px;
-      bottom: 0;
-      width: 100%;
-      height: auto;
-    }
+            .iframe-full-screen .iframe-header a {
+                padding: 0;
+                height: 44px;
+                line-height: 44px;
+                text-align: center;
+                border: 3px solid gold;
+            }
 
-    .iframe-full-screen .iframe-header a {
-      padding: 0;
-      height: 44px;
-      line-height: 44px;
-      text-align: center;
-      border: 3px solid #131C28;
-    }
+            .iframe-full-screen body {
+                width: 100%;
+                height: 100%;
+                overflow: auto;
+            }
 
-    .iframe-full-screen body {
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+            .iframe-full-screen .iframe.iframe-active {
+                width: 100%;
+                height: 100%;
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                z-index: 9999;
+                border: none;
+            }
 
-    .iframe-full-screen .iframe.iframe-active {
-      width: 100%;
-      height: 100%;
-      position: fixed;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      right: 0;
-      z-index: 9999;
-      border: none;
-    }
+            .iframe-full-screen .iframe iframe {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                border: none;
+            }
 
-    .iframe-full-screen .iframe iframe {
-      position: absolute;
-      height: 100%;
-      width: 100%;
-      border: none;
-    }
+            .wrapper {
+                max-width: 1000px;
+                margin: 20px auto;
+                padding: 0 20px;
+                display: flex;
+                flex-wrap: wrap
+            }
 
-    .wrapper {
-      max-width: 1200px;
-      margin: 20px auto;
-      padding: 20px 20px;
-      display: flex;
-      flex-wrap: wrap
-    }
+            .item {
+                display: inline-block;
+                flex: 1 300px;
+            }
 
-    .item {
-      display: inline-block;
-      flex: 1 300px;
-    }
-
-    @media all and (max-height: 400px) {
-      .iframe {
-        height: 300px;
-      }
-    }
+            @media all and(max-height: 400px) {
+                .iframe {
+                    height: 300px;
+                }
+            }
+        }
   </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
 </head>
 
 <body>
@@ -193,8 +168,6 @@
           <iframe loading="lazy" src="./basic-tools/indenter-tool/index.html"> </iframe>
         </div>
       </div>
-
-
 
 
 
@@ -274,19 +247,19 @@
           <iframe loading="lazy" src="./devtools/calc/baby/index.html"> </iframe>
         </div>
       </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>BODY</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>BODY</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <div class="item">
         <div class="iframe">
           <iframe loading="lazy" src="./devtools/calc/body/bmi-calculator.html"> </iframe>
@@ -309,19 +282,19 @@
 
 
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <h1>Electric</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
 
 
@@ -623,19 +596,19 @@
           <iframe loading="lazy" src="./devtools/calc/electric/wh-to-mah-calculator.html"> </iframe>
         </div>
       </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Finance</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>Finance</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
 
       <div class="item">
@@ -692,19 +665,19 @@
         </div>
       </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Calcuate Your Grades</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>Calcuate Your Grades</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
 
       <div class="item">
@@ -1067,19 +1040,19 @@
         </div>
       </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Convolution</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>Convolution</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
 
       <div class="item">
@@ -1190,19 +1163,19 @@
         </div>
       </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Math</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>Math</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
 
       <div class="item">
@@ -1793,19 +1766,19 @@
         </div>
       </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<h1>Code</h1>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <h1>Code</h1>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
 
 
       <div class="item">

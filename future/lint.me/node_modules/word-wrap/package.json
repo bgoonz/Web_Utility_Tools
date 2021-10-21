@@ -1,0 +1,39 @@
+{
+  "name": "word-wrap",
+  "description": "Wrap words to a specified length.",
+  "version": "1.1.0",
+  "homepage": "https://github.com/jonschlinkert/word-wrap",
+  "author": "Jon Schlinkert (https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/word-wrap",
+  "bugs": {
+    "url": "https://github.com/jonschlinkert/word-wrap/issues"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=0.8"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "keywords": [
+    "break",
+    "line",
+    "new-line",
+    "carriage",
+    "newline",
+    "return",
+    "soft",
+    "text",
+    "word",
+    "word-wrap",
+    "words",
+    "wrap"
+  ]
+}

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>(e)Book Production Pop Quiz</title>
+    <script src="pop_quiz.js" type="text/javascript"></script>
+    <script src="jquery-1.6.2.min.js" type="text/javascript"></script>
+    <style type="text/css">
+      li.question {
+        font-weight: bold;
+      }
+
+      span.filename {
+        font-style: italic;
+      }
+
+      .interactive {
+        display: none;
+      }
+
+      #answers_section {
+        font-size: 1.5em;
+      }
+
+      ol.answers {
+        font-weight: normal;
+        margin-bottom: 20px;
+        -webkit-user-select: none; /* Prevents blue text selection
+  highlights in Mobile Safari; see http://stackoverflow.com/questions/923782/disable-the-text-highlighting-magnifier-on-touch-hold-on-mobile-safari-webkit */
+      }
+
+      ol.answers li:hover {
+        font-weight: bold;
+      }
+
+      ol.answers li.wrong_active:after {
+        content: " \2718  Sorry, that\2019s incorrect!";
+        color: red;
+      }
+
+      ol.answers li.wrong_active,
+      ol.answers li.correct_active {
+        background-color: #c0c0c0;
+        -moz-transition: background-color 0.5s;
+        -webkit-transition: background-color 0.5s;
+        -o-transition: background-color 0.5s;
+      }
+
+      ol.answers li.correct_active:after {
+        content: " \2713  Correct!";
+        color: green;
+      }
+
+      ol.mc_questions {
+        font-size: 1.5em;
+      }
+
+      ol.answers {
+        list-style: upper-alpha;
+      }
+    </style>
+  </head>
+  <body id="body_element">
+    <!-- Empty ontouchstart event handler to enable "active" CSS selector -->
+    <!-- in Mbile Safari; see http://stackoverflow.com/questions/3885018/active-pseudo-class-doesnt-work-in-mobile-safari -->
+    <h1>(e)Book Production Pop Quiz</h1>
+    <div class="quiz">
+      <p class="interactive">
+        Test your knowledge of (e)book production with these multiple-choice
+        questions. Click/tap the letter next to each answer to see if
+        you&apos;re correct.
+      </p>
+      <p class="noninteractive">
+        Test your knowledge of (e)book production with these multiple-choice
+        qustions. Check the <a href="#answers_section">answers</a> to see if you
+        are correct.
+      </p>
+      <ol class="mc_questions">
+        <li class="question">
+          How many points are there in a pica?
+          <ol class="answers">
+            <li class="wrong">8 points per pica</li>
+            <li class="correct">12 points per pica</li>
+            <li class="wrong">16 points per pica</li>
+            <li class="wrong">1,024 points per pica</li>
+          </ol>
+        </li>
+        <li class="question">
+          Which of the following files in an EPUB document contains the
+          ebook&apos;s manifest?
+          <ol class="answers">
+            <li class="wrong"><span class="filename">container.xml</span></li>
+            <li class="wrong">NCX TOC</li>
+            <li class="correct">OPF package document</li>
+            <li class="wrong"><span class="filename">chapter1.html</span></li>
+          </ol>
+        </li>
+        <li class="question">
+          Which of the following CSS features is supported in Amazon&apos;s new
+          KF8 format
+          <ol class="answers">
+            <li class="wrong"><code>@media</code> queries</li>
+            <li class="wrong"><code>text-shadow</code></li>
+            <li class="wrong"><code>border-color</code></li>
+            <li class="correct">All of the above</li>
+          </ol>
+        </li>
+        <li class="question">
+          Which of the following sentences conforms grammatically to
+          <a href="http://www.chicagomanualofstyle.org/"
+            ><em>Chicago Manual of Style</em></a
+          >
+          recommendations?
+          <ol class="answers">
+            <li class="correct">
+              In her latest article, Serena wrote, &#x201c;I'm really excited to
+              start developing ebooks for the new Kobo Box
+              [<em>sic</em>]!&#x201d;
+            </li>
+            <li class="wrong">
+              Ronald edited the HTML, added CSS and compiled the files into an
+              EPUB archive.
+            </li>
+            <li class="wrong">
+              Brian bought his iPad 2 from the pretzel vendor for $18.26--a real
+              bargain!
+            </li>
+            <li class="wrong">None of the above</li>
+          </ol>
+        </li>
+        <li class="question">
+          According to O&apos;Reilly's
+          <a href="http://shop.oreilly.com/product/0636920022954.do"
+            ><em>Global eBook Market</em></a
+          >
+          report, what was the market share of ebooks in the trade market in
+          2010?
+          <ol class="answers">
+            <li class="wrong">3.6%</li>
+            <li class="correct">6.4%</li>
+            <li class="wrong">12.3%</li>
+            <li class="wrong">99.9%</li>
+          </ol>
+        </li>
+      </ol>
+    </div>
+    <div class="noninteractive" id="answers_section">
+      <h2>Answers</h2>
+      <ol>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+        <li>A</li>
+        <li>B</li>
+      </ol>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Graphing Calculator</title>
+    <script src="modernizr-1.6.min.js" type="text/javascript"></script>
+    <script src="graph_calc.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <div>
+      <h1>Graphing Calculator</h1>
+      <p style="color: red">
+        <span id="status_message"
+          >Click a button below the grid to graph an equation</span
+        >
+      </p>
+      <canvas id="canvas" width="400" height="400">
+        Your browser does not support the HTML 5 Canvas.
+      </canvas>
+      <form>
+        <input
+          type="button"
+          id="y_equals_x"
+          value="y = 1x"
+          style="color: green"
+        />
+        <input
+          type="button"
+          id="y_equals_negative_x"
+          value="y = -1x"
+          style="color: purple"
+        />
+        <input
+          type="button"
+          id="y_equals_two_x"
+          value="y = 2x"
+          style="color: blue"
+        />
+        <input
+          type="button"
+          id="y_equals_one_half_x"
+          value="y = 0.5x"
+          style="color: brown"
+        />
+        <input type="button" id="reset_grid" value="Reset Grid" />
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+body {
+  padding-top: 75px;
+}
+
+.hero-unit {
+  min-height: 400px;
+}
+
+#chart-container {
+  margin-bottom: 25px;
+}
+
+#lang div {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 100;
+}
+
+#embed {
+  width: 100%;
+  cursor: pointer;
+}
+
+.username-field {
+  font-size: 18pt;
+}
+
+#lang {
+  -webkit-transition: opacity 0.2s, background 0.2s;
+  -moz-transition: opacity 0.2s, background 0.2s;
+  -ms-transition: opacity 0.2s, background 0.2s;
+  -o-transition: opacity 0.2s, background 0.2s;
+  transition: opacity 0.2s, background 0.2s;
+}
+
+/*
+.slice {
+  opacity: 0.5;
+}
+
+.slice text {
+  fill: #fff;
+}  
+*/

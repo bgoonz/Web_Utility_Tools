@@ -1,10 +1,20 @@
 iframe {
-  resize: both;
+  resize: both!important;
   zoom: 0.8;
+  border-radius: 15px;
+  box-shadow:0px 0px 2px 2px rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 8px 6px -6px black;
+	   -moz-box-shadow: 0 8px 6px -6px black;
+	        box-shadow: 0 8px 6px -6px black;
 }
-
+div {
+    resize: both!important;
+    font-size: x-large;
+}
 /* iframe */
-
+*{
+  background-color: rgba(231, 229, 229, 0.35);
+}
 .iframe {
   border: 3px solid gold;
   background: #fff;

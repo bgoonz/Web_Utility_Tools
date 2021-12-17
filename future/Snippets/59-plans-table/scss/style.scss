@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2013 Thibaut Courouble
@@ -11,7 +9,7 @@
  */
 
 body {
-  font: 13px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 13px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #404040;
   background: #eeebe4;
 }
@@ -31,7 +29,7 @@ body {
   background: white;
   background-clip: padding-box;
   border: 2px solid #e5ded6;
-  border-color: rgba(black, .1);
+  border-color: rgba(black, 0.1);
   border-radius: 5px;
 }
 
@@ -71,7 +69,9 @@ body {
   font-weight: 500;
   color: #333;
 
-  & + & { margin-top: 5px; }
+  & + & {
+    margin-top: 5px;
+  }
 }
 
 .plan-feature-unit {
@@ -94,10 +94,10 @@ body {
   color: white;
   text-align: center;
   text-decoration: none;
-  text-shadow: 0 1px rgba(black, .1);
+  text-shadow: 0 1px rgba(black, 0.1);
   background: #fd935c;
   border-bottom: 2px solid #cf7e3b;
-  border-color: rgba(black, .15);
+  border-color: rgba(black, 0.15);
   border-radius: 4px;
 
   &:active {
@@ -120,7 +120,7 @@ body {
     line-height: 49px;
     background: #37bce5;
     border-color: #3996b3;
-    border-color: rgba(black, .15);
+    border-color: rgba(black, 0.15);
   }
 }
 
@@ -132,7 +132,7 @@ body {
   font-size: 14px;
   font-weight: bold;
   color: white;
-  text-shadow: 0 1px rgba(black, .05);
+  text-shadow: 0 1px rgba(black, 0.05);
   background: #37bbe6;
   border-radius: 0 0 4px 4px;
 }

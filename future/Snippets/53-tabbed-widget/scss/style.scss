@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2013 Thibaut Courouble
@@ -14,7 +12,7 @@
    You may not want to use it in production. ;) */
 
 body {
-  font: 12px/20px 'Lucida Grande', Verdana, sans-serif;
+  font: 12px/20px "Lucida Grande", Verdana, sans-serif;
   color: #404040;
   background: #eee;
 }
@@ -26,7 +24,7 @@ body {
   background: white;
   border: 1px solid #ccc;
   border-radius: 4px;
-  @include box-shadow(0 0 8px rgba(black, .07));
+  @include box-shadow(0 0 8px rgba(black, 0.07));
 }
 
 .widget-tabs {
@@ -69,7 +67,9 @@ body {
   }
 }
 
-.widget-tab + .widget-tab { margin-right: -1px; }
+.widget-tab + .widget-tab {
+  margin-right: -1px;
+}
 
 .widget-tab:last-child, // The left-most tab
 %active-widget-tab {
@@ -89,7 +89,9 @@ body {
 }
 
 /* Deactivate the default tab when a preceding tab is activated. */
-%active-widget-tab ~ .widget-tab { @extend %inactive-widget-tab; }
+%active-widget-tab ~ .widget-tab {
+  @extend %inactive-widget-tab;
+}
 
 .widget-tab-link {
   display: block;
@@ -105,21 +107,33 @@ body {
   display: none;
   padding-top: 50px;
 
-  > li + li { border-top: 1px solid #e8e8e8; }
+  > li + li {
+    border-top: 1px solid #e8e8e8;
+  }
 
   /* The last list is activated (visible) by default. */
-  &:last-of-type { display: block; }
+  &:last-of-type {
+    display: block;
+  }
 
   &:target {
     display: block;
 
     /* Hide the default list when another is activated. */
-    ~ .widget-list { display: none; }
+    ~ .widget-list {
+      display: none;
+    }
 
     /* First list activates the first tab, second list activates the second tab, etc. */
-    &:first-of-type  ~ .widget-tabs > .widget-tab:first-child  { @extend %active-widget-tab; }
-    &:nth-of-type(2) ~ .widget-tabs > .widget-tab:nth-child(2) { @extend %active-widget-tab; }
-    &:last-of-type   ~ .widget-tabs > .widget-tab:last-child   { @extend %active-widget-tab; }
+    &:first-of-type ~ .widget-tabs > .widget-tab:first-child {
+      @extend %active-widget-tab;
+    }
+    &:nth-of-type(2) ~ .widget-tabs > .widget-tab:nth-child(2) {
+      @extend %active-widget-tab;
+    }
+    &:last-of-type ~ .widget-tabs > .widget-tab:last-child {
+      @extend %active-widget-tab;
+    }
   }
 }
 
@@ -132,8 +146,12 @@ body {
   text-decoration: none;
   cursor: pointer;
 
-  &:hover { background: #f7f7f7; }
-  li:last-child > & { border-radius: 0 0 3px 3px; }
+  &:hover {
+    background: #f7f7f7;
+  }
+  li:last-child > & {
+    border-radius: 0 0 3px 3px;
+  }
 
   > img {
     float: left;

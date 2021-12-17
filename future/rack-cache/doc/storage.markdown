@@ -1,17 +1,15 @@
-Storage
-=======
+# Storage
 
-__Rack::Cache__ runs within each of your backend application processes and does not
+**Rack::Cache** runs within each of your backend application processes and does not
 rely on a single intermediary process like most types of proxy cache
 implementations. Because of this, the storage subsystem has implications on not
 only where cache data is stored but whether the cache is properly distributed
 between multiple backend processes. It is highly recommended that you read and
 understand the following before choosing a storage implementation.
 
-Storage Areas
--------------
+## Storage Areas
 
-__Rack::Cache__ stores cache entries in two separate configurable storage
+**Rack::Cache** stores cache entries in two separate configurable storage
 areas: a _MetaStore_ and an _EntityStore_.
 
 The _MetaStore_ keeps high level information about each cache entry, including
@@ -27,17 +25,17 @@ their response bodies using this SHA1 key.
 Separating request/response meta-data from response content has a few important
 advantages:
 
-  * Different storage types can be used for meta and entity storage. For
-    example, it may be desirable to use memcached to store meta information
-    while using the filesystem for entity storage.
+- Different storage types can be used for meta and entity storage. For
+  example, it may be desirable to use memcached to store meta information
+  while using the filesystem for entity storage.
 
-  * Cache entry meta-data may be retrieved quickly without also retrieving
-    response bodies. This avoids significant overhead when the cache misses
-    or only requires validation.
+- Cache entry meta-data may be retrieved quickly without also retrieving
+  response bodies. This avoids significant overhead when the cache misses
+  or only requires validation.
 
-  * Multiple different responses may include the same exact response body. In
-    these cases, the actual body content is stored once and referenced from
-    each of the meta store entries.
+- Multiple different responses may include the same exact response body. In
+  these cases, the actual body content is stored once and referenced from
+  each of the meta store entries.
 
 You should consider how the meta and entity stores differ when choosing a storage
 implementation. The MetaStore does not require nearly as much memory as the
@@ -47,8 +45,7 @@ implementation (`heap` or `memcached`) for the MetaStore is strongly advised,
 while a disk based storage implementation (`file`) is often satisfactory for
 the EntityStore and uses much less memory.
 
-Storage Configuration
----------------------
+## Storage Configuration
 
 The MetaStore and EntityStore used for a particular request is determined by
 inspecting the `rack-cache.metastore` and `rack-cache.entitystore` Rack env
@@ -60,7 +57,7 @@ provided. This storage type has significant drawbacks for most types of
 deployments so explicit configuration is advised.
 
 The default metastore and entitystore values can be specified when the
-__Rack::Cache__ object is added to the Rack middleware pipeline as follows:
+**Rack::Cache** object is added to the Rack middleware pipeline as follows:
 
     use Rack::Cache,
       :metastore => 'file:/var/cache/rack/meta',
@@ -69,12 +66,11 @@ __Rack::Cache__ object is added to the Rack middleware pipeline as follows:
 Alternatively, the `rack-cache.metastore` and `rack-cache.entitystore`
 variables may be set in the Rack environment by an upstream component.
 
-Storage Implementations
------------------------
+## Storage Implementations
 
-__Rack::Cache__ includes meta and entity storage implementations backed by local
+**Rack::Cache** includes meta and entity storage implementations backed by local
 process memory ("heap storage"), the file system ("disk storage"), and
-memcached. This section includes information on configuring __Rack::Cache__ to
+memcached. This section includes information on configuring **Rack::Cache** to
 use a specific storage implementation as well as pros and cons of each.
 
 ### Heap Storage
@@ -108,13 +104,13 @@ Stores cached entries on the filesystem.
 
 The URI may specify an absolute, relative, or home-rooted path:
 
-  * `file:/storage/path` - absolute path to storage directory.
-  * `file:storage/path` - relative path to storage directory, rooted at the
-    process's current working directory (`Dir.pwd`).
-  * `file:~user/storage/path` - path to storage directory, rooted at the
-    specified user's home directory.
-  * `file:~/storage/path` - path to storage directory, rooted at the current
-    user's home directory.
+- `file:/storage/path` - absolute path to storage directory.
+- `file:storage/path` - relative path to storage directory, rooted at the
+  process's current working directory (`Dir.pwd`).
+- `file:~user/storage/path` - path to storage directory, rooted at the
+  specified user's home directory.
+- `file:~/storage/path` - path to storage directory, rooted at the current
+  user's home directory.
 
 File system storage is simple, requires no special daemons or libraries, has a
 tiny memory footprint, and allows multiple backends to share a single cache; it
@@ -124,7 +120,7 @@ backends (i.e., memcached) are not available. In many cases, it may be
 acceptable (and even optimal) to use file system storage for the entitystore and
 a more performant storage implementation (i.e. memcached) for the metastore.
 
-__NOTE:__ When both the metastore and entitystore are configured to use file
+**NOTE:** When both the metastore and entitystore are configured to use file
 system storage, they should be set to different paths to prevent any chance of
 collision.
 

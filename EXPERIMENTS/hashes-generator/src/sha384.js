@@ -5,155 +5,159 @@ code.google.com/p/crypto-js
 code.google.com/p/crypto-js/wiki/License
 */
 const CryptoJS =
-  CryptoJS || ((a, c) => {
+  CryptoJS ||
+  ((a, c) => {
     const d = {},
-          j = (d.lib = {}),
-          f = () => {},
-          m = (j.Base = {
-            extend(a) {
-              f.prototype = this;
-              const b = new f();
-              a && b.mixIn(a);
-              b.hasOwnProperty("init") ||
-                (b.init = function () {
-                  b.$super.init.apply(this, arguments);
-                });
-              b.init.prototype = b;
-              b.$super = this;
-              return b;
-            },
-            create() {
-              const a = this.extend();
-              a.init.apply(a, arguments);
-              return a;
-            },
-            init() {},
-            mixIn(a) {
-              for (const b in a) a.hasOwnProperty(b) && (this[b] = a[b]);
-              a.hasOwnProperty("toString") && (this.toString = a.toString);
-            },
-            clone() {
-              return this.init.prototype.extend(this);
-            },
-          }),
-          B = (j.WordArray = m.extend({
-            init(a, b) {
-              a = this.words = a || [];
-              this.sigBytes = b != c ? b : 4 * a.length;
-            },
-            toString(a) {
-              return (a || y).stringify(this);
-            },
-            concat(a) {
-              const b = this.words, g = a.words, e = this.sigBytes;
-              a = a.sigBytes;
-              this.clamp();
-              if (e % 4)
-                for (var k = 0; k < a; k++)
-                  b[(e + k) >>> 2] |=
-                    ((g[k >>> 2] >>> (24 - 8 * (k % 4))) & 255) <<
-                    (24 - 8 * ((e + k) % 4));
-              else if (65535 < g.length)
-                for (k = 0; k < a; k += 4) b[(e + k) >>> 2] = g[k >>> 2];
-              else b.push.apply(b, g);
-              this.sigBytes += a;
-              return this;
-            },
-            clamp() {
-              const n = this.words, b = this.sigBytes;
-              n[b >>> 2] &= 4294967295 << (32 - 8 * (b % 4));
-              n.length = a.ceil(b / 4);
-            },
-            clone() {
-              const a = m.clone.call(this);
-              a.words = this.words.slice(0);
-              return a;
-            },
-            random(n) {
-              for (var b = [], g = 0; g < n; g += 4)
-                b.push((4294967296 * a.random()) | 0);
-              return new B.init(b, n);
-            },
-          })),
-          v = (d.enc = {}),
-          y = (v.Hex = {
-            stringify(a) {
-              const b = a.words;
-              a = a.sigBytes;
-              for (var g = [], e = 0; e < a; e++) {
-                const k = (b[e >>> 2] >>> (24 - 8 * (e % 4))) & 255;
-                g.push((k >>> 4).toString(16));
-                g.push((k & 15).toString(16));
-              }
-              return g.join("");
-            },
-            parse(a) {
-              for (var b = a.length, g = [], e = 0; e < b; e += 2)
-                g[e >>> 3] |= parseInt(a.substr(e, 2), 16) << (24 - 4 * (e % 8));
-              return new B.init(g, b / 2);
-            },
-          }),
-          F = (v.Latin1 = {
-            stringify(a) {
-              const b = a.words;
-              a = a.sigBytes;
-              for (var g = [], e = 0; e < a; e++)
-                g.push(
-                  String.fromCharCode((b[e >>> 2] >>> (24 - 8 * (e % 4))) & 255)
-                );
-              return g.join("");
-            },
-            parse(a) {
-              for (var b = a.length, g = [], e = 0; e < b; e++)
-                g[e >>> 2] |= (a.charCodeAt(e) & 255) << (24 - 8 * (e % 4));
-              return new B.init(g, b);
-            },
-          }),
-          ha = (v.Utf8 = {
-            stringify(a) {
-              try {
-                return decodeURIComponent(escape(F.stringify(a)));
-              } catch (b) {
-                throw Error("Malformed UTF-8 data");
-              }
-            },
-            parse(a) {
-              return F.parse(unescape(encodeURIComponent(a)));
-            },
-          }),
-          Z = (j.BufferedBlockAlgorithm = m.extend({
-            reset() {
-              this._data = new B.init();
-              this._nDataBytes = 0;
-            },
-            _append(a) {
-              "string" == typeof a && (a = ha.parse(a));
-              this._data.concat(a);
-              this._nDataBytes += a.sigBytes;
-            },
-            _process(n) {
-              const b = this._data;
-              const g = b.words;
-              let e = b.sigBytes;
-              const k = this.blockSize;
-              var m = e / (4 * k);
-              const m = n ? a.ceil(m) : a.max((m | 0) - this._minBufferSize, 0);
-              n = m * k;
-              e = a.min(4 * n, e);
-              if (n) {
-                for (var c = 0; c < n; c += k) this._doProcessBlock(g, c);
-                c = g.splice(0, n);
-                b.sigBytes -= e;
-              }
-              return new B.init(c, e);
-            },
-            clone() {
-              const a = m.clone.call(this);
-              a._data = this._data.clone();
-              return a;
-            },
-            _minBufferSize: 0,
-          }));
+      j = (d.lib = {}),
+      f = () => {},
+      m = (j.Base = {
+        extend(a) {
+          f.prototype = this;
+          const b = new f();
+          a && b.mixIn(a);
+          b.hasOwnProperty("init") ||
+            (b.init = function () {
+              b.$super.init.apply(this, arguments);
+            });
+          b.init.prototype = b;
+          b.$super = this;
+          return b;
+        },
+        create() {
+          const a = this.extend();
+          a.init.apply(a, arguments);
+          return a;
+        },
+        init() {},
+        mixIn(a) {
+          for (const b in a) a.hasOwnProperty(b) && (this[b] = a[b]);
+          a.hasOwnProperty("toString") && (this.toString = a.toString);
+        },
+        clone() {
+          return this.init.prototype.extend(this);
+        },
+      }),
+      B = (j.WordArray = m.extend({
+        init(a, b) {
+          a = this.words = a || [];
+          this.sigBytes = b != c ? b : 4 * a.length;
+        },
+        toString(a) {
+          return (a || y).stringify(this);
+        },
+        concat(a) {
+          const b = this.words,
+            g = a.words,
+            e = this.sigBytes;
+          a = a.sigBytes;
+          this.clamp();
+          if (e % 4)
+            for (var k = 0; k < a; k++)
+              b[(e + k) >>> 2] |=
+                ((g[k >>> 2] >>> (24 - 8 * (k % 4))) & 255) <<
+                (24 - 8 * ((e + k) % 4));
+          else if (65535 < g.length)
+            for (k = 0; k < a; k += 4) b[(e + k) >>> 2] = g[k >>> 2];
+          else b.push.apply(b, g);
+          this.sigBytes += a;
+          return this;
+        },
+        clamp() {
+          const n = this.words,
+            b = this.sigBytes;
+          n[b >>> 2] &= 4294967295 << (32 - 8 * (b % 4));
+          n.length = a.ceil(b / 4);
+        },
+        clone() {
+          const a = m.clone.call(this);
+          a.words = this.words.slice(0);
+          return a;
+        },
+        random(n) {
+          for (var b = [], g = 0; g < n; g += 4)
+            b.push((4294967296 * a.random()) | 0);
+          return new B.init(b, n);
+        },
+      })),
+      v = (d.enc = {}),
+      y = (v.Hex = {
+        stringify(a) {
+          const b = a.words;
+          a = a.sigBytes;
+          for (var g = [], e = 0; e < a; e++) {
+            const k = (b[e >>> 2] >>> (24 - 8 * (e % 4))) & 255;
+            g.push((k >>> 4).toString(16));
+            g.push((k & 15).toString(16));
+          }
+          return g.join("");
+        },
+        parse(a) {
+          for (var b = a.length, g = [], e = 0; e < b; e += 2)
+            g[e >>> 3] |= parseInt(a.substr(e, 2), 16) << (24 - 4 * (e % 8));
+          return new B.init(g, b / 2);
+        },
+      }),
+      F = (v.Latin1 = {
+        stringify(a) {
+          const b = a.words;
+          a = a.sigBytes;
+          for (var g = [], e = 0; e < a; e++)
+            g.push(
+              String.fromCharCode((b[e >>> 2] >>> (24 - 8 * (e % 4))) & 255)
+            );
+          return g.join("");
+        },
+        parse(a) {
+          for (var b = a.length, g = [], e = 0; e < b; e++)
+            g[e >>> 2] |= (a.charCodeAt(e) & 255) << (24 - 8 * (e % 4));
+          return new B.init(g, b);
+        },
+      }),
+      ha = (v.Utf8 = {
+        stringify(a) {
+          try {
+            return decodeURIComponent(escape(F.stringify(a)));
+          } catch (b) {
+            throw Error("Malformed UTF-8 data");
+          }
+        },
+        parse(a) {
+          return F.parse(unescape(encodeURIComponent(a)));
+        },
+      }),
+      Z = (j.BufferedBlockAlgorithm = m.extend({
+        reset() {
+          this._data = new B.init();
+          this._nDataBytes = 0;
+        },
+        _append(a) {
+          "string" == typeof a && (a = ha.parse(a));
+          this._data.concat(a);
+          this._nDataBytes += a.sigBytes;
+        },
+        _process(n) {
+          const b = this._data;
+          const g = b.words;
+          let e = b.sigBytes;
+          const k = this.blockSize;
+          var m = e / (4 * k);
+          const m = n ? a.ceil(m) : a.max((m | 0) - this._minBufferSize, 0);
+          n = m * k;
+          e = a.min(4 * n, e);
+          if (n) {
+            for (var c = 0; c < n; c += k) this._doProcessBlock(g, c);
+            c = g.splice(0, n);
+            b.sigBytes -= e;
+          }
+          return new B.init(c, e);
+        },
+        clone() {
+          const a = m.clone.call(this);
+          a._data = this._data.clone();
+          return a;
+        },
+        _minBufferSize: 0,
+      }));
     j.Hasher = Z.extend({
       cfg: m.extend(),
       init(a) {
@@ -188,7 +192,7 @@ const CryptoJS =
     var ia = (d.algo = {});
     return d;
   })(Math);
-(a => {
+((a) => {
   var c = CryptoJS;
   const d = c.lib;
   const j = d.Base;
@@ -394,7 +398,8 @@ const CryptoJS =
           const r = v[u - 15];
           const h = r.high;
           var w = r.low;
-          const r = ((h >>> 1) | (w << 31)) ^ ((h >>> 8) | (w << 24)) ^ (h >>> 7);
+          const r =
+            ((h >>> 1) | (w << 31)) ^ ((h >>> 8) | (w << 24)) ^ (h >>> 7);
 
           const w =
             ((w >>> 1) | (h << 31)) ^
@@ -404,7 +409,8 @@ const CryptoJS =
           var C = v[u - 2];
           const h = C.high;
           var l = C.low;
-          const C = ((h >>> 19) | (l << 13)) ^ ((h << 3) | (l >>> 29)) ^ (h >>> 6);
+          const C =
+            ((h >>> 19) | (l << 13)) ^ ((h << 3) | (l >>> 29)) ^ (h >>> 6);
 
           const l =
             ((l >>> 19) | (h << 13)) ^
@@ -426,55 +432,55 @@ const CryptoJS =
           z.low = h;
         }
         const Y = (t & U) ^ (~t & V),
-              A = (q & J) ^ (~q & K),
-              z = (s & G) ^ (s & H) ^ (G & H),
-              ja = (p & D) ^ (p & E) ^ (D & E),
-              w =
-                ((s >>> 28) | (p << 4)) ^
-                ((s << 30) | (p >>> 2)) ^
-                ((s << 25) | (p >>> 7)),
-              C =
-                ((p >>> 28) | (s << 4)) ^
-                ((p << 30) | (s >>> 2)) ^
-                ((p << 25) | (s >>> 7)),
-              l = B[u],
-              ka = l.high,
-              ga = l.low,
-              l =
-                L +
-                (((q >>> 14) | (t << 18)) ^
-                  ((q >>> 18) | (t << 14)) ^
-                  ((q << 23) | (t >>> 9))),
-              x =
-                X +
-                (((t >>> 14) | (q << 18)) ^
-                  ((t >>> 18) | (q << 14)) ^
-                  ((t << 23) | (q >>> 9))) +
-                (l >>> 0 < L >>> 0 ? 1 : 0),
-              l = l + A,
-              x = x + Y + (l >>> 0 < A >>> 0 ? 1 : 0),
-              l = l + ga,
-              x = x + ka + (l >>> 0 < ga >>> 0 ? 1 : 0),
-              l = l + h,
-              x = x + r + (l >>> 0 < h >>> 0 ? 1 : 0),
-              h = C + ja,
-              z = w + z + (h >>> 0 < C >>> 0 ? 1 : 0),
-              X = V,
-              L = K,
-              V = U,
-              K = J,
-              U = t,
-              J = q,
-              q = (I + l) | 0,
-              t = (W + x + (q >>> 0 < I >>> 0 ? 1 : 0)) | 0,
-              W = H,
-              I = E,
-              H = G,
-              E = D,
-              G = s,
-              D = p,
-              p = (l + h) | 0,
-              s = (x + z + (p >>> 0 < l >>> 0 ? 1 : 0)) | 0;
+          A = (q & J) ^ (~q & K),
+          z = (s & G) ^ (s & H) ^ (G & H),
+          ja = (p & D) ^ (p & E) ^ (D & E),
+          w =
+            ((s >>> 28) | (p << 4)) ^
+            ((s << 30) | (p >>> 2)) ^
+            ((s << 25) | (p >>> 7)),
+          C =
+            ((p >>> 28) | (s << 4)) ^
+            ((p << 30) | (s >>> 2)) ^
+            ((p << 25) | (s >>> 7)),
+          l = B[u],
+          ka = l.high,
+          ga = l.low,
+          l =
+            L +
+            (((q >>> 14) | (t << 18)) ^
+              ((q >>> 18) | (t << 14)) ^
+              ((q << 23) | (t >>> 9))),
+          x =
+            X +
+            (((t >>> 14) | (q << 18)) ^
+              ((t >>> 18) | (q << 14)) ^
+              ((t << 23) | (q >>> 9))) +
+            (l >>> 0 < L >>> 0 ? 1 : 0),
+          l = l + A,
+          x = x + Y + (l >>> 0 < A >>> 0 ? 1 : 0),
+          l = l + ga,
+          x = x + ka + (l >>> 0 < ga >>> 0 ? 1 : 0),
+          l = l + h,
+          x = x + r + (l >>> 0 < h >>> 0 ? 1 : 0),
+          h = C + ja,
+          z = w + z + (h >>> 0 < C >>> 0 ? 1 : 0),
+          X = V,
+          L = K,
+          V = U,
+          K = J,
+          U = t,
+          J = q,
+          q = (I + l) | 0,
+          t = (W + x + (q >>> 0 < I >>> 0 ? 1 : 0)) | 0,
+          W = H,
+          I = E,
+          H = G,
+          E = D,
+          G = s,
+          D = p,
+          p = (l + h) | 0,
+          s = (x + z + (p >>> 0 < l >>> 0 ? 1 : 0)) | 0;
       }
       M = f.low = M + p;
       f.high = y + s + (M >>> 0 < p >>> 0 ? 1 : 0);
@@ -494,7 +500,10 @@ const CryptoJS =
       d.high = fa + X + (T >>> 0 < L >>> 0 ? 1 : 0);
     },
     _doFinalize() {
-      const a = this._data, c = a.words, d = 8 * this._nDataBytes, f = 8 * a.sigBytes;
+      const a = this._data,
+        c = a.words,
+        d = 8 * this._nDataBytes,
+        f = 8 * a.sigBytes;
       c[f >>> 5] |= 128 << (24 - (f % 32));
       c[(((f + 128) >>> 10) << 5) + 30] = Math.floor(d / 4294967296);
       c[(((f + 128) >>> 10) << 5) + 31] = d;

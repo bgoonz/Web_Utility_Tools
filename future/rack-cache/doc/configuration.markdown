@@ -1,26 +1,24 @@
-Configuration
-=============
+# Configuration
 
-__Rack::Cache__ includes a configuration system that can be used to specify
+**Rack::Cache** includes a configuration system that can be used to specify
 fairly sophisticated cache policy on a global or per-request basis.
 
 <a id='setopt'></a>
 
-Setting Cache Options
----------------------
+## Setting Cache Options
 
-Cache options can be set when the __Rack::Cache__ object is created,
-or by setting a `rack-cache.<option>` variable in __Rack__'s
-__Environment__.
+Cache options can be set when the **Rack::Cache** object is created,
+or by setting a `rack-cache.<option>` variable in **Rack**'s
+**Environment**.
 
-When the __Rack::Cache__ object is instantiated:
+When the **Rack::Cache** object is instantiated:
 
     use Rack::Cache,
       :verbose     => true,
       :metastore   => 'memcached://localhost:11211/',
       :entitystore => 'file:/var/cache/rack'
 
-Using __Rack__'s __Environment__:
+Using **Rack**'s **Environment**:
 
     env.merge!(
       'rack-cache.verbose' => true,
@@ -30,10 +28,9 @@ Using __Rack__'s __Environment__:
 
 <a id='options'></a>
 
-Cache Option Reference
-----------------------
+## Cache Option Reference
 
-Use the following options to customize __Rack::Cache__:
+Use the following options to customize **Rack::Cache**:
 
 ### `verbose`
 
@@ -56,7 +53,7 @@ be served from cache without validation.
 
 ### `metastore`
 
-A URI specifying the __MetaStore__ implementation used to store request/response
+A URI specifying the **MetaStore** implementation used to store request/response
 meta information. See the [Rack::Cache Storage Documentation](storage.html)
 for detailed information on different storage implementations.
 
@@ -65,7 +62,7 @@ has significant draw-backs so explicit configuration is recommended.
 
 ### `entitystore`
 
-A URI specifying the __EntityStore__ implementation used to store
+A URI specifying the **EntityStore** implementation used to store
 response bodies. See the [Rack::Cache Storage Documentation](storage.html)
 for detailed information on different storage implementations.
 
@@ -92,7 +89,7 @@ response be fully generated.
 Most browsers include a `Cache-Control: no-cache` header when the user performs
 a "hard refresh" (e.g., holding `Shift` while clicking the "Refresh" button).
 
-*IMPORTANT: Enabling this option globally allows all clients to break your cache.*
+_IMPORTANT: Enabling this option globally allows all clients to break your cache._
 
 ### `allow_revalidate`
 
@@ -105,7 +102,7 @@ GET / validation request to be sent to the server.
 Most browsers include a `Cache-Control: max-age=0` header when the user performs
 a refresh (e.g., clicking the "Refresh" button).
 
-*IMPORTANT: Enabling this option globally allows all clients to break your cache.*
+_IMPORTANT: Enabling this option globally allows all clients to break your cache._
 
 ### `cache_key`
 
@@ -116,12 +113,9 @@ the appropriate cache key.
 
 The `Rack::Cache::Key` class by default returns the fully qualified url of the request.
 
-In addition to setting the generator to an object, you can just pass a block instead, 
+In addition to setting the generator to an object, you can just pass a block instead,
 which will act as the cache key generator:
-	
-	set :cache_key do |request|
-		request.fullpath.replace(/\//, '-')
-	end
-	
+set :cache_key do |request|
+request.fullpath.replace(/\//, '-')
+end
 For more options see the [Rack::Request documentation](http://rack.rubyforge.org/doc/classes/Rack/Request.html)
-	

@@ -51,7 +51,7 @@ class Cookies {
         element.checked = shouldBeChecked;
       }
     }
-    element.observe("change", event => {
+    element.observe("change", (event) => {
       Cookies.statefulCheckboxChange(element, cookieName, expiration);
     });
   }
@@ -86,7 +86,7 @@ class Cookies {
     }
 
     if (!element.disabled) {
-      element.observe("change", event => {
+      element.observe("change", (event) => {
         Cookies.statefulRadioButtonChange(element, cookieName, expiration);
       });
     }
@@ -108,7 +108,7 @@ class Cookies {
     if (Cookies.exists(cookieName)) {
       element.value = Cookies.get(cookieName);
     }
-    element.observe("change", event => {
+    element.observe("change", (event) => {
       Cookies.statefulSelectChange(element, cookieName, expiration);
     });
   }
@@ -133,7 +133,7 @@ class Cookies {
         element.onchange();
       }
     }
-    element.observe("change", event => {
+    element.observe("change", (event) => {
       Cookies.statefulSelectChange(element, cookieName, expiration);
     });
   }

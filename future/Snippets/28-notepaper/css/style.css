@@ -1,16 +1,84 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -19,8 +87,17 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -28,17 +105,21 @@ body {
   line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
   content: none;
 }
 
@@ -51,18 +132,35 @@ table {
   margin: 70px auto 40px;
   padding: 8px;
   width: 260px;
-  font: 10px/18px 'Lucida Grande', Arial, sans-serif;
+  font: 10px/18px "Lucida Grande", Arial, sans-serif;
   color: #bbb;
   text-align: center;
   text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
   background: #383838;
   background: rgba(34, 34, 34, 0.8);
   border-radius: 4px;
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 6px rgba(0, 0, 0, 0.4);
+  background-image: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+  background-image: -moz-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+  background-image: -o-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    0 0 6px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 6px rgba(0, 0, 0, 0.4);
 }
 .about a {
@@ -106,7 +204,7 @@ table {
  * http://www.opensource.org/licenses/mit-license.php
  */
 body {
-  font: 12px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 12px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #dce1e1;
 }
@@ -120,19 +218,58 @@ body {
   color: #6a5f49;
   text-shadow: 0 1px 1px white;
   background-color: #f2f6c1;
-  background-image: -webkit-radial-gradient(center, cover, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1) 90%), -webkit-repeating-linear-gradient(top, transparent, transparent 29px, rgba(239, 207, 173, 0.7) 29px, rgba(239, 207, 173, 0.7) 30px);
-  background-image: -moz-radial-gradient(center, cover, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1) 90%), -moz-repeating-linear-gradient(top, transparent, transparent 29px, rgba(239, 207, 173, 0.7) 29px, rgba(239, 207, 173, 0.7) 30px);
-  background-image: -o-radial-gradient(center, cover, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.1) 90%), -o-repeating-linear-gradient(top, transparent, transparent 29px, rgba(239, 207, 173, 0.7) 29px, rgba(239, 207, 173, 0.7) 30px);
+  background-image: -webkit-radial-gradient(
+      center,
+      cover,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.1) 90%
+    ),
+    -webkit-repeating-linear-gradient(top, transparent, transparent 29px, rgba(
+            239,
+            207,
+            173,
+            0.7
+          )
+          29px, rgba(239, 207, 173, 0.7) 30px);
+  background-image: -moz-radial-gradient(
+      center,
+      cover,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.1) 90%
+    ),
+    -moz-repeating-linear-gradient(top, transparent, transparent 29px, rgba(
+            239,
+            207,
+            173,
+            0.7
+          )
+          29px, rgba(239, 207, 173, 0.7) 30px);
+  background-image: -o-radial-gradient(
+      center,
+      cover,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.1) 90%
+    ),
+    -o-repeating-linear-gradient(top, transparent, transparent 29px, rgba(
+            239,
+            207,
+            173,
+            0.7
+          )
+          29px, rgba(239, 207, 173, 0.7) 30px);
   border: 1px solid #c3baaa;
   border-color: rgba(195, 186, 170, 0.9);
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 5px #d8e071, 0 0 1px rgba(0, 0, 0, 0.1), 0 2px rgba(0, 0, 0, 0.02);
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 5px #d8e071, 0 0 1px rgba(0, 0, 0, 0.1), 0 2px rgba(0, 0, 0, 0.02);
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.5),
+    inset 0 0 5px #d8e071, 0 0 1px rgba(0, 0, 0, 0.1), 0 2px rgba(0, 0, 0, 0.02);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.5), inset 0 0 5px #d8e071,
+    0 0 1px rgba(0, 0, 0, 0.1), 0 2px rgba(0, 0, 0, 0.02);
 }
-.notepaper:before, .notepaper:after {
-  content: '';
+.notepaper:before,
+.notepaper:after {
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
@@ -162,21 +299,22 @@ body {
   font-size: 14px;
 }
 
-.curly-quotes:before, .curly-quotes:after {
+.curly-quotes:before,
+.curly-quotes:after {
   display: inline-block;
   vertical-align: top;
   height: 30px;
   line-height: 48px;
   font-size: 50px;
-  opacity: .2;
+  opacity: 0.2;
 }
 .curly-quotes:before {
-  content: '\201C';
+  content: "\201C";
   margin-right: 4px;
   margin-left: -8px;
 }
 .curly-quotes:after {
-  content: '\201D';
+  content: "\201D";
   margin-left: 4px;
   margin-right: -8px;
 }

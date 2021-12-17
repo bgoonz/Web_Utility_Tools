@@ -22,7 +22,9 @@
  *
  */
 
-textarea { resize:both; } 
+textarea {
+  resize: both;
+}
 
 .linedwrap {
   position: absolute;
@@ -30,9 +32,9 @@ textarea { resize:both; }
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-	border: none;
-	padding: 3px;
-	display: inline-block;
+  border: none;
+  padding: 3px;
+  display: inline-block;
 }
 
 .linedwrap.second {
@@ -41,47 +43,48 @@ textarea { resize:both; }
 }
 
 .linedtextarea {
-	padding: 0px;
-	margin: 0px;
+  padding: 0px;
+  margin: 0px;
 }
 
-.linedtextarea textarea, .linedwrap .codelines .lineno {
-	font-size: 12px;
-	font-family: monospace;
-	line-height: normal !important;
+.linedtextarea textarea,
+.linedwrap .codelines .lineno {
+  font-size: 12px;
+  font-family: monospace;
+  line-height: normal !important;
 }
 
 .linedtextarea textarea {
-	padding-right:0.3em;
-	padding-top:0.3em;
-	border: 0;
+  padding-right: 0.3em;
+  padding-top: 0.3em;
+  border: 0;
 }
 
 .linedwrap .lines {
-	margin-top: 0px;
-	width: 50px;
-	float: left;
-	overflow: hidden;
-	border-right: 1px solid #C1C7CF;
+  margin-top: 0px;
+  width: 50px;
+  float: left;
+  overflow: hidden;
+  border-right: 1px solid #c1c7cf;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 1;
-  background: #DADDDF;
+  background: #dadddf;
 }
 
 .linedwrap .codelines {
-	padding-top: 20px;
+  padding-top: 20px;
 }
 
 .linedwrap .codelines .lineno {
-	color:#ABADB1;
-	padding-right: 0.5em;
-	padding-top: 0.0em;
-	text-align: right;
-	white-space: nowrap;
+  color: #abadb1;
+  padding-right: 0.5em;
+  padding-top: 0em;
+  text-align: right;
+  white-space: nowrap;
 }
 
 .linedwrap .codelines .lineselect {
-	color: red;
+  color: red;
 }

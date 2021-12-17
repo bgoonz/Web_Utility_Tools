@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-light';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-light";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -14,7 +12,7 @@ $mainColor: #dee5f4;
 $sideColor: #59afd2;
 
 body {
-  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #2e5270;
 }
@@ -23,7 +21,9 @@ a {
   color: #5d79ae;
   text-decoration: none;
 
-  &:hover { text-decoration: underline; }
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .container {
@@ -38,7 +38,7 @@ a {
   overflow: hidden;
   background: $sideColor;
   border-radius: 3px;
-  @include box-shadow(0 0 8px 1px rgba(black, .5));
+  @include box-shadow(0 0 8px 1px rgba(black, 0.5));
 }
 
 .side {
@@ -51,7 +51,7 @@ a {
     width: 36px;
     height: 38px;
     @include hide-text;
-    @include transition(background .15s);
+    @include transition(background 0.15s);
   }
 
   i {
@@ -68,7 +68,7 @@ a {
     background: darken($sideColor, 15%);
     border-top: 1px solid darken($sideColor, 20%);
     border-radius: 0 0 0 4px;
-    @include box-shadow(inset 0 1px rgba(white, .15));
+    @include box-shadow(inset 0 1px rgba(white, 0.15));
 
     &:hover {
       background: darken($sideColor, 11%);
@@ -79,14 +79,16 @@ a {
 
 .tabs {
   border-bottom: 1px solid lighten($sideColor, 8%);
-  border-bottom: 1px solid rgba(white, .15);
+  border-bottom: 1px solid rgba(white, 0.15);
 
   a {
     border-top: 1px solid lighten($sideColor, 8%);
-    border-top: 1px solid rgba(white, .15);
+    border-top: 1px solid rgba(white, 0.15);
     border-bottom: 1px solid darken($sideColor, 11%);
 
-    &:hover { background: lighten($sideColor, 8%); }
+    &:hover {
+      background: lighten($sideColor, 8%);
+    }
   }
 
   li:first-child a {
@@ -94,18 +96,23 @@ a {
     border-radius: 4px 0 0 0;
   }
 
-  .active a, a:active {
+  .active a,
+  a:active {
     z-index: 2;
     background: $mainColor;
     cursor: default;
 
-    i { background-image: url('../img/icons_active.png'); }
+    i {
+      background-image: url("../img/icons_active.png");
+    }
   }
 
   &:active .active a:not(:active) {
     background: none;
 
-    i { background-image: url('../img/icons.png'); }
+    i {
+      background-image: url("../img/icons.png");
+    }
   }
 }
 
@@ -115,7 +122,7 @@ a {
   background: $mainColor;
   border-left: 1px solid darken($sideColor, 20%);
   border-radius: 0 3px 3px 0;
-  @include box-shadow(0 0 4px rgba(black, .3));
+  @include box-shadow(0 0 4px rgba(black, 0.3));
 }
 
 .item {
@@ -124,12 +131,12 @@ a {
   line-height: 18px;
   font-size: 11px;
   color: #626c80;
-  text-shadow: 0 1px rgba(white, .7);
+  text-shadow: 0 1px rgba(white, 0.7);
   background: $mainColor;
   border-top: 1px solid lighten($mainColor, 3%);
   border-bottom: 1px solid darken($mainColor, 5%);
   @include linear-gradient(bottom left, $mainColor 85%, darken($mainColor, 6%));
-  @include transition(background .15s);
+  @include transition(background 0.15s);
 
   &:first-child {
     border-top: 0;
@@ -146,7 +153,9 @@ a {
     font-size: 10px;
   }
 
-  time { color: darken($mainColor, 20%); }
+  time {
+    color: darken($mainColor, 20%);
+  }
 
   .avatar {
     display: block;
@@ -155,16 +164,16 @@ a {
     left: 15px;
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       bottom: 0;
       left: 0;
       right: 0;
-      border: 1px solid rgba(black, .3);
-      border-bottom-color: rgba(black, .4);
+      border: 1px solid rgba(black, 0.3);
+      border-bottom-color: rgba(black, 0.4);
       border-radius: 3px;
-      @include box-shadow(inset 0 1px rgba(white, .3));
+      @include box-shadow(inset 0 1px rgba(white, 0.3));
     }
 
     img {
@@ -180,42 +189,51 @@ a {
     background: darken($mainColor, 4%);
     border-color: darken($mainColor, 8%);
     cursor: pointer;
-    @include box-shadow(inset 0 1px rgba(white, .25),
-                        0 1px darken($mainColor, 1%),
-                        0 -1px $mainColor);
+    @include box-shadow(
+      inset 0 1px rgba(white, 0.25),
+      0 1px darken($mainColor, 1%),
+      0 -1px $mainColor
+    );
   }
 
-  &:active, &.selected {
+  &:active,
+  &.selected {
     z-index: 3;
     background: darken($mainColor, 8%);
     border-color: darken($mainColor, 25%);
     cursor: auto;
-    @include box-shadow(inset 0 0 6px rgba(black, .3),
-                        0 1px $mainColor,
-                        0 -1px $mainColor);
+    @include box-shadow(
+      inset 0 0 6px rgba(black, 0.3),
+      0 1px $mainColor,
+      0 -1px $mainColor
+    );
   }
 }
 
 .lt-ie8 {
-  .side a { vertical-align: top; }
-  .main { margin: 0 35px 0 0; left: 35px; }
+  .side a {
+    vertical-align: top;
+  }
+  .main {
+    margin: 0 35px 0 0;
+    left: 35px;
+  }
 }
 
-$icons: ('twitter', 0 0),
-        ('rss', -20px 0),
-        ('facebook', -40px 0),
-        ('dribbble', -60px 0),
-        ('plus', -80px 0);
+$icons: ("twitter", 0 0), ("rss", -20px 0), ("facebook", -40px 0),
+  ("dribbble", -60px 0), ("plus", -80px 0);
 
 [class*="icon-"] {
   display: block;
   width: 20px;
   height: 20px;
-  background-image: url('../img/icons.png');
+  background-image: url("../img/icons.png");
   background-repeat: no-repeat;
   @include hide-text;
 }
 
 @each $pair in $icons {
-  .icon-#{nth($pair, 1)} { background-position: nth($pair, 2); }
+  .icon-#{nth($pair, 1)} {
+    background-position: nth($pair, 2);
+  }
 }

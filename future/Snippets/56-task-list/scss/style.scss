@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2013 Thibaut Courouble
@@ -11,7 +9,7 @@
  */
 
 body {
-  font: 13px/20px 'Lucida Grande', Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Verdana, sans-serif;
   color: #404040;
   background: #f2f8fc;
 }
@@ -22,7 +20,7 @@ body {
   background: white;
   border: 1px solid #cdd3d7;
   border-radius: 4px;
-  @include box-shadow(0 1px 2px rgba(black, .05));
+  @include box-shadow(0 1px 2px rgba(black, 0.05));
 }
 
 .tasks-header {
@@ -30,12 +28,12 @@ body {
   line-height: 24px;
   padding: 7px 15px;
   color: #5d6b6c;
-  text-shadow: 0 1px rgba(white, .7);
+  text-shadow: 0 1px rgba(white, 0.7);
   background: #f0f1f2;
   border-bottom: 1px solid #d1d1d1;
   border-radius: 3px 3px 0 0;
   @include linear-gradient(top, #f5f7fd, #e6eaec);
-  @include box-shadow(inset 0 1px rgba(white, .5), 0 1px rgba(black, .03));
+  @include box-shadow(inset 0 1px rgba(white, 0.5), 0 1px rgba(black, 0.03));
 }
 
 .tasks-title {
@@ -56,7 +54,7 @@ body {
   @include hide-text;
 
   &:before {
-    content: '';
+    content: "";
     display: block;
     height: 3px;
     background: #8c959d;
@@ -72,7 +70,9 @@ body {
   cursor: pointer;
   @include user-select(none);
 
-  & + & { border-top: 1px solid #f0f2f3; }
+  & + & {
+    border-top: 1px solid #f0f2f3;
+  }
 }
 
 .tasks-list-cb {
@@ -90,7 +90,7 @@ body {
   border-radius: 12px;
 
   &:before {
-    content: '';
+    content: "";
     display: none;
     position: absolute;
     top: 50%;
@@ -106,7 +106,9 @@ body {
   .tasks-list-cb:checked ~ & {
     border-color: #39ca74;
 
-    &:before { display: block; }
+    &:before {
+      display: block;
+    }
   }
 }
 

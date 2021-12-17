@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-light';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-light";
 
 /*
  * Copyright (c) 2013 Thibaut Courouble
@@ -11,7 +9,7 @@
  */
 
 body {
-  font: 12px/20px 'Lucida Grande', Verdana, sans-serif;
+  font: 12px/20px "Lucida Grande", Verdana, sans-serif;
   color: #404040;
   background: #313944;
 }
@@ -26,13 +24,11 @@ body {
   border: 1px solid #0e1013;
   border-collapse: separate;
   border-radius: 4px 4px 3px 3px;
-  @include box-shadow(0 1px #181c21,
-                      0 2px #14171b,
-                      0 3px 3px rgba(black, .3));
+  @include box-shadow(0 1px #181c21, 0 2px #14171b, 0 3px 3px rgba(black, 0.3));
 
   &:before,
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: -8px;
     left: 50%;
@@ -58,8 +54,7 @@ body {
   border-bottom-color: #181b21;
   border-radius: 3px 3px 0 0;
   @include linear-gradient(top, #414b56, #323841 50%, #2b323a 50%, #252a31);
-  @include box-shadow(inset 0 1px rgba(white, .1),
-                      0 1px 2px rgba(black, .2));
+  @include box-shadow(inset 0 1px rgba(white, 0.1), 0 1px 2px rgba(black, 0.2));
 }
 
 .datepicker-prev,
@@ -73,7 +68,7 @@ body {
 
   &:before,
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
@@ -83,23 +78,39 @@ body {
     border: 6px solid transparent;
   }
 
-  &:before { margin-top: -5px; }
+  &:before {
+    margin-top: -5px;
+  }
 }
 
 .datepicker-prev {
   left: 0;
 
-  &:before, &:after { margin-left: -9px; }
-  &:before { border-right-color: rgba(white, .1); }
-  &:after { border-right-color: #181b21; }
+  &:before,
+  &:after {
+    margin-left: -9px;
+  }
+  &:before {
+    border-right-color: rgba(white, 0.1);
+  }
+  &:after {
+    border-right-color: #181b21;
+  }
 }
 
 .datepicker-next {
   right: 0;
 
-  &:before, &:after { margin-left: -3px; }
-  &:before { border-left-color: rgba(white, .1); }
-  &:after { border-left-color: #181b21; }
+  &:before,
+  &:after {
+    margin-left: -3px;
+  }
+  &:before {
+    border-left-color: rgba(white, 0.1);
+  }
+  &:after {
+    border-left-color: #181b21;
+  }
 }
 
 .datepicker-title {
@@ -110,13 +121,15 @@ body {
   padding: 0 8px 1px;
   font-weight: bold;
   color: #8a99af;
-  text-shadow: 0 1px 1px rgba(black, .5);
+  text-shadow: 0 1px 1px rgba(black, 0.5);
   background: #242930;
   border: 1px solid;
   border-color: #151a1f #191c21 #1c2025;
   border-radius: 2px;
-  @include box-shadow(inset 0 1px 2px rgba(black, .2),
-                      0 1px rgba(white, .08));
+  @include box-shadow(
+    inset 0 1px 2px rgba(black, 0.2),
+    0 1px rgba(white, 0.08)
+  );
 }
 
 .datepicker-head {
@@ -132,7 +145,7 @@ body {
   padding-bottom: 1px;
   font-weight: bold;
   color: #18b165;
-  text-shadow: 0 1px 1px rgba(black, .5);
+  text-shadow: 0 1px 1px rgba(black, 0.5);
   border-bottom: 1px solid #232833;
 }
 
@@ -149,27 +162,31 @@ body {
   line-height: 26px;
   padding-bottom: 1px;
   color: #8ba0b8;
-  text-shadow: 0 1px 1px rgba(black, .3);
+  text-shadow: 0 1px 1px rgba(black, 0.3);
   border-bottom: 1px solid #323841;
-  @include box-shadow(inset 0 1px rgba(white, .06));
+  @include box-shadow(inset 0 1px rgba(white, 0.06));
 
   > a {
     display: block;
     color: inherit;
     text-decoration: none;
 
-    &:hover { color: #1dd87e; }
+    &:hover {
+      color: #1dd87e;
+    }
   }
 
   &.today {
     color: white;
-    text-shadow: 0 1px 1px rgba(black, .3), 0 0 14px rgba(white, .6);
+    text-shadow: 0 1px 1px rgba(black, 0.3), 0 0 14px rgba(white, 0.6);
   }
 
   &.off {
     color: #677387;
-    text-shadow: 0 1px 1px rgba(black, .1);
+    text-shadow: 0 1px 1px rgba(black, 0.1);
   }
 
-  tr:last-child > & { border-bottom: 0; }
+  tr:last-child > & {
+    border-bottom: 0;
+  }
 }

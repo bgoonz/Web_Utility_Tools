@@ -1,3 +1,1 @@
-export default () => (
-    <div />
-);
+export default () => <div />;

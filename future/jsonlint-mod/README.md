@@ -1,5 +1,4 @@
-JSON Lint [![npm version](https://badge.fury.io/js/jsonlint-mod.svg)](https://badge.fury.io/js/jsonlint-mod)
-=========
+# JSON Lint [![npm version](https://badge.fury.io/js/jsonlint-mod.svg)](https://badge.fury.io/js/jsonlint-mod)
 
 The fork is a modified version of [jsonlint](http://zaach.github.com/jsonlint/) enhanced by the original Douglas Crockford's JSON parser which brought the following features:
 
@@ -10,6 +9,7 @@ The fork is a modified version of [jsonlint](http://zaach.github.com/jsonlint/) 
 A modified description below.
 
 ## Command line interface
+
 Install jsonlint with npm to use the command line interface:
 
     npm install jsonlint-mod -g
@@ -43,7 +43,6 @@ jsonlint will either report a syntax error with details or pretty print the sour
        -q, --quiet              do not print the parsed json to STDOUT  [false]
        -p, --pretty-print       force pretty printing even if invalid
 
-
 ## Module interface
 
 var jsonlint = require("jsonlint-mod");
@@ -54,8 +53,8 @@ It returns the parsed object or throws an `Error`.
 
 ## Vim Plugins
 
-* [Syntastic](http://www.vim.org/scripts/script.php?script_id=2736)
-* [sourcebeautify](http://www.vim.org/scripts/script.php?script_id=4079)
+- [Syntastic](http://www.vim.org/scripts/script.php?script_id=2736)
+- [sourcebeautify](http://www.vim.org/scripts/script.php?script_id=4079)
 
 ## MIT License
 

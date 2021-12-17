@@ -89,29 +89,29 @@
   }
 
   const // [32] Global number of hashed bits (256-bit counter).
-  bitLength = []; // [8] the chipher state
+    bitLength = []; // [8] the chipher state
 
   let // [64] Buffer of data to hash.
-  buffer = [];
+    buffer = [];
 
   let // Current number of bits on the buffer.
-  bufferBits = 0;
+    bufferBits = 0;
 
   let // Current (possibly incomplete) byte slot on the buffer.
-  bufferPos = 0;
+    bufferPos = 0;
 
   const // The following longs are split into [int,int]
-  // [8] the hashing state
-  hash = [];
+    // [8] the hashing state
+    hash = [];
 
   const // [8] the round key
-  K = [];
+    K = [];
 
   const // [8] temp key?
-  L = [];
+    L = [];
 
   const // [8] mu(buffer)
-  block = [];
+    block = [];
 
   const state = [];
 
@@ -176,7 +176,7 @@
     }
   };
 
-  WP = Whirlpool = str => {
+  WP = Whirlpool = (str) => {
     return WP.init().add(str).finalize();
   };
   WP.version = "3.0";
@@ -191,7 +191,7 @@
   };
 
   // Convert string into byte array
-  const convert = source => {
+  const convert = (source) => {
     let i;
     let n;
     const str = source.toString();
@@ -225,13 +225,13 @@
     }
 
     let // index of leftmost source byte containing data (1 to 8 bits).
-    sourcePos = 0;
+      sourcePos = 0;
 
     const // space on source[sourcePos].
-    sourceGap = (8 - (sourceBits & 7)) & 7;
+      sourceGap = (8 - (sourceBits & 7)) & 7;
 
     const // occupied bits on buffer[bufferPos].
-    bufferRem = bufferBits & 7;
+      bufferRem = bufferBits & 7;
 
     let i;
     let b;

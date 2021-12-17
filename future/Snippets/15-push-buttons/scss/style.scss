@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -10,17 +8,11 @@
  * http://www.opensource.org/licenses/mit-license.php
  */
 
-$colors: red #d02e17,
-         blue #3471b8,
-         green #3e952d,
-         cyan #2eabb3,
-         brown #c8a22e,
-         pink #b62b89,
-         purple #6440be,
-         gray #999;
+$colors: red #d02e17, blue #3471b8, green #3e952d, cyan #2eabb3, brown #c8a22e,
+  pink #b62b89, purple #6440be, gray #999;
 
 body {
-  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #f8f6f6;
 }
@@ -38,15 +30,21 @@ body {
   text-align: center;
   white-space: nowrap;
 
-  .button + .button { margin-left: 20px; }
+  .button + .button {
+    margin-left: 20px;
+  }
 }
 
 @media screen and (max-width: 800px) {
-  .column { width: 50%; }
+  .column {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 400px) {
-  .column { width: 100%; }
+  .column {
+    width: 100%;
+  }
 }
 
 .button {
@@ -58,14 +56,15 @@ body {
   font-size: 15px;
   color: white;
   text-decoration: none;
-  text-shadow: 0 -1px rgba(black, .3);
+  text-shadow: 0 -1px rgba(black, 0.3);
   border: 2px solid;
   border-radius: 7px;
   outline: 0;
-  @include box-shadow(0 2px 1px rgba(black, .25));
+  @include box-shadow(0 2px 1px rgba(black, 0.25));
 
-  &:before, &:after {
-    content: '';
+  &:before,
+  &:after {
+    content: "";
     position: absolute;
   }
 
@@ -83,15 +82,17 @@ body {
     bottom: 0;
     right: 0;
     left: 0;
-    border: 2px solid rgba(white, .1);
+    border: 2px solid rgba(white, 0.1);
     border-bottom: 0;
     border-radius: 7px;
   }
 }
 
 .button.alt {
-  @include box-shadow(0 1px 3px rgba(black, .25));
-  &:before { display: none; }
+  @include box-shadow(0 1px 3px rgba(black, 0.25));
+  &:before {
+    display: none;
+  }
 }
 
 @each $pair in $colors {
@@ -104,29 +105,39 @@ body {
   .button.#{nth($pair, 1)} {
     background: $color;
     border-color: darken($color, 13%) darken($color, 14%) darken($color, 20%);
-    @include linear-gradient(top,
-                             lighten(adjust-hue($color, 3deg), 8%),
-                             lighten(adjust-hue($color, 5deg), 5%) 50%,
-                             $color 50%,
-                             darken(saturate(adjust-hue($color, -4deg), 8%), 8%));
+    @include linear-gradient(
+      top,
+      lighten(adjust-hue($color, 3deg), 8%),
+      lighten(adjust-hue($color, 5deg), 5%) 50%,
+      $color 50%,
+      darken(saturate(adjust-hue($color, -4deg), 8%), 8%)
+    );
 
     &:before {
       background: lighten(saturate($color, 5%), 10%);
-      @include linear-gradient(top,
-                               darken(saturate($color, 3%), 7%),
-                               lighten(saturate($color, 8%), 14%));
+      @include linear-gradient(
+        top,
+        darken(saturate($color, 3%), 7%),
+        lighten(saturate($color, 8%), 14%)
+      );
     }
 
     &:active {
       background: lighten(adjust-hue($color, 2deg), 5%);
-      @include linear-gradient(top,
-                               darken(saturate(adjust-hue($color, -5deg), 8%), 10%),
-                               lighten(adjust-hue($color, 2deg), 3%) 60%,
-                               lighten(adjust-hue($color, 2deg), 5%));
+      @include linear-gradient(
+        top,
+        darken(saturate(adjust-hue($color, -5deg), 8%), 10%),
+        lighten(adjust-hue($color, 2deg), 3%) 60%,
+        lighten(adjust-hue($color, 2deg), 5%)
+      );
 
-      &:after { border-color: lighten(adjust-hue($color, 2deg), 5%); }
+      &:after {
+        border-color: lighten(adjust-hue($color, 2deg), 5%);
+      }
     }
   }
 }
 
-.lt-ie9 .button:before { display: none; }
+.lt-ie9 .button:before {
+  display: none;
+}

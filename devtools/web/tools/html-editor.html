@@ -152,8 +152,11 @@
         });
       });
     </script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css"
+    />
+  </head>
   <body>
     <header>
       <table>
@@ -259,95 +262,95 @@
   <script src="../../lib/Blob.js-master/Blob.js"></script>
   <script src="../../lib/FileSaver.js-master/FileSaver.js"></script>
   <script>
-    $(document).ready(function () {
-      var s =
-        '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
-</head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
-      if (localStorage.html_editor_text != "undefined")
-        s = localStorage.html_editor_text;
-      $("#codeArea").val(s);
-
-      OnDraw();
-
-      window.onkeydown = keydown;
-    });
-    $(window).unload(function () {
-      localSave();
-    });
-    function keydown(e) {
-      if (e.keyCode == 9) {
-        //tab
-        e.preventDefault();
-        return;
-        //Snapshot();
-        s = getSelect(area);
-        var text = $("#codeArea").val();
-        fillString(text, "\u0009", s.start, s.end);
-        pos = s.start + 1;
-        setCaret(pos);
-      }
-    }
-    function OnNew() {
-      cancelSaveFile();
-      var s =
-        '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
-</head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
-      $("#codeArea").val(s);
-      $("#iview").attr("srcdoc", s);
-      $("#codeArea").focus();
-    }
-    function OnOpen() {
-      $("#fileElem").focus();
-      $("#fileElem").click();
-    }
-    function OnSave() {
-      $("#getFilename").css("display", "inline");
-    }
-    function OnDraw() {
-      var s = $("#codeArea").val();
-      $("#iview").attr("srcdoc", s);
-      $("#codeArea").focus();
-    }
-    function localSave() {
-      localStorage.html_editor_text = $("#codeArea").val();
-    }
-    function loadFile() {
-      var fileElem = document.getElementById("fileElem").files[0];
-      //var name = fileElem.name;
-      var reader = new FileReader();
-
-      reader.onloadend = function (evt) {
-        if (evt.target.readyState == FileReader.DONE) {
-          //localStorage.notepad_filename = name;
-          //document.title = 'Notepad - '+name;
-          //area.value = evt.target.result;
-          s = evt.target.result;
-          OSName = GetOS();
-          if (OSName == "Windows") s = s.replace(/\r\n/g, "\n");
+        $(document).ready(function () {
+          var s =
+            '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
+    </head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
+          if (localStorage.html_editor_text != "undefined")
+            s = localStorage.html_editor_text;
           $("#codeArea").val(s);
+
           OnDraw();
+
+          window.onkeydown = keydown;
+        });
+        $(window).unload(function () {
+          localSave();
+        });
+        function keydown(e) {
+          if (e.keyCode == 9) {
+            //tab
+            e.preventDefault();
+            return;
+            //Snapshot();
+            s = getSelect(area);
+            var text = $("#codeArea").val();
+            fillString(text, "\u0009", s.start, s.end);
+            pos = s.start + 1;
+            setCaret(pos);
+          }
+        }
+        function OnNew() {
+          cancelSaveFile();
+          var s =
+            '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
+    </head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
+          $("#codeArea").val(s);
+          $("#iview").attr("srcdoc", s);
           $("#codeArea").focus();
         }
-      };
-      reader.readAsText(fileElem);
-    }
-    function cancelSaveFile() {
-      $("#getFilename").css("display", "none");
-    }
-    function saveFile() {
-      $("#getFilename").css("display", "none");
-      var name = $("#filename").val();
-      if (name == "") name = "filename.html";
-      //localStorage.svg_filename = name;
-      //document.title = "SVG - "+name;
-      localSave();
+        function OnOpen() {
+          $("#fileElem").focus();
+          $("#fileElem").click();
+        }
+        function OnSave() {
+          $("#getFilename").css("display", "inline");
+        }
+        function OnDraw() {
+          var s = $("#codeArea").val();
+          $("#iview").attr("srcdoc", s);
+          $("#codeArea").focus();
+        }
+        function localSave() {
+          localStorage.html_editor_text = $("#codeArea").val();
+        }
+        function loadFile() {
+          var fileElem = document.getElementById("fileElem").files[0];
+          //var name = fileElem.name;
+          var reader = new FileReader();
 
-      //var blob = new Blob([area.value], {type: "text/plain;charset=utf-8"});
-      var s = $("#codeArea").val();
-      OSName = GetOS();
-      if (OSName == "Windows") s = s.replace(/\n/g, "\r\n");
-      var blob = new Blob([s], { type: "text/plain;charset=utf-8" });
-      saveAs(blob, name);
-    }
+          reader.onloadend = function (evt) {
+            if (evt.target.readyState == FileReader.DONE) {
+              //localStorage.notepad_filename = name;
+              //document.title = 'Notepad - '+name;
+              //area.value = evt.target.result;
+              s = evt.target.result;
+              OSName = GetOS();
+              if (OSName == "Windows") s = s.replace(/\r\n/g, "\n");
+              $("#codeArea").val(s);
+              OnDraw();
+              $("#codeArea").focus();
+            }
+          };
+          reader.readAsText(fileElem);
+        }
+        function cancelSaveFile() {
+          $("#getFilename").css("display", "none");
+        }
+        function saveFile() {
+          $("#getFilename").css("display", "none");
+          var name = $("#filename").val();
+          if (name == "") name = "filename.html";
+          //localStorage.svg_filename = name;
+          //document.title = "SVG - "+name;
+          localSave();
+
+          //var blob = new Blob([area.value], {type: "text/plain;charset=utf-8"});
+          var s = $("#codeArea").val();
+          OSName = GetOS();
+          if (OSName == "Windows") s = s.replace(/\n/g, "\r\n");
+          var blob = new Blob([s], { type: "text/plain;charset=utf-8" });
+          saveAs(blob, name);
+        }
   </script>
 </html>

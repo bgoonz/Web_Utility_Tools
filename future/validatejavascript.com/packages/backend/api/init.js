@@ -1,13 +1,13 @@
-const { Linter } = require('eslint');
-const reactPlugin = require('eslint-plugin-react');
-const jsxA11yPlugin = require('eslint-plugin-jsx-a11y');
+const { Linter } = require("eslint");
+const reactPlugin = require("eslint-plugin-react");
+const jsxA11yPlugin = require("eslint-plugin-jsx-a11y");
 
 const eslintRules = new Linter().getRules();
 
-const airbnb = require('eslint-config-airbnb');
-const google = require('eslint-config-google');
-const standard = require('eslint-config-standard');
-const eslint = require('eslint/conf/eslint-recommended');
+const airbnb = require("eslint-config-airbnb");
+const google = require("eslint-config-google");
+const standard = require("eslint-config-standard");
+const eslint = require("eslint/conf/eslint-recommended");
 
 function getRules(config) {
   const rules = {};
@@ -40,7 +40,7 @@ const getRuleInfo = ([name, value]) => ({
 const rulesList = {
   eslint: [...eslintRules].map(getRuleInfo),
   react: Object.entries(reactPlugin.rules).map(getRuleInfo),
-  'jsx-a11y': Object.entries(jsxA11yPlugin.rules).map(getRuleInfo),
+  "jsx-a11y": Object.entries(jsxA11yPlugin.rules).map(getRuleInfo),
 };
 
 module.exports = (req, res) => {

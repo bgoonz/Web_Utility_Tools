@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-light';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-light";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -10,19 +8,26 @@
  * http://www.opensource.org/licenses/mit-license.php
  */
 
-html, body { min-height: 100%; }
+html,
+body {
+  min-height: 100%;
+}
 
 body {
-  font: 12px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 12px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #47496d;
   @include radial-gradient(bottom, circle cover, #6b6e8c, #212649);
 }
 
-a { text-decoration: none; }
-a:hover { text-decoration: underline; }
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 
-$sprite: url('../img/sprite.png');
+$sprite: url("../img/sprite.png");
 
 [class*="icon-"] {
   display: block;
@@ -34,9 +39,15 @@ $sprite: url('../img/sprite.png');
   @include hide-text;
 }
 
-.icon-psd-40 { background-position: 0 0; }
-.icon-ai-24 { background-position: -40px 0; }
-.icon-close { background-position: -40px -24px; }
+.icon-psd-40 {
+  background-position: 0 0;
+}
+.icon-ai-24 {
+  background-position: -40px 0;
+}
+.icon-close {
+  background-position: -40px -24px;
+}
 
 .widget {
   margin: 80px auto;
@@ -44,7 +55,7 @@ $sprite: url('../img/sprite.png');
   overflow: hidden;
   background: #fafafa;
   border-radius: 4px;
-  @include box-shadow(0 0 4px rgba(black, .4));
+  @include box-shadow(0 0 4px rgba(black, 0.4));
 }
 
 .widget-heading {
@@ -55,7 +66,7 @@ $sprite: url('../img/sprite.png');
   background: #eee;
   border-radius: 4px 4px 0 0;
   @include linear-gradient(top, #eee, #d8d8d8);
-  @include box-shadow(inset 0 21px rgba(white, .22));
+  @include box-shadow(inset 0 21px rgba(white, 0.22));
 }
 
 .widget-title {
@@ -66,25 +77,25 @@ $sprite: url('../img/sprite.png');
   font-weight: bold;
   color: #666;
   text-transform: uppercase;
-  text-shadow: 0 1px rgba(white, .3);
+  text-shadow: 0 1px rgba(white, 0.3);
 }
 
 .widget-close {
   float: right;
   margin: 0 1px 0 10px;
   padding: 3px 3px 3px 4px;
-  border: 1px solid rgba(black, .12);
+  border: 1px solid rgba(black, 0.12);
   border-radius: 2px;
-  @include box-shadow(inset 0 1px rgba(white, .3));
+  @include box-shadow(inset 0 1px rgba(white, 0.3));
 
   &:hover {
-    border-color: rgba(black, .18);
-    @include box-shadow(0 0 1px rgba(black, .15));
+    border-color: rgba(black, 0.18);
+    @include box-shadow(0 0 1px rgba(black, 0.15));
   }
 
   &:active {
-    background-color: rgba(black, .02);
-    @include box-shadow(inset 0 0 2px rgba(black, .2));
+    background-color: rgba(black, 0.02);
+    @include box-shadow(inset 0 0 2px rgba(black, 0.2));
   }
 }
 
@@ -95,9 +106,11 @@ $sprite: url('../img/sprite.png');
   padding: 6px 0;
   background: #5c5c5c;
   @include linear-gradient(top, #878787, #5c5c5c);
-  @include box-shadow(inset 0 1px rgba(black, .25),
-                      inset 0 2px rgba(white, .2),
-                      0 0 2px rgba(black, .5));
+  @include box-shadow(
+    inset 0 1px rgba(black, 0.25),
+    inset 0 2px rgba(white, 0.2),
+    0 0 2px rgba(black, 0.5)
+  );
 
   > li {
     float: left;
@@ -107,12 +120,12 @@ $sprite: url('../img/sprite.png');
       padding: 0 12px;
       font-size: 11px;
       color: white;
-      text-shadow: 0 1px rgba(black, .5);
+      text-shadow: 0 1px rgba(black, 0.5);
     }
 
     + li {
-      border-left: 1px solid rgba(black, .15);
-      @include box-shadow(inset 1px 0 rgba(white, .1));
+      border-left: 1px solid rgba(black, 0.15);
+      @include box-shadow(inset 1px 0 rgba(white, 0.1));
     }
   }
 }
@@ -125,8 +138,12 @@ $sprite: url('../img/sprite.png');
   background: white;
   @include linear-gradient(top, white, #fafafa);
 
-  + .download { border-top: 1px solid #ececec; }
-  &:last-child { border-radius: 0 0 4px 4px; }
+  + .download {
+    border-top: 1px solid #ececec;
+  }
+  &:last-child {
+    border-radius: 0 0 4px 4px;
+  }
 }
 
 .download-name {
@@ -168,8 +185,7 @@ $sprite: url('../img/sprite.png');
   padding: 3px;
   background: #ebebeb;
   border-radius: 7px;
-  @include box-shadow(inset 0 2px 3px rgba(black, .2),
-                      0 1px white);
+  @include box-shadow(inset 0 2px 3px rgba(black, 0.2), 0 1px white);
 }
 
 .download-progress-bar {
@@ -180,11 +196,17 @@ $sprite: url('../img/sprite.png');
   border-radius: 4px;
   @include box-sizing(border-box);
   @include linear-gradient(top, #73c822, #67aa24);
-  @include box-shadow(inset 0 1px rgba(white, .15));
+  @include box-shadow(inset 0 1px rgba(white, 0.15));
 }
 
 .lt-ie9 {
-  .widget-close { border: 1px solid #c4c4c4; }
-  .widget-close:hover { background: #d8d8d8; }
-  .widget-toolbar { border-top-color: #484848; }
+  .widget-close {
+    border: 1px solid #c4c4c4;
+  }
+  .widget-close:hover {
+    background: #d8d8d8;
+  }
+  .widget-toolbar {
+    border-top-color: #484848;
+  }
 }

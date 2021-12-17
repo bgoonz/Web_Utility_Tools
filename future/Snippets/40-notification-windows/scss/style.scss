@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-light';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-light";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -15,7 +13,7 @@ $notifPaddingLeft: 30px;
 $notifCircleWidth: 50px;
 
 body {
-  font: 12px/20px 'Lucida Grande', Verdana, sans-serif;
+  font: 12px/20px "Lucida Grande", Verdana, sans-serif;
   color: #404040;
   background: #343137;
 }
@@ -24,19 +22,22 @@ body {
   margin: 40px auto;
   width: 380px;
 
-  .notif { margin: 10px 0; }
+  .notif {
+    margin: 10px 0;
+  }
 }
 
 .notif {
   position: relative;
-  padding: $notifPaddingTop $notifPaddingLeft $notifPaddingTop $notifPaddingLeft + $notifCircleWidth + 20px;
+  padding: $notifPaddingTop $notifPaddingLeft $notifPaddingTop $notifPaddingLeft +
+    $notifCircleWidth + 20px;
   min-height: $notifCircleWidth;
   line-height: 22px;
   background: white;
   border-radius: 2px;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: $notifPaddingTop;
     left: $notifPaddingLeft;
@@ -58,8 +59,9 @@ body {
   font-weight: bold;
   color: #333;
 
-  &:before, &:after {
-    content: '';
+  &:before,
+  &:after {
+    content: "";
     position: absolute;
     background: white;
     border-radius: 2px;
@@ -73,7 +75,8 @@ body {
   }
 
   .notif-title {
-    &:before, &:after {
+    &:before,
+    &:after {
       top: $notifPaddingTop + $notifCircleWidth / 2 - 6px;
       left: $notifPaddingLeft + $notifCircleWidth / 2;
       width: 4px;
@@ -97,7 +100,8 @@ body {
   }
 
   .notif-title {
-    &:before, &:after {
+    &:before,
+    &:after {
       top: $notifPaddingTop + $notifCircleWidth / 2 - 7px;
       left: $notifPaddingLeft + $notifCircleWidth / 2 - 2px;
       width: 4px;
@@ -121,7 +125,8 @@ body {
   }
 
   .notif-title {
-      &:before, &:after {
+    &:before,
+    &:after {
       top: $notifPaddingTop + $notifCircleWidth / 2 - 8px;
       left: $notifPaddingLeft + $notifCircleWidth / 2 - 2px;
       width: 4px;
@@ -159,7 +164,7 @@ body {
 
 .notif-minimize {
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 11px;
     left: 4px;
@@ -168,12 +173,14 @@ body {
     background: #bbb;
   }
 
-  &:hover:before { background: #888; }
+  &:hover:before {
+    background: #888;
+  }
 }
 
 .notif-zoom {
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 6px;
     left: 3px;
@@ -182,12 +189,15 @@ body {
     border: 2px solid #bbb;
   }
 
-  &:hover:before { border-color: #888; }
+  &:hover:before {
+    border-color: #888;
+  }
 }
 
 .notif-close {
-  &:before, &:after {
-    content: '';
+  &:before,
+  &:after {
+    content: "";
     position: absolute;
     top: 4px;
     left: 7px;
@@ -204,7 +214,10 @@ body {
     height: 2px;
   }
 
-  &:hover:before, &:hover:after { background: #888; }
+  &:hover:before,
+  &:hover:after {
+    background: #888;
+  }
 }
 
 /* IE 8 doesn't support CSS transforms; use Unicode instead. */
@@ -212,50 +225,58 @@ body {
 .lt-ie9 {
   .notif-notice {
     .notif-title:before {
-      content: '\2714';
+      content: "\2714";
       display: block;
       top: $notifPaddingTop;
       left: $notifPaddingLeft;
       width: $notifCircleWidth;
-      font: bold 18px/#{$notifCircleWidth} 'Arial Unicode MS';
+      font: bold 18px /#{$notifCircleWidth} "Arial Unicode MS";
       color: white;
       text-align: center;
       background: none;
     }
 
-    .notif-title:after { display: none; }
+    .notif-title:after {
+      display: none;
+    }
   }
 
   .notif-alert {
     .notif-title:before {
-      content: '\2716';
+      content: "\2716";
       display: block;
       top: $notifPaddingTop;
       left: $notifPaddingLeft;
       width: $notifCircleWidth;
-      font: bold 17px/#{$notifCircleWidth} 'Arial Unicode MS';
+      font: bold 17px /#{$notifCircleWidth} "Arial Unicode MS";
       color: white;
       text-align: center;
       background: none;
     }
 
-    .notif-title:after { display: none; }
+    .notif-title:after {
+      display: none;
+    }
   }
 
   .notif-close {
     &:before {
-      content: '\2716';
+      content: "\2716";
       display: block;
       top: 0;
       left: 0;
       width: 16px;
-      font: 11px/19px 'Arial Unicode MS';
+      font: 11px/19px "Arial Unicode MS";
       color: #bbb;
       text-align: center;
       background: none;
     }
 
-    &:after { display: none; }
-    &:hover:before { color: #999; }
+    &:after {
+      display: none;
+    }
+    &:hover:before {
+      color: #999;
+    }
   }
 }

@@ -1,8 +1,8 @@
-import round from 'lodash.round';
-import Tab from '../tab';
-import minify from '../../util/minify';
+import round from "lodash.round";
+import Tab from "../tab";
+import minify from "../../util/minify";
 
-const getJSBlob = (data) => new Blob([data], { type: 'text/javascript' });
+const getJSBlob = (data) => new Blob([data], { type: "text/javascript" });
 
 const getBlobSize = (blob) => blob.size;
 
@@ -10,53 +10,53 @@ export default class Output extends Tab {
   constructor(...args) {
     super(...args)
       .set({
-        inputCode: ''
+        inputCode: "",
       })
       .bindNode({
-        compression: ':sandbox .compression',
-        saving: ':sandbox .saving',
-        outputCode: ':sandbox .output-code',
+        compression: ":sandbox .compression",
+        saving: ":sandbox .saving",
+        outputCode: ":sandbox .output-code",
         outputDataURI: {
-          node: ':sandbox .download',
+          node: ":sandbox .download",
           binder: {
             setValue(v, { node }) {
               if (v) {
                 node.href = v;
-                node.download = 'compressed.js';
-                node.classList.remove('disabled');
+                node.download = "compressed.js";
+                node.classList.remove("disabled");
               } else {
-                node.removeAttribute('href');
-                node.removeAttribute('download');
-                node.classList.add('disabled');
+                node.removeAttribute("href");
+                node.removeAttribute("download");
+                node.classList.add("disabled");
               }
-            }
-          }
-        }
+            },
+          },
+        },
       })
       .calc({
         inputBlob: {
-          source: 'inputCode',
-          handler: getJSBlob
+          source: "inputCode",
+          handler: getJSBlob,
         },
         inputSize: {
-          source: 'inputBlob',
-          handler: getBlobSize
+          source: "inputBlob",
+          handler: getBlobSize,
         },
         outputCode: {
-          source: 'inputCode',
+          source: "inputCode",
           handler: minify,
-          event: { setOnInit: false, promiseCalc: true }
+          event: { setOnInit: false, promiseCalc: true },
         },
         outputBlob: {
-          source: 'outputCode',
-          handler: getJSBlob
+          source: "outputCode",
+          handler: getJSBlob,
         },
         outputSize: {
-          source: 'outputBlob',
-          handler: getBlobSize
+          source: "outputBlob",
+          handler: getBlobSize,
         },
         outputDataURI: {
-          source: 'outputBlob',
+          source: "outputBlob",
           handler: async (outputBlob) => {
             if (!outputBlob) {
               return null;
@@ -64,32 +64,33 @@ export default class Output extends Tab {
 
             return URL.createObjectURL(outputBlob);
           },
-          event: { promiseCalc: true }
+          event: { promiseCalc: true },
         },
         compression: {
-          source: ['inputSize', 'outputSize'],
-          handler: (inSize, outSize) => round(100 - ((100 * outSize) / inSize) || 0, 2)
+          source: ["inputSize", "outputSize"],
+          handler: (inSize, outSize) =>
+            round(100 - (100 * outSize) / inSize || 0, 2),
         },
         saving: {
-          source: ['inputSize', 'outputSize'],
-          handler: (inSize, outSize) => round((inSize - outSize) / 1024, 2)
-        }
+          source: ["inputSize", "outputSize"],
+          handler: (inSize, outSize) => round((inSize - outSize) / 1024, 2),
+        },
       })
       .on({
-        'keypress::outputCode': ({ domEvent }) => {
+        "keypress::outputCode": ({ domEvent }) => {
           // allow to use ctrl + A, ctrl + C etc
           if (!domEvent.ctrlKey) {
             domEvent.preventDefault();
           }
         },
-        'change:active': ({ value }) => {
+        "change:active": ({ value }) => {
           if (value) {
             setTimeout(() => {
               this.nodes.outputCode.focus();
               this.nodes.outputCode.select();
             }, 50);
           }
-        }
+        },
       });
   }
 }

@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -13,20 +11,19 @@
 $switchLabelWidth: 37px;
 
 body {
-  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
-  background: black url('../img/bg.jpg') 0 0 no-repeat;
+  background: black url("../img/bg.jpg") 0 0 no-repeat;
   background-size: cover;
 }
 
 .window {
   margin: 80px auto;
   width: 300px;
-  background: rgba(#303030, .9);
-  border: 1px solid rgba(black, .9);
+  background: rgba(#303030, 0.9);
+  border: 1px solid rgba(black, 0.9);
   border-radius: 7px;
-  @include box-shadow(inset 0 1px rgba(white, .15),
-                      0 0 15px rgba(black, .6));
+  @include box-shadow(inset 0 1px rgba(white, 0.15), 0 0 15px rgba(black, 0.6));
 }
 
 .window-titlebar {
@@ -34,9 +31,13 @@ body {
   padding: 0 7px;
   height: 25px;
   border-radius: 7px 7px 0 0;
-  @include linear-gradient(top, rgba(white, .3), // Safari 5.0 doesn't support pixel values
-                                rgba(white, .03) 64%,
-                                rgba(white, 0) 65%);
+  @include linear-gradient(
+    top,
+    rgba(white, 0.3),
+    // Safari 5.0 doesn't support pixel values
+    rgba(white, 0.03) 64%,
+    rgba(white, 0) 65%
+  );
 }
 
 .window-titlebar-button {
@@ -45,26 +46,27 @@ body {
   margin: 9px 4px 0 4px;
   width: 14px;
   height: 14px;
-  background-color: rgba(#111, .9);
+  background-color: rgba(#111, 0.9);
   border-radius: 7px;
   @include hide-text;
-  @include radial-gradient(bottom,
-                           circle cover,
-                           rgba(white, .17),
-                           rgba(white, 0));
-  @include box-shadow(inset 0 0 3px rgba(black, .7),
-                      0 1px rgba(white, .15));
+  @include radial-gradient(
+    bottom,
+    circle cover,
+    rgba(white, 0.17),
+    rgba(white, 0)
+  );
+  @include box-shadow(inset 0 0 3px rgba(black, 0.7), 0 1px rgba(white, 0.15));
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 3px;
     left: 6px;
     width: 2px;
     height: 1px;
-    background: rgba(white, .7);
+    background: rgba(white, 0.7);
     border-radius: 2px;
-    @include box-shadow(0 0 1px white, 0 0 3px rgba(white, .18));
+    @include box-shadow(0 0 1px white, 0 0 3px rgba(white, 0.18));
   }
 }
 
@@ -72,7 +74,7 @@ body {
   padding: 0 7px;
   height: 45px;
   border-bottom: 1px solid #151515;
-  @include box-shadow(0 1px rgba(white, .05));
+  @include box-shadow(0 1px rgba(white, 0.05));
 }
 
 .window-toolbar-button {
@@ -80,22 +82,24 @@ body {
   padding: 0 10px 5px;
 
   &.active {
-    @include linear-gradient(top, rgba(black, 0), rgba(black, .25));
-    @include box-shadow(inset 0 -1px 1px rgba(black, .25));
+    @include linear-gradient(top, rgba(black, 0), rgba(black, 0.25));
+    @include box-shadow(inset 0 -1px 1px rgba(black, 0.25));
   }
 
-  &:active > a { -webkit-filter: brightness(-10%); }
+  &:active > a {
+    -webkit-filter: brightness(-10%);
+  }
 }
 
 .window-body {
   margin: 6px;
   color: #303030;
-  text-shadow: 0 1px rgba(white, .3);
+  text-shadow: 0 1px rgba(white, 0.3);
   background: #ababab;
   background-clip: content-box;
   border: 1px solid #151515;
   border-radius: 3px;
-  @include box-shadow(0 0 2px rgba(black, .4));
+  @include box-shadow(0 0 2px rgba(black, 0.4));
 }
 
 .switch-container {
@@ -106,8 +110,8 @@ body {
   @include user-select(none);
 
   & + & {
-    border-top: 1px solid rgba(black, .12);
-    @include box-shadow(inset 0 1px rgba(white, .05));
+    border-top: 1px solid rgba(black, 0.12);
+    @include box-shadow(inset 0 1px rgba(white, 0.05));
   }
 }
 
@@ -119,14 +123,10 @@ body {
   overflow: hidden;
   background: #4b4b4b;
   border: 1px solid;
-  border-color: rgba(black, .6) rgba(black, .45) rgba(black, .4);
+  border-color: rgba(black, 0.6) rgba(black, 0.45) rgba(black, 0.4);
   border-radius: 4px;
-  @include linear-gradient(top, #4b4b4b,
-                                #494949 50%,
-                                #505050 51%,
-                                #5b5b5b);
-  @include box-shadow(inset 0 1px 2px rgba(black, .3),
-                      0 1px rgba(white, .1));
+  @include linear-gradient(top, #4b4b4b, #494949 50%, #505050 51%, #5b5b5b);
+  @include box-shadow(inset 0 1px 2px rgba(black, 0.3), 0 1px rgba(white, 0.1));
 }
 
 .switch-label {
@@ -134,7 +134,7 @@ body {
   width: $switchLabelWidth;
   font-size: 12px;
   color: #fafafa;
-  text-shadow: 0 -1px rgba(black, .8);
+  text-shadow: 0 -1px rgba(black, 0.8);
   text-align: center;
   text-transform: uppercase;
 }
@@ -148,9 +148,11 @@ body {
   background: #c8c8c8;
   border-radius: 3px;
   @include linear-gradient(top, #d2d2d2, #888);
-  @include box-shadow(inset 0 1px rgba(white, .3),
-                      0 0 1px 1px rgba(black, .5));
-  @include transition(left .15s ease-out);
+  @include box-shadow(
+    inset 0 1px rgba(white, 0.3),
+    0 0 1px 1px rgba(black, 0.5)
+  );
+  @include transition(left 0.15s ease-out);
 }
 
 .switch-input {
@@ -158,16 +160,15 @@ body {
 
   &:checked + .switch {
     background: #a92488;
-    @include linear-gradient(top, #a92488,
-                                  #a52485 50%,
-                                  #bb0096 51%,
-                                  #c331a0);
+    @include linear-gradient(top, #a92488, #a52485 50%, #bb0096 51%, #c331a0);
 
-    .switch-handle { left: $switchLabelWidth + 2px; }
+    .switch-handle {
+      left: $switchLabelWidth + 2px;
+    }
   }
 }
 
-$sprite: url('../img/icons.png');
+$sprite: url("../img/icons.png");
 
 [class*="icon-"] {
   display: block;
@@ -179,5 +180,9 @@ $sprite: url('../img/icons.png');
   @include hide-text;
 }
 
-.icon-cloud { background-position: 0 0; }
-.icon-settings { background-position: -40px 0; }
+.icon-cloud {
+  background-position: 0 0;
+}
+.icon-settings {
+  background-position: -40px 0;
+}

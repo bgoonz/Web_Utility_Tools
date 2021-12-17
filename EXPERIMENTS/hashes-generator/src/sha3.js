@@ -6,7 +6,7 @@
  * @copyright Chen, Yi-Cyuan 2015-2016
  * @license MIT
  */
-(root => {
+((root) => {
   "use strict";
 
   const NODE_JS = typeof module != "undefined";
@@ -31,7 +31,7 @@
   const OUTPUT_TYPES = ["hex", "buffer", "array"];
 
   const createOutputMethod = (bits, padding, outputType) => {
-    return message => {
+    return (message) => {
       return new Keccak(bits, padding, bits).update(message)[outputType]();
     };
   };
@@ -49,7 +49,7 @@
     method.create = () => {
       return new Keccak(bits, padding, bits);
     };
-    method.update = message => {
+    method.update = (message) => {
       return method.create().update(message);
     };
     for (let i = 0; i < OUTPUT_TYPES.length; ++i) {
@@ -61,7 +61,7 @@
 
   const createShakeMethod = (bits, padding) => {
     const method = createShakeOutputMethod(bits, padding, "hex");
-    method.create = outputBits => {
+    method.create = (outputBits) => {
       return new Keccak(bits, padding, outputBits);
     };
     method.update = (message, outputBits) => {
@@ -162,9 +162,11 @@
             } else {
               code =
                 0x10000 +
-                (((code & 0x3ff) << 10) | (message.charCodeAt(++index) & 0x3ff));
+                (((code & 0x3ff) << 10) |
+                  (message.charCodeAt(++index) & 0x3ff));
               blocks[i >> 2] |= (0xf0 | (code >> 18)) << SHIFT[i++ & 3];
-              blocks[i >> 2] |= (0x80 | ((code >> 12) & 0x3f)) << SHIFT[i++ & 3];
+              blocks[i >> 2] |=
+                (0x80 | ((code >> 12) & 0x3f)) << SHIFT[i++ & 3];
               blocks[i >> 2] |= (0x80 | ((code >> 6) & 0x3f)) << SHIFT[i++ & 3];
               blocks[i >> 2] |= (0x80 | (code & 0x3f)) << SHIFT[i++ & 3];
             }
@@ -247,7 +249,8 @@
     const extraBytes = this.extraBytes;
     let i = 0;
     let j = 0;
-    let hex = "", block;
+    let hex = "",
+      block;
     while (j < outputBlocks) {
       for (i = 0; i < blockCount && j < outputBlocks; ++i, ++j) {
         block = s[i];
@@ -323,8 +326,70 @@
     return array;
   };
 
-  var f = s => {
-    let h, l, n, c0, c1, c2, c3, c4, c5, c6, c7, c8, c9, b0, b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30, b31, b32, b33, b34, b35, b36, b37, b38, b39, b40, b41, b42, b43, b44, b45, b46, b47, b48, b49;
+  var f = (s) => {
+    let h,
+      l,
+      n,
+      c0,
+      c1,
+      c2,
+      c3,
+      c4,
+      c5,
+      c6,
+      c7,
+      c8,
+      c9,
+      b0,
+      b1,
+      b2,
+      b3,
+      b4,
+      b5,
+      b6,
+      b7,
+      b8,
+      b9,
+      b10,
+      b11,
+      b12,
+      b13,
+      b14,
+      b15,
+      b16,
+      b17,
+      b18,
+      b19,
+      b20,
+      b21,
+      b22,
+      b23,
+      b24,
+      b25,
+      b26,
+      b27,
+      b28,
+      b29,
+      b30,
+      b31,
+      b32,
+      b33,
+      b34,
+      b35,
+      b36,
+      b37,
+      b38,
+      b39,
+      b40,
+      b41,
+      b42,
+      b43,
+      b44,
+      b45,
+      b46,
+      b47,
+      b48,
+      b49;
     for (n = 0; n < 48; n += 2) {
       c0 = s[0] ^ s[10] ^ s[20] ^ s[30] ^ s[40];
       c1 = s[1] ^ s[11] ^ s[21] ^ s[31] ^ s[41];

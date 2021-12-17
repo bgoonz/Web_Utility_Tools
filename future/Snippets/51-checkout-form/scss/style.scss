@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2013 Thibaut Courouble
@@ -11,7 +9,7 @@
  */
 
 body {
-  font: 13px/20px 'Lucida Grande', Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Verdana, sans-serif;
   color: #404040;
   background: #dbe0eb;
 }
@@ -24,10 +22,14 @@ body {
   border: 1px solid;
   border-color: #c2cadb #bbc5d6 #b7c0cd;
   border-radius: 7px;
-  @include box-shadow(0 1px 5px rgba(black, .15));
+  @include box-shadow(0 1px 5px rgba(black, 0.15));
 
-  > p { @include clearfix; }
-  > p + p { margin-top: 15px; }
+  > p {
+    @include clearfix;
+  }
+  > p + p {
+    margin-top: 15px;
+  }
 }
 
 .checkout-header {
@@ -41,7 +43,7 @@ body {
   font-size: 13px;
   font-weight: bold;
   color: #7f889e;
-  text-shadow: 0 1px rgba(white, .7);
+  text-shadow: 0 1px rgba(white, 0.7);
   background: #eceff5;
   border-bottom: 1px solid #c5ccdb;
   border-radius: 7px 7px 0 0;
@@ -49,13 +51,13 @@ body {
   @include box-shadow(inset 0 1px white);
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
     height: 2px;
-    @include box-shadow(0 1px 2px rgba(black, .08));
+    @include box-shadow(0 1px 2px rgba(black, 0.08));
   }
 }
 
@@ -67,7 +69,7 @@ body {
   font: 14px/40px Helvetica, Arial, sans-serif;
   color: white;
   text-align: center;
-  text-shadow: 0 -1px 1px rgba(black, .3);
+  text-shadow: 0 -1px 1px rgba(black, 0.3);
   text-indent: -1px;
   letter-spacing: -1px;
   background: #e54930;
@@ -76,11 +78,13 @@ body {
   border-radius: 21px;
   @include user-select(none);
   @include linear-gradient(top, #f75a3b, #d63b29);
-  @include box-shadow(inset 0 1px 1px rgba(white, .3),
-                      0 1px 2px rgba(black, .2));
+  @include box-shadow(
+    inset 0 1px 1px rgba(white, 0.3),
+    0 1px 2px rgba(black, 0.2)
+  );
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 3px;
     bottom: 3px;
@@ -88,9 +92,11 @@ body {
     right: 3px;
     border: 2px solid #f5f8fb;
     border-radius: 18px;
-    @include box-shadow(inset 0 1px 1px rgba(white, .2),
-                        inset 0 -1px 1px rgba(black, .25),
-                        0 -1px 1px rgba(black, .25));
+    @include box-shadow(
+      inset 0 1px 1px rgba(white, 0.2),
+      inset 0 -1px 1px rgba(black, 0.25),
+      0 -1px 1px rgba(black, 0.25)
+    );
   }
 }
 
@@ -112,21 +118,25 @@ input {
   border-color: #b3c0e2 #bcc5e2 #c0ccea;
   border-radius: 4px;
   @include linear-gradient(top, #f6f8fa, white);
-  @include box-shadow(inset 0 1px 2px rgba(black, .1),
-                      0 1px rgba(white, .5));
+  @include box-shadow(inset 0 1px 2px rgba(black, 0.1), 0 1px rgba(white, 0.5));
 
   &:focus {
     border-color: #46aefe;
     outline: none;
-    @include box-shadow(inset 0 1px 2px rgba(black, .1),
-                        0 0 5px #46aefe);
+    @include box-shadow(inset 0 1px 2px rgba(black, 0.1), 0 0 5px #46aefe);
   }
 
-  .lt-ie9 & { line-height: 30px; }
+  .lt-ie9 & {
+    line-height: 30px;
+  }
 }
 
-.checkout-name { width: 150px; }
-.checkout-card { width: 210px; }
+.checkout-name {
+  width: 150px;
+}
+.checkout-card {
+  width: 210px;
+}
 
 .checkout-exp,
 .checkout-cvc {
@@ -141,28 +151,38 @@ input {
   font-weight: bold;
   color: white;
   text-align: center;
-  text-shadow: 0 -1px 1px rgba(black, .2);
+  text-shadow: 0 -1px 1px rgba(black, 0.2);
   border: 1px solid;
   border-color: #1486f9 #0f7de9 #0d6acf;
   background: #1993fb;
   border-radius: 4px;
   @include linear-gradient(top, #4cb1fe, #229afc 40%, #138df6);
-  @include box-shadow(inset 0 1px rgba(white, .2),
-                      0 1px 2px rgba(black, .2));
+  @include box-shadow(inset 0 1px rgba(white, 0.2), 0 1px 2px rgba(black, 0.2));
 
   &:active {
-    text-shadow: 0 1px 1px rgba(black, .2);
+    text-shadow: 0 1px 1px rgba(black, 0.2);
     border-color: #075bba #0c69d2 #0f7de9;
     @include linear-gradient(top, #1281dc, #1593fc);
-    @include box-shadow(inset 0 1px 4px rgba(black, .1),
-                        0 1px rgba(white, .5));
+    @include box-shadow(
+      inset 0 1px 4px rgba(black, 0.1),
+      0 1px rgba(white, 0.5)
+    );
   }
 }
 
-:-moz-placeholder { color: #acb6c8 !important; }
-::-moz-placeholder { color: #acb6c8 !important; opacity: 1; }
-::-webkit-input-placeholder { color: #acb6c8; }
-:-ms-input-placeholder { color: #acb6c8; }
+:-moz-placeholder {
+  color: #acb6c8 !important;
+}
+::-moz-placeholder {
+  color: #acb6c8 !important;
+  opacity: 1;
+}
+::-webkit-input-placeholder {
+  color: #acb6c8;
+}
+:-ms-input-placeholder {
+  color: #acb6c8;
+}
 
 ::-moz-focus-inner {
   padding: 0 !important;

@@ -1,18 +1,18 @@
-import Tab from '../tab';
-import validate from '../../util/validate';
+import Tab from "../tab";
+import validate from "../../util/validate";
 
 export default class CopyPaste extends Tab {
   constructor(...args) {
     super(...args)
       .set({
-        active: true
+        active: true,
       })
       .bindNode({
         form: ':sandbox form[name="copyPasteForm"]',
-        code: ':bound(form) [name="code"]'
+        code: ':bound(form) [name="code"]',
       })
       .on({
-        'submit::form': async (evt) => {
+        "submit::form": async (evt) => {
           evt.preventDefault();
 
           const { code } = this;
@@ -21,13 +21,13 @@ export default class CopyPaste extends Tab {
           if (!isValid) {
             this.error = error;
           } else {
-            this.error = '';
-            this.trigger('submitCode', code);
+            this.error = "";
+            this.trigger("submitCode", code);
           }
         },
-        'change:code': () => {
-          this.error = '';
-        }
+        "change:code": () => {
+          this.error = "";
+        },
       });
   }
 }

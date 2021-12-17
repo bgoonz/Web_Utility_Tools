@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -11,7 +9,7 @@
  */
 
 body {
-  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #93cedf;
 }
@@ -37,11 +35,12 @@ body {
   border: 1px solid;
   border-color: white #f7f7f7 #f5f5f5;
   border-radius: 3px;
-  @include linear-gradient(top, transparent, rgba(black, .06));
-  @include box-shadow(0 1px 1px rgba(black, .08));
+  @include linear-gradient(top, transparent, rgba(black, 0.06));
+  @include box-shadow(0 1px 1px rgba(black, 0.08));
 
-  &:before, &:after {
-    content: '';
+  &:before,
+  &:after {
+    content: "";
     position: absolute;
     z-index: 2;
     top: 9px;
@@ -104,22 +103,36 @@ body {
 
 /* Fix for IE 8 putting the arrows behind the select element. */
 .lt-ie9 {
-  .dropdown { z-index: 1; }
-  .dropdown-select { z-index: -1; }
-  .dropdown-select:focus { z-index: 3; }
+  .dropdown {
+    z-index: 1;
+  }
+  .dropdown-select {
+    z-index: -1;
+  }
+  .dropdown-select:focus {
+    z-index: 3;
+  }
 }
 
 /* Dirty fix for Firefox adding padding where it shouldn't. */
-@-moz-document url-prefix() { .dropdown-select { padding-left: 6px; } }
+@-moz-document url-prefix() {
+  .dropdown-select {
+    padding-left: 6px;
+  }
+}
 
 .dropdown-dark {
   background: #444;
   border-color: #111 #0a0a0a black;
-  @include linear-gradient(top, transparent, rgba(black, .4));
-  @include box-shadow(inset 0 1px rgba(white, .1), 0 1px 1px rgba(black, .2));
+  @include linear-gradient(top, transparent, rgba(black, 0.4));
+  @include box-shadow(inset 0 1px rgba(white, 0.1), 0 1px 1px rgba(black, 0.2));
 
-  &:before { border-bottom-color: #aaa; }
-  &:after { border-top-color: #aaa; }
+  &:before {
+    border-bottom-color: #aaa;
+  }
+  &:after {
+    border-top-color: #aaa;
+  }
 
   .dropdown-select {
     color: #aaa;
@@ -127,11 +140,13 @@ body {
     /* Fallback for IE 8 */
     background: #444;
 
-    &:focus { color: #ccc; }
+    &:focus {
+      color: #ccc;
+    }
 
     > option {
       background: #444;
-      text-shadow: 0 1px rgba(black, .4);
+      text-shadow: 0 1px rgba(black, 0.4);
     }
   }
 }

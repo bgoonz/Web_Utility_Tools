@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-light';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-light";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -13,10 +11,12 @@
 $inputHeight: 40px;
 $labelWidth: 100px;
 
-%bg { background: #373737 url('../img/bg.png') 0 0 repeat; }
+%bg {
+  background: #373737 url("../img/bg.png") 0 0 repeat;
+}
 
 body {
-  font: 14px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 14px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #404040;
   @extend %bg;
 }
@@ -25,7 +25,9 @@ a {
   color: #00a1d2;
   text-decoration: none;
 
-  &:hover { text-decoration: underline; }
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .login {
@@ -35,33 +37,40 @@ a {
   padding-right: 32px;
   font-weight: 300;
   color: #a8a7a8;
-  text-shadow: 1px 1px 0 rgba(black, .8);
+  text-shadow: 1px 1px 0 rgba(black, 0.8);
 
-  p { margin: 0 0 10px; }
+  p {
+    margin: 0 0 10px;
+  }
 }
 
-input, button, label {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+input,
+button,
+label {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   font-weight: 300;
   @include box-sizing(border-box);
 }
 
-input[type=text], input[type=password] {
+input[type="text"],
+input[type="password"] {
   padding: 0 10px;
   width: 300px;
   height: $inputHeight;
   color: #bbb;
   text-shadow: 1px 1px 1px black;
-  background: rgba(black, .16);
+  background: rgba(black, 0.16);
   border: 0;
   border-radius: 5px;
-  @include box-shadow(inset 0 1px 4px rgba(black, .3),
-                      0 1px rgba(white, .06));
+  @include box-shadow(
+    inset 0 1px 4px rgba(black, 0.3),
+    0 1px rgba(white, 0.06)
+  );
 
   &:focus {
     color: white;
-    background: rgba(black, .10);
+    background: rgba(black, 0.1);
     outline: 0;
   }
 }
@@ -91,11 +100,12 @@ label {
   height: 48px;
   padding: 8px;
   border-radius: 32px;
-  @include box-shadow(0 0 4px rgba(black, .35));
+  @include box-shadow(0 0 4px rgba(black, 0.35));
   @extend %bg;
 
-  &:before, &:after {
-    content: '';
+  &:before,
+  &:after {
+    content: "";
     z-index: 1;
     position: absolute;
     @extend %bg;
@@ -106,7 +116,7 @@ label {
     left: -4px;
     width: 4px;
     height: 10px;
-    @include box-shadow(inset 0 1px rgba(white, .06));
+    @include box-shadow(inset 0 1px rgba(white, 0.06));
   }
 
   &:after {
@@ -130,14 +140,13 @@ label {
   border: 0;
   border-radius: 24px;
   cursor: pointer;
-  @include box-shadow(inset 0 1px 1px rgba(black, .2),
-                      0 1px rgba(white, .1));
+  @include box-shadow(inset 0 1px 1px rgba(black, 0.2), 0 1px rgba(white, 0.1));
 
   /* Must use another pseudo element for the gradient background because Webkit */
   /* clips the background incorrectly inside elements with a border-radius.     */
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 5px;
     bottom: 5px;
@@ -146,8 +155,7 @@ label {
     background: #00a2d3;
     border-radius: 24px;
     @include linear-gradient(top, #00a2d3, #0d7796);
-    @include box-shadow(inset 0 0 0 1px #00a2d3,
-                        0 0 0 5px rgba(black, .16));
+    @include box-shadow(inset 0 0 0 1px #00a2d3, 0 0 0 5px rgba(black, 0.16));
   }
 
   &:active:before {
@@ -156,21 +164,24 @@ label {
   }
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 15px;
     left: 12px;
     width: 25px;
     height: 19px;
-    background: url('../img/arrow.png') 0 0 no-repeat;
-
+    background: url("../img/arrow.png") 0 0 no-repeat;
   }
 }
 
-::-moz-focus-inner { border: 0; padding: 0; }
+::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
 
 .lt-ie9 {
-  input[type=text], input[type=password] {
+  input[type="text"],
+  input[type="password"] {
     line-height: $inputHeight;
     background: #282828;
   }
@@ -181,10 +192,17 @@ label {
     right: -28px;
     padding: 4px;
 
-    &:before, &:after { display: none; }
+    &:before,
+    &:after {
+      display: none;
+    }
   }
 
-  .login-button { line-height: 48px; }
+  .login-button {
+    line-height: 48px;
+  }
 
-  .about { background: #313131; }
+  .about {
+    background: #313131;
+  }
 }

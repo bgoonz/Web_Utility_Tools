@@ -1,3 +1,3 @@
-const { isDevelopment } = require('./env');
+const { isDevelopment } = require("./env");
 
-module.exports = isDevelopment ? 'cheap-source-map' : 'source-map';
+module.exports = isDevelopment ? "cheap-source-map" : "source-map";

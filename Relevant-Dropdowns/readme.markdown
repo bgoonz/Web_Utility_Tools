@@ -7,12 +7,13 @@ Datalist browser support (Dec 2011) is Firefox 4+, Opera 10.6+, and IE 10. It's 
 ### Example HTML5 Markup
 
 ```html
-<input type="search" list="states" placeholder="Find U.S. State">
+<input type="search" list="states" placeholder="Find U.S. State" />
 
 <datalist id="states">
-	<option value="Alabama">
-	<option value="Alaska">
-  <!-- all states -->
+  <option value="Alabama"></option>
+  <option value="Alaska">
+    <!-- all states -->
+  </option>
 </datalist>
 ```
 
@@ -27,26 +28,23 @@ Datalist browser support (Dec 2011) is Firefox 4+, Opera 10.6+, and IE 10. It's 
 
 ```html
 <script>
-	yepnope({
-	  test : (!Modernizr.input.list || (parseInt($.browser.version) > 400)),
-	  yep : [
-	      'js/jquery.relevant-dropdown.js',
-	      'js/load-fallbacks.js'
-	  ]
-	});
+  yepnope({
+    test: !Modernizr.input.list || parseInt($.browser.version) > 400,
+    yep: ["js/jquery.relevant-dropdown.js", "js/load-fallbacks.js"],
+  });
 </script>
 ```
 
 load-fallbacks.js calls the plugin. Example contents:
 
 ```js
-$('#search').relevantDropdown();
+$("#search").relevantDropdown();
 
-$('#name').relevantDropdown({
+$("#name").relevantDropdown({
   fadeOutSpeed: 0, // optional, default: 'normal;
-	change: function(new_text) {
-      console.log('the new value is: ', new_text);
-  }
+  change: function (new_text) {
+    console.log("the new value is: ", new_text);
+  },
 });
 ```
 

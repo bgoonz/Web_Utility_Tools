@@ -1,13 +1,13 @@
-import { useECMAScriptNext } from './use-ecmascript-next';
-import UglifyJS from './uglify-js-browser';
-import babelTransform from './babelTransform';
+import { useECMAScriptNext } from "./use-ecmascript-next";
+import UglifyJS from "./uglify-js-browser";
+import babelTransform from "./babelTransform";
 
 function uglifyValidate(code) {
   const { error: resultError } = UglifyJS.minify(code);
 
   if (resultError) {
-    const { line, col, message = 'Unknown error' } = resultError;
-    let info = '';
+    const { line, col, message = "Unknown error" } = resultError;
+    let info = "";
 
     if (line || col) {
       info = ` (line: ${line}, col: ${col})`;
@@ -15,13 +15,13 @@ function uglifyValidate(code) {
 
     return {
       isValid: false,
-      error: message + info
+      error: message + info,
     };
   }
 
   return {
     isValid: true,
-    error: null
+    error: null,
   };
 }
 
@@ -31,7 +31,7 @@ async function babelValidate(code) {
   } catch (e) {
     return {
       isValid: false,
-      error: `${e}`
+      error: `${e}`,
     };
   }
 
@@ -39,10 +39,10 @@ async function babelValidate(code) {
 }
 
 export default function validate(code) {
-  if (code === '') {
+  if (code === "") {
     return {
       isValid: false,
-      error: 'Empty string is not valid code'
+      error: "Empty string is not valid code",
     };
   }
 

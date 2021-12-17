@@ -1,16 +1,84 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -19,8 +87,17 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -28,17 +105,21 @@ body {
   line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
   content: none;
 }
 
@@ -51,19 +132,37 @@ table {
   margin: 70px auto 40px;
   padding: 8px;
   width: 260px;
-  font: 10px/18px 'Lucida Grande', Arial, sans-serif;
+  font: 10px/18px "Lucida Grande", Arial, sans-serif;
   color: #666;
   text-align: center;
   text-shadow: 0 1px rgba(255, 255, 255, 0.25);
   background: #eee;
   background: rgba(250, 250, 250, 0.8);
   border-radius: 4px;
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1));
-  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
+  background-image: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.1)
+  );
+  background-image: -moz-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.1)
+  );
+  background-image: -o-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.1)
+  );
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.1)
+  );
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1), 0 0 6px rgba(0, 0, 0, 0.2);
 }
 .about a {
   color: #333;
@@ -105,12 +204,15 @@ table {
  * Licensed under the MIT License:
  * http://www.opensource.org/licenses/mit-license.php
  */
-body, .login-submit, .login-submit:before, .login-submit:after {
+body,
+.login-submit,
+.login-submit:before,
+.login-submit:after {
   background: #373737 url("../img/bg.png") 0 0 repeat;
 }
 
 body {
-  font: 14px/20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font: 14px/20px "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #404040;
 }
 
@@ -135,8 +237,10 @@ a:hover {
   margin: 0 0 10px;
 }
 
-input, button, label {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+input,
+button,
+label {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   font-weight: 300;
   -webkit-box-sizing: border-box;
@@ -144,7 +248,8 @@ input, button, label {
   box-sizing: border-box;
 }
 
-input[type=text], input[type=password] {
+input[type="text"],
+input[type="password"] {
   padding: 0 10px;
   width: 300px;
   height: 40px;
@@ -153,10 +258,13 @@ input[type=text], input[type=password] {
   background: rgba(0, 0, 0, 0.16);
   border: 0;
   border-radius: 5px;
-  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);
-  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.06);
+  -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.3),
+    0 1px rgba(255, 255, 255, 0.06);
 }
-input[type=text]:focus, input[type=password]:focus {
+input[type="text"]:focus,
+input[type="password"]:focus {
   color: white;
   background: rgba(0, 0, 0, 0.1);
   outline: 0;
@@ -190,8 +298,9 @@ label {
   -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.35);
 }
-.login-submit:before, .login-submit:after {
-  content: '';
+.login-submit:before,
+.login-submit:after {
+  content: "";
   z-index: 1;
   position: absolute;
 }
@@ -224,13 +333,14 @@ label {
   border: 0;
   border-radius: 24px;
   cursor: pointer;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2),
+    0 1px rgba(255, 255, 255, 0.1);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2), 0 1px rgba(255, 255, 255, 0.1);
   /* Must use another pseudo element for the gradient background because Webkit */
   /* clips the background incorrectly inside elements with a border-radius.     */
 }
 .login-button:before {
-  content: '';
+  content: "";
   position: absolute;
   top: 5px;
   bottom: 5px;
@@ -253,7 +363,7 @@ label {
   background-image: linear-gradient(to bottom, #0591ba, #00a2d3);
 }
 .login-button:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 15px;
   left: 12px;
@@ -267,7 +377,8 @@ label {
   padding: 0;
 }
 
-.lt-ie9 input[type=text], .lt-ie9 input[type=password] {
+.lt-ie9 input[type="text"],
+.lt-ie9 input[type="password"] {
   line-height: 40px;
   background: #282828;
 }
@@ -277,7 +388,8 @@ label {
   right: -28px;
   padding: 4px;
 }
-.lt-ie9 .login-submit:before, .lt-ie9 .login-submit:after {
+.lt-ie9 .login-submit:before,
+.lt-ie9 .login-submit:after {
   display: none;
 }
 .lt-ie9 .login-button {

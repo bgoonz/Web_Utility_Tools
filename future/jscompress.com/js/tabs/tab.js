@@ -1,28 +1,31 @@
-import SeempleObject from 'seemple/object';
-import { className } from 'seemple/binders';
+import SeempleObject from "seemple/object";
+import { className } from "seemple/binders";
 
 export default class Tab extends SeempleObject {
   constructor(data = {}, parent, name) {
     super(data)
       .set({
-        active: false
+        active: false,
       })
       .bindNode({
         sandbox: `#${name}`,
         navItem: `.tab-nav-item[data-tab="${name}"]`,
-        active: [{
-          node: ':sandbox',
-          binder: className('hide', false)
-        }, {
-          node: ':bound(navItem)',
-          binder: className('active')
-        }]
+        active: [
+          {
+            node: ":sandbox",
+            binder: className("hide", false),
+          },
+          {
+            node: ":bound(navItem)",
+            binder: className("active"),
+          },
+        ],
       })
-      .bindOptionalNode('error', ':sandbox .error')
+      .bindOptionalNode("error", ":sandbox .error")
       .on({
-        'click::navItem': () => {
+        "click::navItem": () => {
           this.active = true;
-        }
+        },
       });
   }
 }

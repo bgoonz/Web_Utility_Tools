@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-light';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-light";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -11,7 +9,7 @@
  */
 
 body {
-  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #0ca3d2;
 }
@@ -20,7 +18,9 @@ body {
   margin: 50px auto;
   width: 640px;
 
-  .popover { margin: 0 auto; }
+  .popover {
+    margin: 0 auto;
+  }
 }
 
 .popover {
@@ -31,14 +31,18 @@ body {
   border: 1px solid black;
   border-radius: 11px;
   @include linear-gradient(top, #606060, #4a4a4a);
-  @include box-shadow(inset 0 1px rgba(white, .1),
-                      inset 0 1px 1px rgba(white, .2),
-                      inset 1px 0 rgba(white, .08),
-                      inset -1px 0 rgba(white, .08),
-                      0 2px 8px rgba(black, .5));
+  @include box-shadow(
+    inset 0 1px rgba(white, 0.1),
+    inset 0 1px 1px rgba(white, 0.2),
+    inset 1px 0 rgba(white, 0.08),
+    inset -1px 0 rgba(white, 0.08),
+    0 2px 8px rgba(black, 0.5)
+  );
 
-  &:before, &:after, ul:before {
-    content: '';
+  &:before,
+  &:after,
+  ul:before {
+    content: "";
     display: block;
     position: absolute;
     left: 22px;
@@ -68,18 +72,26 @@ body {
     background: white;
     border: 1px solid black;
     border-radius: 7px;
-    @include box-shadow(inset 0 1px 2px rgba(black, .4),
-                        0 1px 1px rgba(white, .1),
-                        0 1px rgba(white, .1));
+    @include box-shadow(
+      inset 0 1px 2px rgba(black, 0.4),
+      0 1px 1px rgba(white, 0.1),
+      0 1px rgba(white, 0.1)
+    );
   }
 
   li {
     display: block;
 
-    + li { border-top: 1px solid #eee; }
+    + li {
+      border-top: 1px solid #eee;
+    }
 
-    &:first-child a { border-radius: 7px 7px 0 0; }
-    &:last-child a { border-radius: 0 0 7px 7px; }
+    &:first-child a {
+      border-radius: 7px 7px 0 0;
+    }
+    &:last-child a {
+      border-radius: 0 0 7px 7px;
+    }
   }
 
   a {
@@ -94,17 +106,19 @@ body {
 
     &:hover {
       background: white;
-      @include box-shadow(0 0 4px rgba(black, .3));
+      @include box-shadow(0 0 4px rgba(black, 0.3));
     }
 
-    &:before, &:after {
-      content: '';
+    &:before,
+    &:after {
+      content: "";
       display: block;
       position: absolute;
     }
   }
 
-  a:before, .active a:active:before {
+  a:before,
+  .active a:active:before {
     top: 12px;
     left: 14px;
     height: 20px;
@@ -112,26 +126,37 @@ body {
     background: #f7f7f7;
     border: 0;
     border-radius: 11px;
-    @include box-shadow(inset 0 1px 1px 1px rgba(black, .2), inset 0 5px 5px rgba(black, .1));
+    @include box-shadow(
+      inset 0 1px 1px 1px rgba(black, 0.2),
+      inset 0 5px 5px rgba(black, 0.1)
+    );
   }
 
-  a:after, .active a:active:after {
+  a:after,
+  .active a:active:after {
     display: none;
     top: 18px;
     left: 19px;
     width: 11px;
     height: 9px;
-    background: url('../img/tick.png') center center no-repeat;
+    background: url("../img/tick.png") center center no-repeat;
   }
 
-  .active a:before, a:active:before {
+  .active a:before,
+  a:active:before {
     top: 11px;
     left: 13px;
     background: #555;
     border: 1px solid #111;
     @include linear-gradient(top, #777, #404040);
-    @include box-shadow(inset 0 1px rgba(white, .3), 0 1px 2px rgba(black, .4));
+    @include box-shadow(
+      inset 0 1px rgba(white, 0.3),
+      0 1px 2px rgba(black, 0.4)
+    );
   }
 
-  .active a:after, a:active:after { display: block; }
+  .active a:after,
+  a:active:after {
+    display: block;
+  }
 }

@@ -1,9 +1,9 @@
 module.exports = {
-  extends: ['airbnb-base'],
+  extends: ["airbnb-base"],
   rules: {
-    'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
-    'no-param-reassign': ['error', { props: false }],
-    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    "import/no-extraneous-dependencies": ["error", { devDependencies: true }],
+    "no-param-reassign": ["error", { props: false }],
+    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
   },
   env: {
     browser: true,

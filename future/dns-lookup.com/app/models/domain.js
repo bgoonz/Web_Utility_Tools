@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const schema = new mongoose.Schema({
   name: String,
@@ -6,4 +6,4 @@ const schema = new mongoose.Schema({
   records: Array,
 });
 
-module.exports = mongoose.model('Domain', schema);
+module.exports = mongoose.model("Domain", schema);

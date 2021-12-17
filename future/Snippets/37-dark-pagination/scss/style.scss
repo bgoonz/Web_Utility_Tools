@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-light';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-light";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -11,7 +9,7 @@
  */
 
 body {
-  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #26272c;
 }
@@ -21,7 +19,9 @@ body {
   width: 400px;
   text-align: center;
 
-  .pagination { margin: 15px 0; }
+  .pagination {
+    margin: 15px 0;
+  }
 }
 
 .pagination {
@@ -29,19 +29,20 @@ body {
   background-clip: padding-box;
   border: 1px solid;
   border-color: #070809 #0d0e0f #131517;
-  border-color: rgba(black, .8) rgba(black, .65) rgba(black, .5);
+  border-color: rgba(black, 0.8) rgba(black, 0.65) rgba(black, 0.5);
   border-radius: 3px;
   @include inline-block;
-  @include linear-gradient(top, rgba(black, .12), rgba(black, 0));
-  @include box-shadow(0 1px rgba(white, .05));
+  @include linear-gradient(top, rgba(black, 0.12), rgba(black, 0));
+  @include box-shadow(0 1px rgba(white, 0.05));
 
-  > a, > span {
+  > a,
+  > span {
     float: left;
     margin-left: 5px;
     padding: 0 6px;
     min-width: 17px;
     line-height: 27px;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 12px;
     font-weight: 500;
     color: #d4d4d4;
@@ -51,45 +52,57 @@ body {
     border-radius: 3px;
   }
 
-  :first-child { margin-left: 0; }
+  :first-child {
+    margin-left: 0;
+  }
 
   > a {
     text-decoration: none;
     text-shadow: 0 1px black;
     background-clip: padding-box;
-    border-color: rgba(black, .9);
-    @include linear-gradient(top, rgba(white, .04), rgba(white, 0));
-    @include box-shadow(inset 0 0 0 1px rgba(white, .04),
-                        inset 0 1px rgba(white, .04),
-                        inset 0 -1px rgba(black, .15),
-                        0 1px 1px rgba(black, .1));
-    @include transition(.1s ease-out);
+    border-color: rgba(black, 0.9);
+    @include linear-gradient(top, rgba(white, 0.04), rgba(white, 0));
+    @include box-shadow(
+      inset 0 0 0 1px rgba(white, 0.04),
+      inset 0 1px rgba(white, 0.04),
+      inset 0 -1px rgba(black, 0.15),
+      0 1px 1px rgba(black, 0.1)
+    );
+    @include transition(0.1s ease-out);
 
     &:hover {
       background-color: #333;
-      background-color: rgba(white, .05);
+      background-color: rgba(white, 0.05);
     }
   }
 
-  > span, > a:active {
+  > span,
+  > a:active {
     color: #eee;
     text-shadow: 0 -1px black;
     background: #1c1c1c;
-    background: rgba(white, .01);
-    border-color: black rgba(black, .65) rgba(black, .6);
-    @include box-shadow(inset 0 1px rgba(black, .05),
-                        inset 0 2px 2px rgba(black, .3),
-                        0 1px rgba(white, .06));
+    background: rgba(white, 0.01);
+    border-color: black rgba(black, 0.65) rgba(black, 0.6);
+    @include box-shadow(
+      inset 0 1px rgba(black, 0.05),
+      inset 0 2px 2px rgba(black, 0.3),
+      0 1px rgba(white, 0.06)
+    );
   }
 
-  .prev, .next {
+  .prev,
+  .next {
     font-family: Noteworthy, Arial, sans-serif;
     font-size: 14px;
   }
 }
 
 .pagination-blue {
-  background-color: rgba(0, 5, 50, .1);
-  > a { background-color: rgba(170, 170, 255, .01); }
-  > a.hover { background-color: rgba(120, 130, 255, .08); }
+  background-color: rgba(0, 5, 50, 0.1);
+  > a {
+    background-color: rgba(170, 170, 255, 0.01);
+  }
+  > a.hover {
+    background-color: rgba(120, 130, 255, 0.08);
+  }
 }

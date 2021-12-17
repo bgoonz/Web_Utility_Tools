@@ -1,4 +1,4 @@
-const equal = require('deep-equal');
+const equal = require("deep-equal");
 
 module.exports = (records1, records2) => {
   if (equal(records1, records2)) {

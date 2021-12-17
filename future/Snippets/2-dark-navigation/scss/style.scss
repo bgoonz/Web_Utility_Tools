@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -15,7 +13,7 @@ $navHeight: 36px;
 $navBackgroundColor: #464b4c;
 
 body {
-  font: 13px/18px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/18px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #ecedef;
 }
@@ -27,7 +25,7 @@ body {
 
 header {
   padding-top: 100px;
-  background: #3d4144 url('../img/bg.png') 0 0 repeat;
+  background: #3d4144 url("../img/bg.png") 0 0 repeat;
   border-bottom: 5px solid #ddd;
 }
 
@@ -36,23 +34,29 @@ nav {
   background: $navBackgroundColor;
   border-top: 1px solid darken($navBackgroundColor, 7%);
   border-bottom: 1px solid darken($navBackgroundColor, 10%);
-  @include linear-gradient(top, $navBackgroundColor, darken($navBackgroundColor, 3%));
-  @include box-shadow(inset 0 1px rgba(white, .06));
+  @include linear-gradient(
+    top,
+    $navBackgroundColor,
+    darken($navBackgroundColor, 3%)
+  );
+  @include box-shadow(inset 0 1px rgba(white, 0.06));
 
   a {
-    @include transition(.1s ease-out);
+    @include transition(0.1s ease-out);
     @include transition-property(background-color, line-height);
   }
 
   ul {
     float: left;
     border-left: 1px solid darken($navBackgroundColor, 7%);
-    border-left: 1px solid rgba(black, .20);
+    border-left: 1px solid rgba(black, 0.2);
     border-right: 1px solid lighten($navBackgroundColor, 3%);
-    border-right: 1px solid rgba(white, .06);
+    border-right: 1px solid rgba(white, 0.06);
   }
 
-  li { float: left; }
+  li {
+    float: left;
+  }
 
   a {
     display: block;
@@ -62,18 +66,20 @@ nav {
     text-decoration: none;
     text-shadow: 0 -1px darken($navBackgroundColor, 10%);
     border-left: 1px solid lighten($navBackgroundColor, 3%);
-    border-left: 1px solid rgba(white, .06);
+    border-left: 1px solid rgba(white, 0.06);
     border-right: 1px solid darken($navBackgroundColor, 7%);
-    border-right: 1px solid rgba(black, .20);
+    border-right: 1px solid rgba(black, 0.2);
     cursor: pointer;
 
     &:hover {
       background: lighten($navBackgroundColor, 3%);
-      background: rgba(white, .05);
+      background: rgba(white, 0.05);
     }
   }
 
-  li.active a, li.active a:hover, a:active {
+  li.active a,
+  li.active a:hover,
+  a:active {
     padding: 0 21px;
     line-height: $navHeight - 3px;
     color: #eee;
@@ -81,12 +87,31 @@ nav {
     border-left: 0;
     border-right: 0;
     border-bottom: 3px solid #48a9c0;
-    @include linear-gradient(top, lighten($navBackgroundColor, 1%), darken($navBackgroundColor, 8%));
-    @include box-shadow(inset 0 -1px darken($navBackgroundColor, 20%), inset 0 -1px 8px rgba(black, .2));
+    @include linear-gradient(
+      top,
+      lighten($navBackgroundColor, 1%),
+      darken($navBackgroundColor, 8%)
+    );
+    @include box-shadow(
+      inset 0 -1px darken($navBackgroundColor, 20%),
+      inset 0 -1px 8px rgba(black, 0.2)
+    );
   }
 
-  li.green a, li.green a:active { border-bottom-color: #56c93d; }
-  li.red a, li.red a:active { border-bottom-color: #a54e49; }
-  li.purple a, li.purple a:active { border-bottom-color: #c052b9; }
-  li.yellow a, li.yellow a:active { border-bottom-color: #c0bb30; }
+  li.green a,
+  li.green a:active {
+    border-bottom-color: #56c93d;
+  }
+  li.red a,
+  li.red a:active {
+    border-bottom-color: #a54e49;
+  }
+  li.purple a,
+  li.purple a:active {
+    border-bottom-color: #c052b9;
+  }
+  li.yellow a,
+  li.yellow a:active {
+    border-bottom-color: #c0bb30;
+  }
 }

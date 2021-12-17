@@ -1,7 +1,6 @@
-License (MIT)
-=============
+# License (MIT)
 
-__Rack::Cache__ is Copyright &copy; 2008
+**Rack::Cache** is Copyright &copy; 2008
 by [Ryan Tomayko](http://tomayko.com/about)
 
 <pre class='license'>

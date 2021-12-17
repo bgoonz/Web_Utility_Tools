@@ -1,7 +1,4 @@
-import createElement from './createelement';
-import attrHook from './attrhook';
+import createElement from "./createelement";
+import attrHook from "./attrhook";
 
-export {
-    createElement,
-    attrHook
-};
+export { createElement, attrHook };

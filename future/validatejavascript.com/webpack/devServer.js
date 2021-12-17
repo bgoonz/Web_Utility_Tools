@@ -1,13 +1,13 @@
-const { port, devPort } = require('./env');
+const { port, devPort } = require("./env");
 
 module.exports = {
-  publicPath: '/',
+  publicPath: "/",
   hot: true,
   inline: true,
-  stats: 'normal',
+  stats: "normal",
   port: devPort,
   proxy: {
-    '/api/*': `http://localhost:${port}`,
+    "/api/*": `http://localhost:${port}`,
   },
   open: true,
 };

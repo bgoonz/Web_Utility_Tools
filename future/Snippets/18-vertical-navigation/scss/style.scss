@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-light';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-light";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -11,16 +9,18 @@
  */
 
 body {
-  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
-  background: #30353b url('../img/bg.png') 0 0 repeat;
+  background: #30353b url("../img/bg.png") 0 0 repeat;
 }
 
 .container {
   margin: 80px auto;
   width: 640px;
 
-  .vnav { margin: 0 auto; }
+  .vnav {
+    margin: 0 auto;
+  }
 }
 
 .vnav {
@@ -28,7 +28,7 @@ body {
   overflow: hidden;
   background: white;
   border: 1px solid #1d1f22;
-  @include box-shadow(0 1px 2px rgba(black, .4));
+  @include box-shadow(0 1px 2px rgba(black, 0.4));
 
   a {
     display: block;
@@ -37,8 +37,12 @@ body {
   }
 
   li:last-child {
-    .vnav-item { border-bottom-color: #50575f; }
-    .vnav-subnav { border-bottom-color: white; }
+    .vnav-item {
+      border-bottom-color: #50575f;
+    }
+    .vnav-subnav {
+      border-bottom-color: white;
+    }
   }
 }
 
@@ -47,16 +51,19 @@ body {
   padding: 0 12px 0 37px;
   font-size: 13px;
   color: white;
-  text-shadow: 0 1px rgba(black, .35);
+  text-shadow: 0 1px rgba(black, 0.35);
   background: #505968;
   border-top: 1px solid #878e96;
   border-bottom: 1px solid #333740;
   @include linear-gradient(top, #707a84, #505968);
-  @include transition(opacity .15s);
+  @include transition(opacity 0.15s);
 
-  &:hover { opacity: .95; }
+  &:hover {
+    opacity: 0.95;
+  }
 
-  .active &, &:active {
+  .active &,
+  &:active {
     opacity: 1;
     background: #259bdb;
     border-top-color: #6ad2ef;
@@ -64,7 +71,9 @@ body {
     @include box-shadow(0 1px #bbb, 0 2px #e9ebe8);
     @include linear-gradient(top, #44c5ec, #259bdb);
 
-    .vnav-counter { background: #2471a9; }
+    .vnav-counter {
+      background: #2471a9;
+    }
   }
 
   i {
@@ -82,15 +91,16 @@ body {
   font-size: 11px;
   background: #464e59;
   border-radius: 9px;
-  @include box-shadow(inset 0 1px 2px rgba(black, .3),
-                      0 1px rgba(white, .2))
+  @include box-shadow(inset 0 1px 2px rgba(black, 0.3), 0 1px rgba(white, 0.2));
 }
 
 .vnav-subnav {
   display: none;
   border-bottom: 1px solid #404348;
 
-  .active & { display: block; }
+  .active & {
+    display: block;
+  }
 
   a {
     padding: 0 12px 0 16px;
@@ -99,7 +109,7 @@ body {
     border-bottom: 1px solid #eee;
 
     &:before {
-      content: '';
+      content: "";
       display: inline-block;
       width: 0;
       height: 0;
@@ -108,7 +118,9 @@ body {
       border-left: 4px solid #bbb;
     }
 
-    &:hover { background: #f8f9fb; }
+    &:hover {
+      background: #f8f9fb;
+    }
   }
 
   .vnav-counter {
@@ -117,23 +129,25 @@ body {
     @include box-shadow(inset 0 0 0 1px #dcdcdc);
   }
 
-  li:last-child a { border-bottom-color: white; }
+  li:last-child a {
+    border-bottom-color: white;
+  }
 }
 
-$icons: ('friends', 0 0),
-        ('video', -20px 0),
-        ('photo', -40px 0),
-        ('podcast', -60px 0);
+$icons: ("friends", 0 0), ("video", -20px 0), ("photo", -40px 0),
+  ("podcast", -60px 0);
 
 [class*="icon-"] {
   display: block;
   width: 20px;
   height: 20px;
-  background-image: url('../img/icons.png');
+  background-image: url("../img/icons.png");
   background-repeat: no-repeat;
   @include hide-text;
 }
 
 @each $pair in $icons {
-  .icon-#{nth($pair, 1)} { background-position: nth($pair, 2); }
+  .icon-#{nth($pair, 1)} {
+    background-position: nth($pair, 2);
+  }
 }

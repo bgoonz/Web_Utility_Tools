@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2013 Thibaut Courouble
@@ -11,7 +9,7 @@
  */
 
 body {
-  font: 13px/20px 'Lucida Grande', Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Verdana, sans-serif;
   color: #404040;
   background: white;
 }
@@ -21,7 +19,9 @@ body {
   width: 580px;
   text-align: center;
 
-  > .button { margin: 12px; }
+  > .button {
+    margin: 12px;
+  }
 }
 
 .button {
@@ -35,40 +35,62 @@ body {
   color: white;
   text-align: center;
   text-decoration: none;
-  text-shadow: 0 -1px rgba(black, .4);
+  text-shadow: 0 -1px rgba(black, 0.4);
   background-clip: padding-box;
   border: 1px solid;
   border-radius: 2px;
   cursor: pointer;
-  @include box-shadow(inset 0 1px rgba(white, .1),
-                      inset 0 0 0 1px rgba(white, .08),
-                      0 1px 2px rgba(black, .25));
+  @include box-shadow(
+    inset 0 1px rgba(white, 0.1),
+    inset 0 0 0 1px rgba(white, 0.08),
+    0 1px 2px rgba(black, 0.25)
+  );
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     pointer-events: none;
-    @include radial-gradient(center top, farthest-corner, rgba(white, .08), rgba(white, 0));
+    @include radial-gradient(
+      center top,
+      farthest-corner,
+      rgba(white, 0.08),
+      rgba(white, 0)
+    );
   }
 
-  &:hover:before { @include radial-gradient(farthest-corner, rgba(white, .18), rgba(white, .03)); }
-  &:active { @include box-shadow(inset 0 1px 2px rgba(black, .2)); }
-  &:active:before { content: none; }
+  &:hover:before {
+    @include radial-gradient(
+      farthest-corner,
+      rgba(white, 0.18),
+      rgba(white, 0.03)
+    );
+  }
+  &:active {
+    @include box-shadow(inset 0 1px 2px rgba(black, 0.2));
+  }
+  &:active:before {
+    content: none;
+  }
 }
 
-$colors: green #5ca934, red  #d5452f, blue     #1097e6, orange #f4902a,
-         pink  #e8367f, gray #47494f, darkblue #3b5ca0, purple #9966cb;
+$colors: green #5ca934, red #d5452f, blue #1097e6, orange #f4902a, pink #e8367f,
+  gray #47494f, darkblue #3b5ca0, purple #9966cb;
 
 @each $pair in $colors {
   .button-#{nth($pair, 1)} {
     $color: nth($pair, 2);
     background: $color;
     border-color: darken($color, 10%) darken($color, 10%) darken($color, 15%);
-    @include linear-gradient(top, lighten($color, 6%), $color 66%, darken($color, 4%));
+    @include linear-gradient(
+      top,
+      lighten($color, 6%),
+      $color 66%,
+      darken($color, 4%)
+    );
 
     &:active {
       background: $color;

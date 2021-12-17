@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -15,7 +13,7 @@ $navHeight: 34px;
 $navBackgroundColor: #759aaf;
 
 body {
-  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #ecedef;
 }
@@ -25,16 +23,15 @@ body {
 
 header {
   padding-top: 60px;
-  background: #404040 url('../img/bg.png') 0 0 repeat;
+  background: #404040 url("../img/bg.png") 0 0 repeat;
   border-bottom: 1px solid #dadada;
-  @include box-shadow(0 0 1px rgba(black, .04));
+  @include box-shadow(0 0 1px rgba(black, 0.04));
 }
 
 nav {
   height: $navHeight;
   border-bottom: 5px solid white;
-  @include box-shadow(inset 0 -2px 1px rgba(black, .03));
-
+  @include box-shadow(inset 0 -2px 1px rgba(black, 0.03));
 }
 
 .nav {
@@ -58,24 +55,39 @@ nav {
     font-weight: bold;
     color: white;
     text-decoration: none;
-    text-shadow: 0 -1px rgba(black, .3);
+    text-shadow: 0 -1px rgba(black, 0.3);
     background: $navBackgroundColor;
     border-radius: 3px 3px 0 0;
-    @include linear-gradient(top, lighten($navBackgroundColor, 12%), $navBackgroundColor);
-    @include box-shadow(inset 0 1px rgba(white, .3), inset 0 -2px 2px rgba(black, .03), 0 2px white, 0 0 2px rgba(black, .2));
+    @include linear-gradient(
+      top,
+      lighten($navBackgroundColor, 12%),
+      $navBackgroundColor
+    );
+    @include box-shadow(
+      inset 0 1px rgba(white, 0.3),
+      inset 0 -2px 2px rgba(black, 0.03),
+      0 2px white,
+      0 0 2px rgba(black, 0.2)
+    );
 
     &:hover {
       text-decoration: none;
       background: lighten($navBackgroundColor, 5%);
-      @include linear-gradient(top, lighten($navBackgroundColor, 18%), lighten($navBackgroundColor, 5%));
+      @include linear-gradient(
+        top,
+        lighten($navBackgroundColor, 18%),
+        lighten($navBackgroundColor, 5%)
+      );
     }
   }
 
-  > li.active > a, > li > a:active, > .dropdown:hover > a {
+  > li.active > a,
+  > li > a:active,
+  > .dropdown:hover > a {
     background: white;
     color: #404040;
     text-shadow: none;
-    @include box-shadow(0 2px white, 0 0 2px rgba(black, .2));
+    @include box-shadow(0 2px white, 0 0 2px rgba(black, 0.2));
   }
 
   a.icon {
@@ -95,17 +107,26 @@ nav {
       @include hide-text;
     }
 
-    &.home > span { background-image: url('../img/home.png'); }
+    &.home > span {
+      background-image: url("../img/home.png");
+    }
   }
 
-  .active a.icon, a.icon:active { > span { background-position: 0 -16px; } }
+  .active a.icon,
+  a.icon:active {
+    > span {
+      background-position: 0 -16px;
+    }
+  }
 }
 
 .dropdown {
   position: relative;
   border-bottom: 5px solid white;
 
-  &:hover ul { display: block; }
+  &:hover ul {
+    display: block;
+  }
 
   ul {
     display: none;
@@ -118,9 +139,11 @@ nav {
     border: 1px solid #dadada;
     border-top: 0;
     border-radius: 0 0 3px 3px;
-    @include box-shadow(0 0 1px rgba(black, .04));
+    @include box-shadow(0 0 1px rgba(black, 0.04));
 
-    &.large { min-width: 200px; }
+    &.large {
+      min-width: 200px;
+    }
   }
 
   li {
@@ -128,14 +151,18 @@ nav {
     margin: 0 18px;
     overflow: visible;
 
-    + li { border-top: 1px solid #eee; }
+    + li {
+      border-top: 1px solid #eee;
+    }
 
     a {
       color: #555;
       padding: 8px 18px;
       margin: 0 -18px;
 
-      &:hover { color: black; }
+      &:hover {
+        color: black;
+      }
     }
   }
 }

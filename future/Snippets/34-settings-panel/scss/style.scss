@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-dark';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-dark";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -10,10 +8,13 @@
  * http://www.opensource.org/licenses/mit-license.php
  */
 
-html, body { min-height: 100%; }
+html,
+body {
+  min-height: 100%;
+}
 
 body {
-  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 13px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #93a0b0;
   @include radial-gradient(center, circle cover, #a1acbb, #93a0b0 70%);
@@ -25,7 +26,7 @@ body {
   background: #fafafa;
   border-radius: 5px;
   @include linear-gradient(top, #fafafa, #e1e1e1);
-  @include box-shadow(0 2px 2px rgba(black, .15), 0 0 0 1px rgba(black, .1));
+  @include box-shadow(0 2px 2px rgba(black, 0.15), 0 0 0 1px rgba(black, 0.1));
 }
 
 .settings-header {
@@ -34,14 +35,14 @@ body {
   border-bottom: 1px solid #949494;
   border-radius: 5px 5px 0 0;
   @include linear-gradient(top, #dadada, #b1b1b1);
-  @include box-shadow(inset 0 1px rgba(white, .15));
+  @include box-shadow(inset 0 1px rgba(white, 0.15));
 
   > h2 {
     line-height: 25px;
     font-size: 15px;
     color: #505050;
     text-align: center;
-    text-shadow: 0 1px rgba(white, .4);
+    text-shadow: 0 1px rgba(white, 0.4);
   }
 
   > a {
@@ -56,7 +57,7 @@ body {
     border-radius: 13px;
     @include hide-text;
     @include linear-gradient(top, #fafafa, #c1c1c1);
-    @include box-shadow(inset 0 1px 1px rgba(white, .9));
+    @include box-shadow(inset 0 1px 1px rgba(white, 0.9));
     @extend %icon;
 
     &:before {
@@ -70,15 +71,17 @@ body {
     &:active {
       background: #ccc;
       border-color: #888 #9c9c9c #9c9c9c;
-      @include box-shadow(inset 0 1px 2px rgba(black, .2));
+      @include box-shadow(inset 0 1px 2px rgba(black, 0.2));
     }
   }
 
-  .icon-close { float: right; }
+  .icon-close {
+    float: right;
+  }
 }
 
 .settings-form {
-  text-shadow: 0 1px rgba(white, .5);
+  text-shadow: 0 1px rgba(white, 0.5);
 
   > h3 {
     line-height: 25px;
@@ -86,7 +89,7 @@ body {
     color: #888;
     text-align: center;
     text-transform: uppercase;
-    @include linear-gradient(top, rgba(black, 0), rgba(black, .05));
+    @include linear-gradient(top, rgba(black, 0), rgba(black, 0.05));
   }
 
   > label {
@@ -98,7 +101,7 @@ body {
     color: #8c8c8c;
     border-top: 1px solid #d5d5d5;
     cursor: pointer;
-    @include box-shadow(inset 0 1px rgba(white, .5));
+    @include box-shadow(inset 0 1px rgba(white, 0.5));
     @extend %icon;
 
     &:before {
@@ -111,7 +114,9 @@ body {
     }
   }
 
-  input { display: none; }
+  input {
+    display: none;
+  }
 
   strong {
     display: block;
@@ -129,12 +134,15 @@ body {
   background: #b5b5b5;
   background-clip: padding-box;
   border: 1px solid;
-  border-color: rgba(black, .45) rgba(black, .4) rgba(black, .28);
+  border-color: rgba(black, 0.45) rgba(black, 0.4) rgba(black, 0.28);
   border-radius: 10px;
   @include box-sizing(border-box);
   @include linear-gradient(top, #b5b5b5, #d5d5d5);
-  @include box-shadow(inset 0 1px 1px rgba(black, .12), 0 1px rgba(white, .4));
-  @include transition(.15s ease-out);
+  @include box-shadow(
+    inset 0 1px 1px rgba(black, 0.12),
+    0 1px rgba(white, 0.4)
+  );
+  @include transition(0.15s ease-out);
 
   input:checked + & {
     padding-left: 19px;
@@ -154,10 +162,15 @@ body {
   background: #fbfbfb;
   border-radius: 8px;
   @include linear-gradient(top, #fbfbfb, #d9d9d9);
-  @include box-shadow(inset 0 0 0 1px rgba(white, .2), 0 0 0 1px rgba(black, .3), 0 1px rgba(black, .1));
+  @include box-shadow(
+    inset 0 0 0 1px rgba(white, 0.2),
+    0 0 0 1px rgba(black, 0.3),
+    0 1px rgba(black, 0.1)
+  );
 
-  &:before, &:after {
-    content: '';
+  &:before,
+  &:after {
+    content: "";
     width: 11px;
     height: 12px;
     border-radius: 6px;
@@ -166,25 +179,33 @@ body {
   &:before {
     float: left;
     background: #dfdfdf;
-    border-right: 1px solid rgba(black, .2);
+    border-right: 1px solid rgba(black, 0.2);
     @include linear-gradient(left, #dfdfdf, #c4c4c4);
   }
 
   &:after {
     float: right;
     background: #dfdfdf;
-    border-left: 1px solid rgba(black, .2);
+    border-left: 1px solid rgba(black, 0.2);
     @include linear-gradient(right, #dfdfdf, #c4c4c4);
   }
 }
 
 %icon:before {
-  content: '';
+  content: "";
   display: block;
-  background-image: url('../img/icons.png');
+  background-image: url("../img/icons.png");
 }
 
-.icon-wifi:before { background-position: 0 0; }
-.icon-gps:before { background-position: -28px 0; }
-.icon-close:before { background-position: 0 -28px; }
-.icon-prev:before { background-position: -12px -28px; }
+.icon-wifi:before {
+  background-position: 0 0;
+}
+.icon-gps:before {
+  background-position: -28px 0;
+}
+.icon-close:before {
+  background-position: 0 -28px;
+}
+.icon-prev:before {
+  background-position: -12px -28px;
+}

@@ -1,15 +1,15 @@
-const webpack = require('webpack');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require("webpack");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 
-const { isDevelopment, isProduction } = require('./env');
+const { isDevelopment, isProduction } = require("./env");
 
 const plugins = [
   new HtmlWebpackPlugin({
-    template: 'packages/frontend/index.html',
+    template: "packages/frontend/index.html",
     chunksSortMode: (a, b) => {
-      const order = ['manifest', 'vendor', 'app'];
+      const order = ["manifest", "vendor", "app"];
       const nameA = a.names[0];
       const nameB = b.names[0];
 
@@ -19,15 +19,15 @@ const plugins = [
 ];
 
 if (isDevelopment) {
-  plugins.push(
-    new webpack.HotModuleReplacementPlugin(),
-  );
+  plugins.push(new webpack.HotModuleReplacementPlugin());
 } else if (isProduction) {
   plugins.push(new UglifyJsPlugin());
 }
 
-plugins.push(new CopyWebpackPlugin({
-  patterns: [{ from: './packages/frontend/static' }],
-}));
+plugins.push(
+  new CopyWebpackPlugin({
+    patterns: [{ from: "./packages/frontend/static" }],
+  })
+);
 
 module.exports = plugins;

@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
-const { execSync } = require('child_process');
+const { execSync } = require("child_process");
 
 const cwd = __dirname;
 
-console.log('Starting mongodb export.');
+console.log("Starting mongodb export.");
 
-execSync(`
+execSync(
+  `
     git clone git@github.com:circlecell/dnslookup-backup.git dnslookup-backup &&
     mongoexport --db dnslookup --collection domains --out dnslookup-backup/domains.json &&
     cd dnslookup-backup &&
@@ -17,6 +18,8 @@ execSync(`
     git push origin master &&
     cd .. &&
     rm -rf dnslookup-backup
-`, { cwd });
+`,
+  { cwd }
+);
 
-console.log('Done mongodb export.');
+console.log("Done mongodb export.");

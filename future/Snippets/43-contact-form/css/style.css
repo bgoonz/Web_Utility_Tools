@@ -1,16 +1,84 @@
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
   margin: 0;
   padding: 0;
   border: 0;
@@ -19,8 +87,17 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -28,17 +105,21 @@ body {
   line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
   quotes: none;
 }
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
   content: none;
 }
 
@@ -51,18 +132,35 @@ table {
   margin: 70px auto 40px;
   padding: 8px;
   width: 260px;
-  font: 10px/18px 'Lucida Grande', Arial, sans-serif;
+  font: 10px/18px "Lucida Grande", Arial, sans-serif;
   color: #bbb;
   text-align: center;
   text-shadow: 0 -1px rgba(0, 0, 0, 0.3);
   background: #383838;
   background: rgba(34, 34, 34, 0.8);
   border-radius: 4px;
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 6px rgba(0, 0, 0, 0.4);
+  background-image: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+  background-image: -moz-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+  background-image: -o-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 0.3)
+  );
+  -webkit-box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    0 0 6px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2), 0 0 6px rgba(0, 0, 0, 0.4);
 }
 .about a {
@@ -123,12 +221,15 @@ table {
 }
 
 body {
-  font: 12px/20px 'Lucida Grande', Verdana, sans-serif;
+  font: 12px/20px "Lucida Grande", Verdana, sans-serif;
   color: #404040;
   background: #e4ecef;
 }
 
-input, textarea, select, label {
+input,
+textarea,
+select,
+label {
   font-family: inherit;
   font-size: 12px;
   -webkit-box-sizing: border-box;
@@ -155,8 +256,11 @@ input, textarea, select, label {
   border-radius: 2px;
 }
 
-.contact:before, .contact:after, .contact-inner:before, .contact-inner:after {
-  content: '';
+.contact:before,
+.contact:after,
+.contact-inner:before,
+.contact-inner:after {
+  content: "";
   position: absolute;
   top: 100%;
   left: 50%;
@@ -195,7 +299,8 @@ input, textarea, select, label {
   background: #eef7f9;
   border-radius: 2px;
 }
-.contact-input > input, .contact-input > textarea {
+.contact-input > input,
+.contact-input > textarea {
   display: block;
   width: 100%;
   height: 29px;
@@ -205,16 +310,20 @@ input, textarea, select, label {
   border: 1px solid #cfdfe3;
   border-bottom-color: #d2e2e7;
   border-radius: 2px;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05), 0 1px rgba(255, 255, 255, 0.2);
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05),
+    0 1px rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05),
+    0 1px rgba(255, 255, 255, 0.2);
 }
-.contact-input > input:focus, .contact-input > textarea:focus {
+.contact-input > input:focus,
+.contact-input > textarea:focus {
   border-color: #93c2ec;
   outline: 0;
   -webkit-box-shadow: 0 0 0 8px #e1ecf5;
   box-shadow: 0 0 0 8px #e1ecf5;
 }
-.lt-ie9 .contact-input > input, .lt-ie9 .contact-input > textarea {
+.lt-ie9 .contact-input > input,
+.lt-ie9 .contact-input > textarea {
   line-height: 27px;
 }
 .contact-input > textarea {
@@ -239,8 +348,9 @@ input, textarea, select, label {
   -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
-.select:before, .select:after {
-  content: '';
+.select:before,
+.select:after {
+  content: "";
   position: absolute;
   right: 11px;
   width: 0;
@@ -295,14 +405,18 @@ input, textarea, select, label {
   background-image: -moz-linear-gradient(top, #e6f2f7, #d0e6ee);
   background-image: -o-linear-gradient(top, #e6f2f7, #d0e6ee);
   background-image: linear-gradient(to bottom, #e6f2f7, #d0e6ee);
-  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.06), 0 0 0 4px #eef7f9;
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2), 0 1px 1px rgba(0, 0, 0, 0.06), 0 0 0 4px #eef7f9;
+  -webkit-box-shadow: inset 0 1px rgba(255, 255, 255, 0.2),
+    0 1px 1px rgba(0, 0, 0, 0.06), 0 0 0 4px #eef7f9;
+  box-shadow: inset 0 1px rgba(255, 255, 255, 0.2),
+    0 1px 1px rgba(0, 0, 0, 0.06), 0 0 0 4px #eef7f9;
 }
 .contact-submit > input:active {
   color: #6a95a9;
   text-shadow: 0 1px rgba(255, 255, 255, 0.3);
   background: #c9dfe9;
   border-color: #a3bed0 #b5ccda #b5ccda;
-  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.2), 0 0 0 4px #eef7f9;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.2), 0 0 0 4px #eef7f9;
+  -webkit-box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1),
+    0 1px rgba(255, 255, 255, 0.2), 0 0 0 4px #eef7f9;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px rgba(255, 255, 255, 0.2),
+    0 0 0 4px #eef7f9;
 }

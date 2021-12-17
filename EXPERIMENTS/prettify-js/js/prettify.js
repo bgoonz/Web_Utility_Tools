@@ -110,7 +110,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
             j.length >= 2 && a === "["
               ? (f[c] = h(j))
               : a !== "\\" &&
-                (f[c] = j.replace(/[A-Za-z]/g, a => {
+                (f[c] = j.replace(/[A-Za-z]/g, (a) => {
                   a = a.charCodeAt(0);
                   return "[" + String.fromCharCode(a & -33, a | 32) + "]";
                 }));
@@ -639,7 +639,7 @@ window.PR_SHOULD_USE_CONTINUATION = !0;
     E({ g: m, i: e, h: h });
     return h.innerHTML;
   };
-  window.prettyPrint = a => {
+  window.prettyPrint = (a) => {
     function m() {
       for (
         var e = window.PR_SHOULD_USE_CONTINUATION ? l.now() + 250 : Infinity;

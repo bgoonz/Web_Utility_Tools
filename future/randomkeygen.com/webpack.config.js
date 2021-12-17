@@ -1,24 +1,24 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
-const { argv } = require('optimist');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const path = require("path");
+const { argv } = require("optimist");
 
 const { NODE_ENV } = process.env;
 const entry = {
-  app: []
+  app: [],
 };
 
 const plugins = [
   new HtmlWebpackPlugin({
-    template: 'index.html',
+    template: "index.html",
     chunksSortMode: (a, b) => {
-      const order = ['manifest', 'vendor', 'app'];
+      const order = ["manifest", "vendor", "app"];
       const nameA = a.names[0];
       const nameB = b.names[0];
 
       return order.indexOf(nameA) - order.indexOf(nameB);
-    }
+    },
   }),
   /* function saveChunksPlugin() {
     this.plugin('emit', (compilation, callback) => {
@@ -37,7 +37,7 @@ const plugins = [
   } */
 ];
 
-if (NODE_ENV === 'development') {
+if (NODE_ENV === "development") {
   const { port } = argv;
 
   entry.app.push(`webpack-dev-server/client?http://localhost:${port}`);
@@ -46,24 +46,21 @@ if (NODE_ENV === 'development') {
 let filename;
 let chunkFilename;
 
-if (NODE_ENV === 'development') {
-  filename = 'js/[name].js';
-  chunkFilename = 'js/[id].[name].chunk.js';
+if (NODE_ENV === "development") {
+  filename = "js/[name].js";
+  chunkFilename = "js/[id].[name].chunk.js";
 } else {
-  filename = 'js/[name]-[chunkhash].js';
-  chunkFilename = 'js/[id]-[chunkhash].[name].chunk.js';
+  filename = "js/[name]-[chunkhash].js";
+  chunkFilename = "js/[id]-[chunkhash].[name].chunk.js";
 }
 
-entry.app.push(
-  'babel-polyfill',
-  './js/index'
-);
+entry.app.push("babel-polyfill", "./js/index");
 
-plugins.push(new CopyWebpackPlugin({
-  patterns: [
-    { from: 'static', to: '.' },
-  ]
-}));
+plugins.push(
+  new CopyWebpackPlugin({
+    patterns: [{ from: "static", to: "." }],
+  })
+);
 
 module.exports = {
   entry,
@@ -72,22 +69,24 @@ module.exports = {
   output: {
     filename,
     chunkFilename,
-    path: path.resolve('dist/'),
-    library: 'app',
-    libraryTarget: 'var'
+    path: path.resolve("dist/"),
+    library: "app",
+    libraryTarget: "var",
   },
   module: {
-    rules: [{
-      test: /.js?$/,
-      use: ['babel-loader'],
-      include: path.resolve('js/')
-    }]
+    rules: [
+      {
+        test: /.js?$/,
+        use: ["babel-loader"],
+        include: path.resolve("js/"),
+      },
+    ],
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   optimization: {
-    minimize: true
+    minimize: true,
   },
   devServer: {
-    open: true
-  }
+    open: true,
+  },
 };

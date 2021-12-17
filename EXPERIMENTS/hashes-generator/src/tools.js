@@ -4,7 +4,7 @@ function mkUndo(toolName) {
   const undoSelector = "#" + toolName + "-submit-undo";
   const textSelector = "#" + toolName + "-text";
 
-  $(undoSelector).click(ev => {
+  $(undoSelector).click((ev) => {
     ev.preventDefault();
 
     const last = undoStack.pop();
@@ -54,7 +54,7 @@ function mkTool(toolName, computeFn, opts) {
 $(() => {
   // make copy to clipboard work
   //
-  $("#copy-to-clipboard").click(ev => {
+  $("#copy-to-clipboard").click((ev) => {
     ev.preventDefault();
     $("#tool-implementation textarea").select();
     document.execCommand("copy");
@@ -68,7 +68,7 @@ $(() => {
     let selectedFile;
 
     // make file selector work
-    $(fileSelector).on("change", ev => {
+    $(fileSelector).on("change", (ev) => {
       $("#action-error").hide();
       const file = ev.target.files[0];
       if (file.type != inputOpts.inputMime) {
@@ -83,27 +83,27 @@ $(() => {
     });
 
     // make drag & drop work
-    $("#drag-and-drop").on("dragover", ev => {
+    $("#drag-and-drop").on("dragover", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").addClass("hover");
     });
-    $("#drag-and-drop").on("dragenter", ev => {
+    $("#drag-and-drop").on("dragenter", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").addClass("hover");
     });
-    $("#drag-and-drop").on("dragleave", ev => {
+    $("#drag-and-drop").on("dragleave", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").removeClass("hover");
     });
-    $("#drag-and-drop").on("dragend", ev => {
+    $("#drag-and-drop").on("dragend", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").removeClass("hover");
     });
-    $("#drag-and-drop").on("drop", ev => {
+    $("#drag-and-drop").on("drop", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").removeClass("hover");
@@ -157,67 +157,67 @@ $(() => {
 
   // make ascii85-encode tool work
   //
-  mkTool("ascii85-encode", text => {
+  mkTool("ascii85-encode", (text) => {
     return ascii85.encode(text);
   });
 
   // make ascii85-decode tool work
   //
-  mkTool("ascii85-decode", text => {
+  mkTool("ascii85-decode", (text) => {
     return ascii85.decode(text);
   });
 
   // make uu-encode tool work
   //
-  mkTool("uu-encode", text => {
+  mkTool("uu-encode", (text) => {
     return uuencode.encode(text);
   });
 
   // make uu-decode tool work
   //
-  mkTool("uu-decode", text => {
+  mkTool("uu-decode", (text) => {
     return uuencode.decode(text);
   });
 
   // make punycode-encode tool work
   //
-  mkTool("punycode-encode", text => {
+  mkTool("punycode-encode", (text) => {
     return punycode.toASCII(text);
   });
 
   // make punycode-decode tool work
   //
-  mkTool("punycode-decode", text => {
+  mkTool("punycode-decode", (text) => {
     return punycode.toUnicode(text);
   });
 
   // make idn-encode tool work
   //
-  mkTool("idn-encode", text => {
+  mkTool("idn-encode", (text) => {
     return punycode.toASCII(text);
   });
 
   // make idn-decode tool work
   //
-  mkTool("idn-decode", text => {
+  mkTool("idn-decode", (text) => {
     return punycode.toUnicode(text);
   });
 
   // make text-to-morse tool work
   //
-  mkTool("text-to-morse", text => {
+  mkTool("text-to-morse", (text) => {
     return textToMorse(text);
   });
 
   // make morse-to-text tool work
   //
-  mkTool("morse-to-text", text => {
+  mkTool("morse-to-text", (text) => {
     return morseToText(text);
   });
 
   // make hex-to-ip tool work
   //
-  mkTool("hex-to-ip", text => {
+  mkTool("hex-to-ip", (text) => {
     text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
 
@@ -263,7 +263,7 @@ $(() => {
 
   // make ip-to-hex tool work
   //
-  mkTool("ip-to-hex", text => {
+  mkTool("ip-to-hex", (text) => {
     text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
 
@@ -368,7 +368,7 @@ $(() => {
 
   // make unix-to-utc tool work
   //
-  mkTool("unix-to-utc", text => {
+  mkTool("unix-to-utc", (text) => {
     text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
 
@@ -392,7 +392,7 @@ $(() => {
 
   // make utc-to-unix tool work
   //
-  mkTool("utc-to-unix", text => {
+  mkTool("utc-to-unix", (text) => {
     text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
 
@@ -421,7 +421,7 @@ $(() => {
   //
   mkTool(
     "json-to-csv",
-    text => {
+    (text) => {
       try {
         const parsed = JSON.parse(text);
         var converted = json2csv({
@@ -444,7 +444,7 @@ $(() => {
   //
   mkTool(
     "tsv-to-csv",
-    text => {
+    (text) => {
       text = text.replace("\r\n", "\n");
       const lines = text.split("\n");
       const data = [];
@@ -486,7 +486,7 @@ $(() => {
   //
   mkTool(
     "tsv-to-text",
-    text => {
+    (text) => {
       text = text.replace("\r\n", "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -529,7 +529,7 @@ $(() => {
   //
   mkTool(
     "text-to-tsv",
-    text => {
+    (text) => {
       text = text.replace("\r\n", "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -654,7 +654,7 @@ $(() => {
   //
   mkTool(
     "text-to-csv",
-    text => {
+    (text) => {
       text = text.replace("\r\n", "\n");
       const lines = text.split("\n");
       const data = [];
@@ -859,7 +859,7 @@ $(() => {
   //
   mkTool(
     "tsv-to-xml",
-    text => {
+    (text) => {
       text = text.replace("\r\n", "\n");
       const lines = text.split("\n");
       const data = [];
@@ -893,7 +893,7 @@ $(() => {
   //
   mkTool(
     "tsv-to-json",
-    text => {
+    (text) => {
       text = text.replace("\r\n", "\n");
       const lines = text.split("\n");
       const data = [];
@@ -987,7 +987,7 @@ $(() => {
   }
   mkTool(
     "json-to-tsv",
-    text => {
+    (text) => {
       const parsed = JSON.parse(text);
       return jsonToTsv(parsed);
     },
@@ -1003,7 +1003,7 @@ $(() => {
   //
   mkTool(
     "json-to-xml",
-    text => {
+    (text) => {
       try {
         var parsed = JSON.parse(text);
       } catch (err) {
@@ -1024,7 +1024,7 @@ $(() => {
   //
   mkTool(
     "xml-to-json",
-    text => {
+    (text) => {
       const x2js = new X2JS();
       const converted = JSON.stringify(x2js.xml_str2json(text), 0, 2);
       return converted;
@@ -1041,7 +1041,7 @@ $(() => {
   //
   mkTool(
     "xml-to-csv",
-    text => {
+    (text) => {
       const x2js = new X2JS();
       let json = x2js.xml_str2json(text);
       while (Object.keys(json).length == 1) {
@@ -1068,7 +1068,7 @@ $(() => {
   //
   mkTool(
     "xml-to-yaml",
-    text => {
+    (text) => {
       // first convert xml to json
       const x2js = new X2JS();
       const jsonObj = x2js.xml_str2json(text);
@@ -1112,7 +1112,7 @@ $(() => {
   //
   mkTool(
     "yaml-to-xml",
-    text => {
+    (text) => {
       // first convert yaml to json
 
       try {
@@ -1136,7 +1136,7 @@ $(() => {
   //
   mkTool(
     "yaml-to-csv",
-    text => {
+    (text) => {
       // first convert yaml to json
 
       try {
@@ -1164,7 +1164,7 @@ $(() => {
   //
   mkTool(
     "json-to-text",
-    text => {
+    (text) => {
       try {
         var parsed = JSON.parse(text);
       } catch (err) {
@@ -1185,7 +1185,7 @@ $(() => {
   //
   mkTool(
     "json-to-yaml",
-    text => {
+    (text) => {
       try {
         var parsed = JSON.parse(text);
       } catch (err) {
@@ -1206,7 +1206,7 @@ $(() => {
   //
   mkTool(
     "yaml-to-json",
-    text => {
+    (text) => {
       try {
         var jsonObj = YAML.parse(text);
       } catch (err) {
@@ -1227,7 +1227,7 @@ $(() => {
   //
   mkTool(
     "yaml-to-tsv",
-    text => {
+    (text) => {
       try {
         var jsonObj = YAML.parse(text);
       } catch (err) {
@@ -1248,7 +1248,7 @@ $(() => {
   //
   mkTool(
     "tsv-to-yaml",
-    text => {
+    (text) => {
       // copy pasted from tsv-to-json
       // todo: dont copy paste
       text = text.replace("\r\n", "\n");
@@ -1401,7 +1401,7 @@ $(() => {
   //
   mkTool(
     "tsv-extract-column",
-    text => {
+    (text) => {
       const col = $("#tsv-extract-column-number").val();
       if (!/^\d+$/.test(col)) {
         throw new Error("Invalid column number");
@@ -1432,7 +1432,7 @@ $(() => {
   //
   mkTool(
     "tsv-delete-column",
-    text => {
+    (text) => {
       const col = $("#tsv-delete-column-number").val();
       if (!/^\d+$/.test(col)) {
         throw new Error("Invalid column number");
@@ -1464,7 +1464,7 @@ $(() => {
   //
   mkTool(
     "tsv-replace-column",
-    text => {
+    (text) => {
       const col = $("#tsv-replace-column-number").val();
       if (!/^\d+$/.test(col)) {
         throw new Error("Invalid column number");
@@ -1524,7 +1524,7 @@ $(() => {
   //
   mkTool(
     "tsv-append-column",
-    text => {
+    (text) => {
       const newCol = $("#tsv-append-column-new-column").val();
 
       text = text.replace("\r\n", "\n");
@@ -1580,7 +1580,7 @@ $(() => {
   //
   mkTool(
     "tsv-insert-column",
-    text => {
+    (text) => {
       const col = $("#tsv-insert-column-number").val();
       if (!/^-?\d+$/.test(col)) {
         throw new Error("Invalid column number");
@@ -1650,7 +1650,7 @@ $(() => {
   //
   mkTool(
     "extract-column",
-    text => {
+    (text) => {
       const col = $("#extract-column-number").val();
       const delim = $("#extract-column-delimiter").val();
       if (!/^\d+$/.test(col)) {
@@ -1686,7 +1686,7 @@ $(() => {
   //
   mkTool(
     "delete-column",
-    text => {
+    (text) => {
       const col = $("#delete-column-number").val();
       const delim = $("#delete-column-delimiter").val();
       if (!/^\d+$/.test(col)) {
@@ -1723,7 +1723,7 @@ $(() => {
   //
   mkTool(
     "replace-column",
-    text => {
+    (text) => {
       const col = $("#replace-column-number").val();
       const delim = $("#replace-column-delimiter").val();
       if (!/^\d+$/.test(col)) {
@@ -1782,7 +1782,7 @@ $(() => {
   //
   mkTool(
     "swap-columns",
-    text => {
+    (text) => {
       const col1 = $("#swap-columns-col1").val();
       const col2 = $("#swap-columns-col2").val();
       const delim = $("#swap-columns-delimiter").val();
@@ -1827,7 +1827,7 @@ $(() => {
 
   // make change-delimiter work
   //
-  mkTool("change-delimiter", text => {
+  mkTool("change-delimiter", (text) => {
     text = text.replace("\r\n", "\n");
     const lines = text.split("\n");
     const oldDelim = $("#change-delimiter-old-delimiter").val();
@@ -2293,7 +2293,7 @@ $(() => {
 
   // make tsv-change-delimiter work
   //
-  mkTool("tsv-change-delimiter", text => {
+  mkTool("tsv-change-delimiter", (text) => {
     text = text.replace("\r\n", "\n");
     const lines = text.split("\n");
     const delim = $("#tsv-change-delimiter-new-delimiter").val();
@@ -2312,7 +2312,7 @@ $(() => {
   //
   mkTool(
     "tsv-swap-columns",
-    text => {
+    (text) => {
       const col1 = $("#tsv-swap-columns-col1").val();
       if (!/^\d+$/.test(col1)) {
         throw new Error("Invalid column 1 number");
@@ -2455,7 +2455,7 @@ $(() => {
 
   // make tsv-transpose work
   //
-  mkTool("tsv-transpose", text => {
+  mkTool("tsv-transpose", (text) => {
     text = text.replace("\r\n", "\n");
     const lines = text.split("\n");
 
@@ -2478,7 +2478,7 @@ $(() => {
 
   // make text-transpose work
   //
-  mkTool("text-transpose", text => {
+  mkTool("text-transpose", (text) => {
     text = text.replace("\r\n", "\n");
     const lines = text.split("\n");
     const delim = $("#text-transpose-delimiter").val();
@@ -2508,7 +2508,7 @@ $(() => {
   //
   mkTool(
     "xml-to-text",
-    text => {
+    (text) => {
       const x2js = new X2JS();
       const converted = x2js.xml_str2json(text);
       return jsonToText(converted);
@@ -2523,21 +2523,21 @@ $(() => {
 
   // make xml-prettify tool work
   //
-  mkTool("xml-prettify", text => {
+  mkTool("xml-prettify", (text) => {
     const converted = vkbeautify.xml(text);
     return converted;
   });
 
   // make xml-minify tool work
   //
-  mkTool("xml-minify", text => {
+  mkTool("xml-minify", (text) => {
     const converted = vkbeautify.xmlmin(text);
     return converted;
   });
 
   // make mysql-password tool work
   //
-  mkTool("mysql-password", text => {
+  mkTool("mysql-password", (text) => {
     const x1 = CryptoJS.SHA1(text);
     const x2 = CryptoJS.SHA1(x1);
     const pass = "*" + x2;
@@ -2546,7 +2546,7 @@ $(() => {
 
   // make mariadb-password tool work (same as mysql)
   //
-  mkTool("mariadb-password", text => {
+  mkTool("mariadb-password", (text) => {
     const x1 = CryptoJS.SHA1(text);
     const x2 = CryptoJS.SHA1(x1);
     const pass = "*" + x2;
@@ -2555,7 +2555,7 @@ $(() => {
 
   // make postgres-password tool work
   //
-  mkTool("postgres-password", text => {
+  mkTool("postgres-password", (text) => {
     const username = $("#postgres-username").val();
     return "md5" + CryptoJS.MD5(text.toString() + username.toString());
   });
@@ -2568,7 +2568,7 @@ $(() => {
       const bcrypt = new bCrypt();
       const pass = $("#bcrypt-pass").val();
       const rounds = $("#bcrypt-rounds").val() || 10;
-      bcrypt.hashpw(pass, bcrypt.gensalt(rounds), hash => {
+      bcrypt.hashpw(pass, bcrypt.gensalt(rounds), (hash) => {
         asyncResultFn(hash);
       });
     },
@@ -2599,7 +2599,7 @@ $(() => {
         }
         (() => {
           const j = i;
-          bcrypt.checkpw(pass, line, result => {
+          bcrypt.checkpw(pass, line, (result) => {
             asyncResultFn(line, j, result);
           });
         })();
@@ -2635,7 +2635,7 @@ $(() => {
     function on_scrypt_ready(scrypt) {
       mkTool(
         "scrypt",
-        text => {
+        (text) => {
           const pass = $("#scrypt-pass").val();
           const salt = $("#scrypt-salt").val();
           const outputSize = $("#scrypt-output-size").val();
@@ -2670,7 +2670,7 @@ $(() => {
     function on_scrypt_ready(scrypt) {
       mkTool(
         "scrypt-check",
-        text => {
+        (text) => {
           const lines = text.split("\n");
           const pass = $("#scrypt-check-pass").val();
           const salt = $("#scrypt-check-salt").val();
@@ -2714,13 +2714,13 @@ $(() => {
 
   // make rot13-password tool work
   //
-  mkTool("rot13", text => {
+  mkTool("rot13", (text) => {
     return rot(text, 13);
   });
 
   // make rot47-password tool work
   //
-  mkTool("rot47", text => {
+  mkTool("rot47", (text) => {
     const rotAlphabet =
       "!\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
     let ret = "";
@@ -2740,7 +2740,7 @@ $(() => {
   //
   mkTool(
     "xor-encrypt",
-    text => {
+    (text) => {
       const pass = $("#xor-encrypt-pass").val();
       if (pass.length == 0) {
         throw new Error("empty pass");
@@ -2774,7 +2774,7 @@ $(() => {
   //
   mkTool(
     "xor-decrypt",
-    text => {
+    (text) => {
       const pass = $("#xor-decrypt-pass").val();
       if (pass.length == 0) {
         throw new Error("empty pass");
@@ -2801,7 +2801,7 @@ $(() => {
 
   // make aes-encrypt tool work
   //
-  mkTool("aes-encrypt", text => {
+  mkTool("aes-encrypt", (text) => {
     const pass = $("#aes-encrypt-pass").val();
     const encrypted = CryptoJS.AES.encrypt(text, pass);
     return encrypted;
@@ -2809,7 +2809,7 @@ $(() => {
 
   // make aes-decrypt tool work
   //
-  mkTool("aes-decrypt", text => {
+  mkTool("aes-decrypt", (text) => {
     const pass = $("#aes-decrypt-pass").val();
     const decrypted = CryptoJS.AES.decrypt(text, pass);
     const utf8 = CryptoJS.enc.Utf8.stringify(decrypted);
@@ -2818,7 +2818,7 @@ $(() => {
 
   // make rc4-encrypt tool work
   //
-  mkTool("rc4-encrypt", text => {
+  mkTool("rc4-encrypt", (text) => {
     const pass = $("#rc4-encrypt-pass").val();
     const encrypted = CryptoJS.RC4.encrypt(text, pass);
     return encrypted;
@@ -2826,7 +2826,7 @@ $(() => {
 
   // make rc4-decrypt tool work
   //
-  mkTool("rc4-decrypt", text => {
+  mkTool("rc4-decrypt", (text) => {
     const pass = $("#rc4-decrypt-pass").val();
     const decrypted = CryptoJS.RC4.decrypt(text, pass);
     const utf8 = CryptoJS.enc.Utf8.stringify(decrypted);
@@ -2835,7 +2835,7 @@ $(() => {
 
   // make des-encrypt tool work
   //
-  mkTool("des-encrypt", text => {
+  mkTool("des-encrypt", (text) => {
     const pass = $("#des-encrypt-pass").val();
     const encrypted = CryptoJS.DES.encrypt(text, pass);
     return encrypted;
@@ -2843,7 +2843,7 @@ $(() => {
 
   // make des-decrypt tool work
   //
-  mkTool("des-decrypt", text => {
+  mkTool("des-decrypt", (text) => {
     const pass = $("#des-decrypt-pass").val();
     const decrypted = CryptoJS.DES.decrypt(text, pass);
     const utf8 = CryptoJS.enc.Utf8.stringify(decrypted);
@@ -2852,7 +2852,7 @@ $(() => {
 
   // make triple-des-encrypt tool work
   //
-  mkTool("triple-des-encrypt", text => {
+  mkTool("triple-des-encrypt", (text) => {
     const pass = $("#triple-des-encrypt-pass").val();
     const encrypted = CryptoJS.TripleDES.encrypt(text, pass);
     return encrypted;
@@ -2860,7 +2860,7 @@ $(() => {
 
   // make triple-des-decrypt tool work
   //
-  mkTool("triple-des-decrypt", text => {
+  mkTool("triple-des-decrypt", (text) => {
     const pass = $("#triple-des-decrypt-pass").val();
     const decrypted = CryptoJS.TripleDES.decrypt(text, pass);
     const utf8 = CryptoJS.enc.Utf8.stringify(decrypted);
@@ -2869,7 +2869,7 @@ $(() => {
 
   // make rabbit-encrypt tool work
   //
-  mkTool("rabbit-encrypt", text => {
+  mkTool("rabbit-encrypt", (text) => {
     const pass = $("#rabbit-encrypt-pass").val();
     const encrypted = CryptoJS.Rabbit.encrypt(text, pass);
     return encrypted;
@@ -2877,7 +2877,7 @@ $(() => {
 
   // make rabbit-decrypt tool work
   //
-  mkTool("rabbit-decrypt", text => {
+  mkTool("rabbit-decrypt", (text) => {
     const pass = $("#rabbit-decrypt-pass").val();
     const decrypted = CryptoJS.Rabbit.decrypt(text, pass);
     const utf8 = CryptoJS.enc.Utf8.stringify(decrypted);
@@ -2888,7 +2888,7 @@ $(() => {
   //
   mkTool(
     "all-hashes",
-    text => {
+    (text) => {
       // ntlm
       const utf16le = text.split("").join("\x00") + "\x00";
       const ntlmHash = md4(utf16le).toUpperCase();
@@ -2989,7 +2989,7 @@ $(() => {
 
   // make ntlm tool work
   //
-  mkTool("ntlm-hash", text => {
+  mkTool("ntlm-hash", (text) => {
     const utf16le = text.split("").join("\x00") + "\x00";
     return md4(utf16le).toUpperCase();
   });
@@ -2998,7 +2998,7 @@ $(() => {
   //
   mkTool(
     "md2-hash",
-    text => {
+    (text) => {
       return md2(text);
     },
     {
@@ -3010,7 +3010,7 @@ $(() => {
   //
   mkTool(
     "md4-hash",
-    text => {
+    (text) => {
       return md4(text);
     },
     {
@@ -3022,7 +3022,7 @@ $(() => {
   //
   mkTool(
     "md5-hash",
-    text => {
+    (text) => {
       const hash = CryptoJS.MD5(text);
       return hash;
     },
@@ -3035,7 +3035,7 @@ $(() => {
   //
   mkTool(
     "md6-hash",
-    text => {
+    (text) => {
       const size = parseInt($("#md6-hash-size").val(), 10);
       const md6 = new md6hash();
       return md6.hex(text, size);
@@ -3049,7 +3049,7 @@ $(() => {
   //
   mkTool(
     "ripemd128-hash",
-    text => {
+    (text) => {
       return CryptoJS.RIPEMD128(text);
     },
     {
@@ -3061,7 +3061,7 @@ $(() => {
   //
   mkTool(
     "ripemd160-hash",
-    text => {
+    (text) => {
       const hash = CryptoJS.RIPEMD160(text);
       return hash;
     },
@@ -3074,7 +3074,7 @@ $(() => {
   //
   mkTool(
     "ripemd256-hash",
-    text => {
+    (text) => {
       const hash = CryptoJS.RIPEMD256(text);
       return hash;
     },
@@ -3087,7 +3087,7 @@ $(() => {
   //
   mkTool(
     "ripemd320-hash",
-    text => {
+    (text) => {
       const hash = CryptoJS.RIPEMD320(text);
       return hash;
     },
@@ -3100,7 +3100,7 @@ $(() => {
   //
   mkTool(
     "sha1-hash",
-    text => {
+    (text) => {
       const hash = CryptoJS.SHA1(text);
       return hash;
     },
@@ -3113,7 +3113,7 @@ $(() => {
   //
   mkTool(
     "sha2-hash",
-    text => {
+    (text) => {
       const size = parseInt($("#sha2-hash-size").val(), 10);
       if (size == 224) {
         // sha 224
@@ -3143,7 +3143,7 @@ $(() => {
   //
   mkTool(
     "sha3-hash",
-    text => {
+    (text) => {
       const size = parseInt($("#sha3-hash-size").val(), 10);
       if (size == 224) {
         var hash = sha3_224(text);
@@ -3165,7 +3165,7 @@ $(() => {
   //
   mkTool(
     "sha224-hash",
-    text => {
+    (text) => {
       const hash = CryptoJS.SHA224(text);
       return hash;
     },
@@ -3178,7 +3178,7 @@ $(() => {
   //
   mkTool(
     "sha256-hash",
-    text => {
+    (text) => {
       const hash = CryptoJS.SHA256(text);
       return hash;
     },
@@ -3191,7 +3191,7 @@ $(() => {
   //
   mkTool(
     "sha384-hash",
-    text => {
+    (text) => {
       const hash = CryptoJS.SHA384(text);
       return hash;
     },
@@ -3204,7 +3204,7 @@ $(() => {
   //
   mkTool(
     "sha512-hash",
-    text => {
+    (text) => {
       const hash = CryptoJS.SHA512(text);
       return hash;
     },
@@ -3217,7 +3217,7 @@ $(() => {
   //
   mkTool(
     "crc16-hash",
-    text => {
+    (text) => {
       return crc16(text);
     },
     {
@@ -3229,7 +3229,7 @@ $(() => {
   //
   mkTool(
     "crc32-hash",
-    text => {
+    (text) => {
       const hash = CRC32.str(text);
       return (hash >>> 0).toString(16);
     },
@@ -3242,7 +3242,7 @@ $(() => {
   //
   mkTool(
     "adler32-hash",
-    text => {
+    (text) => {
       const hash = ADLER32.str(text);
       let hashHex = (hash >>> 0).toString(16);
       let paddingLength = 8 - hashHex.length;
@@ -3260,7 +3260,7 @@ $(() => {
   //
   mkTool(
     "whirlpool-hash",
-    text => {
+    (text) => {
       const hash = Whirlpool(text);
       return hash;
     },
@@ -3271,7 +3271,7 @@ $(() => {
 
   // make seconds-to-hms work
   //
-  mkTool("seconds-to-hms", text => {
+  mkTool("seconds-to-hms", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3296,7 +3296,7 @@ $(() => {
 
   // make hms-to-seconds work
   //
-  mkTool("hms-to-seconds", text => {
+  mkTool("hms-to-seconds", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3319,7 +3319,7 @@ $(() => {
 
   // make seconds-to-human work
   //
-  mkTool("seconds-to-human", text => {
+  mkTool("seconds-to-human", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3428,7 +3428,7 @@ $(() => {
 
   // make base-convert tool work
   //
-  mkTool("base-convert", text => {
+  mkTool("base-convert", (text) => {
     const baseFrom = $("#base-convert-from").val();
     const baseTo = $("#base-convert-to").val();
 
@@ -3452,7 +3452,7 @@ $(() => {
 
   // make hex-to-dec tool work
   //
-  mkTool("hex-to-dec", text => {
+  mkTool("hex-to-dec", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3473,7 +3473,7 @@ $(() => {
 
   // make dec-to-hex tool work
   //
-  mkTool("dec-to-hex", text => {
+  mkTool("dec-to-hex", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3494,7 +3494,7 @@ $(() => {
 
   // make bin-to-dec tool work
   //
-  mkTool("bin-to-dec", text => {
+  mkTool("bin-to-dec", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3515,7 +3515,7 @@ $(() => {
 
   // make dec-to-bin tool work
   //
-  mkTool("dec-to-bin", text => {
+  mkTool("dec-to-bin", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3540,7 +3540,7 @@ $(() => {
 
   // make bin-to-oct tool work
   //
-  mkTool("bin-to-oct", text => {
+  mkTool("bin-to-oct", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3561,7 +3561,7 @@ $(() => {
 
   // make oct-to-bin tool work
   //
-  mkTool("oct-to-bin", text => {
+  mkTool("oct-to-bin", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3586,7 +3586,7 @@ $(() => {
 
   // make bin-to-hex tool work
   //
-  mkTool("bin-to-hex", text => {
+  mkTool("bin-to-hex", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3607,7 +3607,7 @@ $(() => {
 
   // make hex-to-bin tool work
   //
-  mkTool("hex-to-bin", text => {
+  mkTool("hex-to-bin", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3632,7 +3632,7 @@ $(() => {
 
   // make oct-to-dec tool work
   //
-  mkTool("oct-to-dec", text => {
+  mkTool("oct-to-dec", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3653,7 +3653,7 @@ $(() => {
 
   // make dec-to-oct tool work
   //
-  mkTool("dec-to-oct", text => {
+  mkTool("dec-to-oct", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3674,7 +3674,7 @@ $(() => {
 
   // make oct-to-hex tool work
   //
-  mkTool("oct-to-hex", text => {
+  mkTool("oct-to-hex", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3695,7 +3695,7 @@ $(() => {
 
   // make hex-to-oct tool work
   //
-  mkTool("hex-to-oct", text => {
+  mkTool("hex-to-oct", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -3718,7 +3718,7 @@ $(() => {
   //
   mkTool(
     "oct-to-bcd",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -3766,7 +3766,7 @@ $(() => {
   //
   mkTool(
     "bcd-to-oct",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -3824,7 +3824,7 @@ $(() => {
   //
   mkTool(
     "hex-to-bcd",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -3872,7 +3872,7 @@ $(() => {
   //
   mkTool(
     "bcd-to-hex",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -3930,7 +3930,7 @@ $(() => {
   //
   mkTool(
     "oct-to-gray",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -3964,7 +3964,7 @@ $(() => {
   //
   mkTool(
     "gray-to-oct",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -3999,7 +3999,7 @@ $(() => {
   //
   mkTool(
     "dec-to-gray",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -4033,7 +4033,7 @@ $(() => {
   //
   mkTool(
     "gray-to-dec",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -4068,7 +4068,7 @@ $(() => {
   //
   mkTool(
     "bin-to-gray",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -4102,7 +4102,7 @@ $(() => {
   //
   mkTool(
     "gray-to-bin",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -4141,7 +4141,7 @@ $(() => {
   //
   mkTool(
     "hex-to-gray",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -4176,7 +4176,7 @@ $(() => {
   //
   mkTool(
     "gray-to-hex",
-    text => {
+    (text) => {
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -4209,7 +4209,7 @@ $(() => {
 
   // make roman-to-decimal tool work
   //
-  mkTool("roman-to-decimal", text => {
+  mkTool("roman-to-decimal", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -4229,7 +4229,7 @@ $(() => {
 
   // make decimal-to-roman tool work
   //
-  mkTool("decimal-to-roman", text => {
+  mkTool("decimal-to-roman", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -4249,7 +4249,7 @@ $(() => {
 
   // make markdown-to-html tool work
   //
-  mkTool("markdown-to-html", text => {
+  mkTool("markdown-to-html", (text) => {
     const converter = new showdown.Converter();
     const html = converter.makeHtml(text);
     return html;
@@ -4257,7 +4257,7 @@ $(() => {
 
   // make text-to-binary tool work
   //
-  mkTool("text-to-binary", text => {
+  mkTool("text-to-binary", (text) => {
     const bytes = [];
     for (var i = 0; i < text.length; i++) {
       const realBytes = unescape(encodeURIComponent(text[i]));
@@ -4286,7 +4286,7 @@ $(() => {
   });
 
   // make text-to-binary format work
-  $("#text-to-binary-format").click(ev => {
+  $("#text-to-binary-format").click((ev) => {
     ev.preventDefault();
     $("#text-to-binary-format-field").slideToggle();
   });
@@ -4295,7 +4295,7 @@ $(() => {
   //
   mkTool(
     "binary-to-text",
-    text => {
+    (text) => {
       text = text.replace(/\s+/g, " ");
       bytes = text.split(" ");
       for (var i = 0; i < bytes.length; i++) {
@@ -4327,7 +4327,7 @@ $(() => {
 
   // make text-to-octal tool work
   //
-  mkTool("text-to-octal", text => {
+  mkTool("text-to-octal", (text) => {
     const bytes = [];
     for (var i = 0; i < text.length; i++) {
       const realBytes = unescape(encodeURIComponent(text[i]));
@@ -4351,7 +4351,7 @@ $(() => {
   });
 
   // make text-to-octal format work
-  $("#text-to-octal-format").click(ev => {
+  $("#text-to-octal-format").click((ev) => {
     ev.preventDefault();
     $("#text-to-octal-format-field").slideToggle();
   });
@@ -4360,7 +4360,7 @@ $(() => {
   //
   mkTool(
     "octal-to-text",
-    text => {
+    (text) => {
       text = text.replace(/\s+/g, " ");
       bytes = text.split(" ");
       for (var i = 0; i < bytes.length; i++) {
@@ -4392,7 +4392,7 @@ $(() => {
 
   // make text-to-ascii tool work
   //
-  mkTool("text-to-ascii", text => {
+  mkTool("text-to-ascii", (text) => {
     const bytes = [];
     for (var i = 0; i < text.length; i++) {
       const realBytes = unescape(encodeURIComponent(text[i]));
@@ -4419,7 +4419,7 @@ $(() => {
   //
   mkTool(
     "ascii-to-text",
-    text => {
+    (text) => {
       text = text.replace(/\s+/g, " ");
       bytes = text.split(" ");
       let ret = "";
@@ -4437,14 +4437,14 @@ $(() => {
   );
 
   // make text-to-decimal format work
-  $("#text-to-decimal-format").click(ev => {
+  $("#text-to-decimal-format").click((ev) => {
     ev.preventDefault();
     $("#text-to-decimal-format-field").slideToggle();
   });
 
   // make text-to-decimal tool work
   //
-  mkTool("text-to-decimal", text => {
+  mkTool("text-to-decimal", (text) => {
     const bytes = [];
     for (var i = 0; i < text.length; i++) {
       const realBytes = unescape(encodeURIComponent(text[i]));
@@ -4471,7 +4471,7 @@ $(() => {
   //
   mkTool(
     "decimal-to-text",
-    text => {
+    (text) => {
       text = text.replace(/\s+/g, " ");
       bytes = text.split(" ");
       let ret = "";
@@ -4490,7 +4490,7 @@ $(() => {
 
   // make text-to-hex tool work
   //
-  mkTool("text-to-hex", text => {
+  mkTool("text-to-hex", (text) => {
     const bytes = [];
     for (var i = 0; i < text.length; i++) {
       const realBytes = unescape(encodeURIComponent(text[i]));
@@ -4516,7 +4516,7 @@ $(() => {
   });
 
   // make text-to-hex format work
-  $("#text-to-hex-format").click(ev => {
+  $("#text-to-hex-format").click((ev) => {
     ev.preventDefault();
     $("#text-to-hex-format-field").slideToggle();
   });
@@ -4525,7 +4525,7 @@ $(() => {
   //
   mkTool(
     "hex-to-text",
-    text => {
+    (text) => {
       text = text.replace(/0x/g, "");
       text = text.replace(/\s+/g, " ");
       bytes = text.split(" ");
@@ -4554,7 +4554,7 @@ $(() => {
 
   // make text-lowercase tool work
   //
-  mkTool("text-lowercase", text => {
+  mkTool("text-lowercase", (text) => {
     let ret = "";
     for (let i = 0; i < text.length; i++) {
       ret += text[i].toLowerCase();
@@ -4564,7 +4564,7 @@ $(() => {
 
   // make text-uppercase tool work
   //
-  mkTool("text-uppercase", text => {
+  mkTool("text-uppercase", (text) => {
     let ret = "";
     for (let i = 0; i < text.length; i++) {
       ret += text[i].toUpperCase();
@@ -4574,14 +4574,14 @@ $(() => {
 
   // make text-titlecase tool work
   //
-  mkTool("text-titlecase", text => {
+  mkTool("text-titlecase", (text) => {
     text = text.toLowerCase();
     return titleCase(text);
   });
 
   // make text-capitalize tool work
   //
-  mkTool("text-capitalize", text => {
+  mkTool("text-capitalize", (text) => {
     // todo: handle tabs
     const ret = "";
     text = text.replace(/\r\n/, "\n");
@@ -4599,7 +4599,7 @@ $(() => {
 
   // make text-invert-case tool work
   //
-  mkTool("text-invert-case", text => {
+  mkTool("text-invert-case", (text) => {
     let ret = "";
     for (let i = 0; i < text.length; i++) {
       const isLower = text[i].toLowerCase() == text[i];
@@ -4614,7 +4614,7 @@ $(() => {
 
   // make text-randomcase tool work
   //
-  mkTool("text-randomcase", text => {
+  mkTool("text-randomcase", (text) => {
     let ret = "";
     for (let i = 0; i < text.length; i++) {
       const char = text[i].toLowerCase();
@@ -4629,7 +4629,7 @@ $(() => {
 
   // make text-transform tool work
   //
-  mkTool("text-transform", text => {
+  mkTool("text-transform", (text) => {
     const bytes = [];
     let converted = "";
     const textToHexFormat = $("#text-transform-format-field input").val();
@@ -4703,7 +4703,7 @@ $(() => {
 
   // make spaces-to-tabs work
   //
-  mkTool("spaces-to-tabs", text => {
+  mkTool("spaces-to-tabs", (text) => {
     const spaceCount = $("#spaces-to-tabs-count").val();
     const rx = new RegExp(" {" + spaceCount + "}", "g");
     return text.replace(rx, "\t");
@@ -4711,7 +4711,7 @@ $(() => {
 
   // make tabs-to-spaces work
   //
-  mkTool("tabs-to-spaces", text => {
+  mkTool("tabs-to-spaces", (text) => {
     const spaceCount = $("#tabs-to-spaces-count").val();
     let spaceStr = "";
     for (let i = 1; i <= spaceCount; i++) {
@@ -4722,13 +4722,13 @@ $(() => {
 
   // make spaces-to-newlines work
   //
-  mkTool("spaces-to-newlines", text => {
+  mkTool("spaces-to-newlines", (text) => {
     return text.replace(/\s+/g, "\n");
   });
 
   // make newlines-to-spaces work
   //
-  mkTool("newlines-to-spaces", text => {
+  mkTool("newlines-to-spaces", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     const retLines = [];
@@ -4742,7 +4742,7 @@ $(() => {
 
   // make add-slashes work
   //
-  mkTool("add-slashes", text => {
+  mkTool("add-slashes", (text) => {
     text = text.replace(/\\/g, "\\\\");
     text = text.replace(/\t/g, "\\t");
     text = text.replace(/\n/g, "\\n");
@@ -4753,7 +4753,7 @@ $(() => {
 
   // make strip-slashes work
   //
-  mkTool("strip-slashes", text => {
+  mkTool("strip-slashes", (text) => {
     return text.replace(/\\(.?)/g, (match, char) => {
       if (char == "\\") return "\\";
       if (char == "t") return "\t";
@@ -4765,14 +4765,14 @@ $(() => {
 
   // make remove-accents work
   //
-  mkTool("remove-accents", text => {
+  mkTool("remove-accents", (text) => {
     text = removeAccents(text);
     return text;
   });
 
   // make remove-whitespace work
   //
-  mkTool("remove-whitespace", text => {
+  mkTool("remove-whitespace", (text) => {
     text = text.replace(/ +/g, " ");
     text = text.replace(/\t+/g, " ");
     text = text.replace(/^\s+/g, "");
@@ -4782,14 +4782,14 @@ $(() => {
 
   // make remove-all-whitespace work
   //
-  mkTool("remove-all-whitespace", text => {
+  mkTool("remove-all-whitespace", (text) => {
     text = text.replace(/\s+/g, "");
     return text;
   });
 
   // make remove-punctuation work
   //
-  mkTool("remove-punctuation", text => {
+  mkTool("remove-punctuation", (text) => {
     const puntuationRe =
       /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
     text = text.replace(puntuationRe, "");
@@ -4798,7 +4798,7 @@ $(() => {
 
   // make text-repeat tool work
   //
-  mkTool("text-repeat", text => {
+  mkTool("text-repeat", (text) => {
     const count = $("#text-repeat-count").val();
     let ret = "";
     for (let i = 1; i <= count; i++) {
@@ -4809,7 +4809,7 @@ $(() => {
 
   // make text-right-align tool work
   //
-  mkTool("text-right-align", text => {
+  mkTool("text-right-align", (text) => {
     const lines = text.split("\n");
     let longestLine = 0;
     for (var i = 0; i < lines.length; i++) {
@@ -4834,7 +4834,7 @@ $(() => {
 
   // make text-left-pad tool work
   //
-  mkTool("text-left-pad", text => {
+  mkTool("text-left-pad", (text) => {
     const width = $("#text-left-pad-width").val();
     const symbol = $("#text-left-pad-symbol").val();
     const lines = text.split("\n");
@@ -4859,7 +4859,7 @@ $(() => {
 
   // make text-right-pad tool work
   //
-  mkTool("text-right-pad", text => {
+  mkTool("text-right-pad", (text) => {
     const width = $("#text-right-pad-width").val();
     const symbol = $("#text-right-pad-symbol").val();
     const lines = text.split("\n");
@@ -4884,7 +4884,7 @@ $(() => {
 
   // make text-justify tool work
   //
-  mkTool("text-justify", text => {
+  mkTool("text-justify", (text) => {
     const lines = text.split("\n");
     let maxLineLen = 0;
     for (var i = 0; i < lines.length; i++) {
@@ -4949,7 +4949,7 @@ $(() => {
   //
   mkTool(
     "text-format-columns",
-    text => {
+    (text) => {
       text = text.replace("\r\n", "\n");
       const lines = text.split("\n");
       let ret = "";
@@ -4990,7 +4990,7 @@ $(() => {
 
   // make text-replace tool work
   //
-  mkTool("text-replace", text => {
+  mkTool("text-replace", (text) => {
     const replaceFrom = $("#text-replace-from").val();
     let replaceTo = $("#text-replace-to").val();
     if (replaceTo == "\\n") {
@@ -5003,19 +5003,19 @@ $(() => {
 
   // make text-reverse tool work
   //
-  mkTool("text-reverse", text => {
+  mkTool("text-reverse", (text) => {
     return text.split("").reverse().join("");
   });
 
   // make text-length tool work
   //
-  mkTool("text-length", text => {
+  mkTool("text-length", (text) => {
     return text.length;
   });
 
   // make text-truncate tool work
   //
-  mkTool("text-truncate", text => {
+  mkTool("text-truncate", (text) => {
     const lines = text.split("\n");
     const truncateLength = $("#text-truncate-length").val();
     ret = "";
@@ -5031,7 +5031,7 @@ $(() => {
 
   // make text-trim tool work
   //
-  mkTool("text-trim", text => {
+  mkTool("text-trim", (text) => {
     const lines = text.split("\n");
     ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -5045,7 +5045,7 @@ $(() => {
 
   // make merge-lists tool work
   //
-  mkTool("merge-lists", text => {
+  mkTool("merge-lists", (text) => {
     const list1 = text.split("\n");
     const list2 = $("#merge-lists-text2").val().split("\n");
     const delim = $("#merge-lists-delimiter").val();
@@ -5065,7 +5065,7 @@ $(() => {
 
   // make zip-lists tool work
   //
-  mkTool("zip-lists", text => {
+  mkTool("zip-lists", (text) => {
     const list1 = text.split("\n");
     const list2 = $("#zip-lists-text2").val().split("\n");
 
@@ -5085,7 +5085,7 @@ $(() => {
 
   // make common-elements tool work
   //
-  mkTool("common-elements", text => {
+  mkTool("common-elements", (text) => {
     const list1 = text.split("\n");
     const list2 = $("#common-elements-text2").val().split("\n");
 
@@ -5110,7 +5110,7 @@ $(() => {
 
   // make distinct-elements tool work
   //
-  mkTool("distinct-elements", text => {
+  mkTool("distinct-elements", (text) => {
     const list1 = text.split("\n");
     const list2 = $("#distinct-elements-text2").val().split("\n");
 
@@ -5151,7 +5151,7 @@ $(() => {
 
   // make grep tool work
   //
-  mkTool("grep", text => {
+  mkTool("grep", (text) => {
     const regex = $("#grep-regex").val();
     const invertMatches = $("#grep-invert").is(":checked");
     const regexParts = regex.match(/^\/(.*?)\/([gimuy]*)$/);
@@ -5182,7 +5182,7 @@ $(() => {
   //
   mkTool(
     "printf",
-    text => {
+    (text) => {
       const format = $("#printf-format").val();
       text = text.replace(/\r\n/g, "\n");
       const lines = text.split("\n");
@@ -5214,7 +5214,7 @@ $(() => {
 
   // make head tool work
   //
-  mkTool("head", text => {
+  mkTool("head", (text) => {
     const howMany = $("#head-how-many").val();
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
@@ -5230,7 +5230,7 @@ $(() => {
 
   // make tail tool work
   //
-  mkTool("tail", text => {
+  mkTool("tail", (text) => {
     const howMany = $("#tail-how-many").val();
     text = text.replace(/\r\n/g, "\n");
     let lines = text.split("\n");
@@ -5248,7 +5248,7 @@ $(() => {
 
   // make extract-lines tool work
   //
-  mkTool("extract-lines", text => {
+  mkTool("extract-lines", (text) => {
     const start = $("#extract-lines-start").val();
     const end = $("#extract-lines-end").val();
     text = text.replace(/\r\n/g, "\n");
@@ -5265,19 +5265,19 @@ $(() => {
 
   // make letter-count tool work
   //
-  mkTool("letter-count", text => {
+  mkTool("letter-count", (text) => {
     return text.length;
   });
 
   // make number-lines format work
-  $("#number-lines-format").click(ev => {
+  $("#number-lines-format").click((ev) => {
     ev.preventDefault();
     $("#number-lines-field").slideToggle();
   });
 
   // make number-lines tool work
   //
-  mkTool("number-lines", text => {
+  mkTool("number-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -5293,7 +5293,7 @@ $(() => {
 
   // make prefix-lines tool work
   //
-  mkTool("prefix-lines", text => {
+  mkTool("prefix-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -5308,7 +5308,7 @@ $(() => {
 
   // make suffix-lines tool work
   //
-  mkTool("suffix-lines", text => {
+  mkTool("suffix-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -5323,7 +5323,7 @@ $(() => {
 
   // make prefix-suffix-lines tool work
   //
-  mkTool("prefix-suffix-lines", text => {
+  mkTool("prefix-suffix-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -5339,7 +5339,7 @@ $(() => {
 
   // make longest-line tool work
   //
-  mkTool("longest-line", text => {
+  mkTool("longest-line", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -5354,7 +5354,7 @@ $(() => {
 
   // make shortest-line tool work
   //
-  mkTool("shortest-line", text => {
+  mkTool("shortest-line", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -5373,7 +5373,7 @@ $(() => {
 
   // make duplicate-lines tool work
   //
-  mkTool("duplicate-lines", text => {
+  mkTool("duplicate-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     const seen = {};
@@ -5392,7 +5392,7 @@ $(() => {
 
   // make empty-lines tool work
   //
-  mkTool("empty-lines", text => {
+  mkTool("empty-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -5409,7 +5409,7 @@ $(() => {
 
   // make random-lines tool work
   //
-  mkTool("random-lines", text => {
+  mkTool("random-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     let lines = text.split("\n");
 
@@ -5436,7 +5436,7 @@ $(() => {
 
   // make random-letters tool work
   //
-  mkTool("random-letters", text => {
+  mkTool("random-letters", (text) => {
     text = text.replace(/\r\n/g, "\n");
 
     function KnuthShuffle(array) {
@@ -5463,7 +5463,7 @@ $(() => {
 
   // make join-lines tool work
   //
-  mkTool("join-lines", text => {
+  mkTool("join-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     const retLines = [];
@@ -5478,7 +5478,7 @@ $(() => {
 
   // make filter-lines tool work
   //
-  mkTool("filter-lines", text => {
+  mkTool("filter-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     let ret = "";
@@ -5500,7 +5500,7 @@ $(() => {
 
   // make text-split tool work
   //
-  mkTool("text-split", text => {
+  mkTool("text-split", (text) => {
     const symbol = $("#text-split-symbol").val();
     const parts = text.split(symbol);
     return parts.join("\n");
@@ -5508,7 +5508,7 @@ $(() => {
 
   // make reverse-lines tool work
   //
-  mkTool("reverse-lines", text => {
+  mkTool("reverse-lines", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     lines.reverse();
@@ -5517,7 +5517,7 @@ $(() => {
 
   // make text-sort tool work
   //
-  mkTool("text-sort", text => {
+  mkTool("text-sort", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     lines.sort();
@@ -5526,7 +5526,7 @@ $(() => {
 
   // make numeric-sort tool work
   //
-  mkTool("numeric-sort", text => {
+  mkTool("numeric-sort", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     lines.sort((a, b) => {
@@ -5537,7 +5537,7 @@ $(() => {
 
   // make word-sort tool work
   //
-  mkTool("word-sort", text => {
+  mkTool("word-sort", (text) => {
     text = text.replace(/[?.,!"]/g, " ");
     text = text.replace(/\s+$/g, "");
     text = text.replace(/^\s+/g, "");
@@ -5552,7 +5552,7 @@ $(() => {
 
   // make line-length-sort tool work
   //
-  mkTool("line-length-sort", text => {
+  mkTool("line-length-sort", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const lines = text.split("\n");
     const format = $("#line-length-sort-format").val();
@@ -5568,7 +5568,7 @@ $(() => {
 
   // make ip-sort tool work
   //
-  mkTool("ip-sort", text => {
+  mkTool("ip-sort", (text) => {
     text = text.replace(/\r\n/g, "\n");
     const ips = text.split("\n");
     ips.sort((a, b) => {
@@ -5593,7 +5593,7 @@ $(() => {
 
   // make word-wrap tool work
   //
-  mkTool("word-wrap", text => {
+  mkTool("word-wrap", (text) => {
     const len = $("#word-wrap-length").val();
     const ww = wordwrap(len);
     return ww(text);
@@ -5601,26 +5601,26 @@ $(() => {
 
   // make word-split tool work
   //
-  mkTool("word-split", text => {
+  mkTool("word-split", (text) => {
     const parts = text.split(/\s+/g);
     return parts.join("\n");
   });
 
   // make word-count tool work
   //
-  mkTool("word-count", text => {
+  mkTool("word-count", (text) => {
     return text.match(/\S+/g).length;
   });
 
   // make line-count tool work
   //
-  mkTool("line-count", text => {
+  mkTool("line-count", (text) => {
     return text.split("\n").length;
   });
 
   // make paragraph-count tool work
   //
-  mkTool("paragraph-count", text => {
+  mkTool("paragraph-count", (text) => {
     const paragraphs = text.split(/\n\n+/g);
     let paragraphCount = 0;
     for (let i = 0; i < paragraphs.length; i++) {
@@ -5633,7 +5633,7 @@ $(() => {
 
   // make word-frequency tool work
   //
-  mkTool("word-frequency", text => {
+  mkTool("word-frequency", (text) => {
     // copy paste from text-info
     const wordStats = {};
     const words = text.split(/\s+/g);
@@ -5662,7 +5662,7 @@ $(() => {
 
   // make phrase-frequency tool work
   //
-  mkTool("phrase-frequency", text => {
+  mkTool("phrase-frequency", (text) => {
     const textSentences = text.split(/[.?!]+/);
     const sentences = [];
     for (var i = 0; i < textSentences.length; i++) {
@@ -5779,7 +5779,7 @@ $(() => {
   //
   mkTool(
     "text-from-regex",
-    text => {
+    (text) => {
       const howMany = parseInt($("#text-from-regex-how-many").val(), 10);
       const regex = $("#text-from-regex-regex").val();
       let ret = "";
@@ -5803,7 +5803,7 @@ $(() => {
   //
   mkTool(
     "regex-replace",
-    text => {
+    (text) => {
       const regex = $("#regex-replace-regex").val();
       const regexParts = regex.match(/^\/(.*?)\/([gimuy]*)$/);
       if (regexParts) {
@@ -5827,7 +5827,7 @@ $(() => {
   //
   mkTool(
     "regex-extract-matches",
-    text => {
+    (text) => {
       const regex = $("#regex-extract-matches-regex").val();
 
       const regexParts = regex.match(/^\/(.*?)\/([gimuy]*)$/);
@@ -5856,7 +5856,7 @@ $(() => {
 
   // make extract-emails tool work
   //
-  mkTool("extract-emails", text => {
+  mkTool("extract-emails", (text) => {
     const matches = text.match(/[a-z0-9._%+-]+@[a-z0-9-]+\.([a-z0-9]+)/gi);
     let ret = "";
     if (matches) {
@@ -5872,7 +5872,7 @@ $(() => {
   //
   mkTool(
     "extract-urls",
-    text => {
+    (text) => {
       // https://gist.github.com/dperini/729294
       const urlRegex = new RegExp(
         // protocol identifier
@@ -5931,7 +5931,7 @@ $(() => {
   //
   mkTool(
     "extract-numbers",
-    text => {
+    (text) => {
       const matches = text.match(/-?[0-9](\.[0-9]+)?/gi);
       let ret = "";
       if (matches) {
@@ -5952,7 +5952,7 @@ $(() => {
 
   // make text-info tool work
   //
-  mkTool("text-info", text => {
+  mkTool("text-info", (text) => {
     const length = text.length;
     const wordCount = text.match(/\S+/g).length;
     const lineCount = text.split("\n").length;
@@ -6076,7 +6076,7 @@ $(() => {
 
   // make random-pick tool work
   //
-  mkTool("random-pick", text => {
+  mkTool("random-pick", (text) => {
     const lines = text.split("\n");
     const howMany = parseInt($("#random-pick-how-many").val(), 10);
 
@@ -6308,8 +6308,14 @@ $(() => {
   mkTool(
     "random-bin",
     () => {
-      const howManyDigits = parseInt($("#random-bin-how-many-digits").val(), 10);
-      const howManyResuls = parseInt($("#random-bin-how-many-results").val(), 10);
+      const howManyDigits = parseInt(
+        $("#random-bin-how-many-digits").val(),
+        10
+      );
+      const howManyResuls = parseInt(
+        $("#random-bin-how-many-results").val(),
+        10
+      );
 
       let str = "";
       for (let i = 0; i < howManyResuls; i++) {
@@ -6333,8 +6339,14 @@ $(() => {
   mkTool(
     "random-oct",
     () => {
-      const howManyDigits = parseInt($("#random-oct-how-many-digits").val(), 10);
-      const howManyResuls = parseInt($("#random-oct-how-many-results").val(), 10);
+      const howManyDigits = parseInt(
+        $("#random-oct-how-many-digits").val(),
+        10
+      );
+      const howManyResuls = parseInt(
+        $("#random-oct-how-many-results").val(),
+        10
+      );
 
       let str = "";
       for (let i = 0; i < howManyResuls; i++) {
@@ -6358,8 +6370,14 @@ $(() => {
   mkTool(
     "random-dec",
     () => {
-      const howManyDigits = parseInt($("#random-dec-how-many-digits").val(), 10);
-      const howManyResuls = parseInt($("#random-dec-how-many-results").val(), 10);
+      const howManyDigits = parseInt(
+        $("#random-dec-how-many-digits").val(),
+        10
+      );
+      const howManyResuls = parseInt(
+        $("#random-dec-how-many-results").val(),
+        10
+      );
 
       let str = "";
       for (let i = 0; i < howManyResuls; i++) {
@@ -6383,8 +6401,14 @@ $(() => {
   mkTool(
     "random-hex",
     () => {
-      const howManyDigits = parseInt($("#random-hex-how-many-digits").val(), 10);
-      const howManyResuls = parseInt($("#random-hex-how-many-results").val(), 10);
+      const howManyDigits = parseInt(
+        $("#random-hex-how-many-digits").val(),
+        10
+      );
+      const howManyResuls = parseInt(
+        $("#random-hex-how-many-results").val(),
+        10
+      );
 
       let str = "";
       for (let i = 0; i < howManyResuls; i++) {
@@ -6428,7 +6452,7 @@ $(() => {
   );
 
   // make random-ip ip range work
-  $("#random-ip-range").click(ev => {
+  $("#random-ip-range").click((ev) => {
     ev.preventDefault();
     $("#random-ip-range-field").slideToggle();
   });
@@ -6467,7 +6491,7 @@ $(() => {
   );
 
   // make random-mac mac range work
-  $("#random-mac-range").click(ev => {
+  $("#random-mac-range").click((ev) => {
     ev.preventDefault();
     $("#random-mac-range-field").slideToggle();
   });
@@ -6553,7 +6577,7 @@ $(() => {
     }
   });
   // make random-date change date range work
-  $("#random-date-range").click(ev => {
+  $("#random-date-range").click((ev) => {
     ev.preventDefault();
     $("#random-date-range-field").slideToggle();
   });
@@ -6581,7 +6605,9 @@ $(() => {
 
       let str = "";
       for (let i = 0; i < howMany; i++) {
-        const date = new Date(startDate + Math.random() * (endDate - startDate));
+        const date = new Date(
+          startDate + Math.random() * (endDate - startDate)
+        );
 
         const months_long = [
           "January",
@@ -6711,7 +6737,7 @@ $(() => {
     }
   });
   // make random-time change date range work
-  $("#random-time-range").click(ev => {
+  $("#random-time-range").click((ev) => {
     ev.preventDefault();
     $("#random-time-range-field").slideToggle();
   });
@@ -6855,11 +6881,11 @@ $(() => {
       let str = "";
       for (let i = 0; i < howMany; i++) {
         let format = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-        format = format.replace(/x/g, char => {
+        format = format.replace(/x/g, (char) => {
           const randInt = parseInt(Math.random() * 16, 10);
           return randInt.toString(16);
         });
-        format = format.replace(/y/g, char => {
+        format = format.replace(/y/g, (char) => {
           const yRange = ["8", "9", "a", "b"];
           const randInt = parseInt(Math.random() * 4, 10);
           const y = yRange[randInt];
@@ -6885,11 +6911,11 @@ $(() => {
       let str = "";
       for (let i = 0; i < howMany; i++) {
         let format = "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx";
-        format = format.replace(/x/g, char => {
+        format = format.replace(/x/g, (char) => {
           const randInt = parseInt(Math.random() * 16, 10);
           return randInt.toString(16);
         });
-        format = format.replace(/y/g, char => {
+        format = format.replace(/y/g, (char) => {
           const yRange = ["8", "9", "a", "b"];
           const randInt = parseInt(Math.random() * 4, 10);
           const y = yRange[randInt];
@@ -7061,7 +7087,7 @@ $(() => {
 
   // make decimal-to-scientific tool work
   //
-  mkTool("decimal-to-scientific", text => {
+  mkTool("decimal-to-scientific", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7179,7 +7205,7 @@ $(() => {
 
   // make miles-to-km tool work
   //
-  mkTool("miles-to-km", text => {
+  mkTool("miles-to-km", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7197,7 +7223,7 @@ $(() => {
 
   // make km-to-miles tool work
   //
-  mkTool("km-to-miles", text => {
+  mkTool("km-to-miles", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7215,7 +7241,7 @@ $(() => {
 
   // make c-to-f tool work
   //
-  mkTool("c-to-f", text => {
+  mkTool("c-to-f", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7233,7 +7259,7 @@ $(() => {
 
   // make f-to-c tool work
   //
-  mkTool("f-to-c", text => {
+  mkTool("f-to-c", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7251,7 +7277,7 @@ $(() => {
 
   // make deg-to-rad tool work
   //
-  mkTool("deg-to-rad", text => {
+  mkTool("deg-to-rad", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7269,7 +7295,7 @@ $(() => {
 
   // make rad-to-deg tool work
   //
-  mkTool("rad-to-deg", text => {
+  mkTool("rad-to-deg", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7287,7 +7313,7 @@ $(() => {
 
   // make kg-to-lbs tool work
   //
-  mkTool("kg-to-lbs", text => {
+  mkTool("kg-to-lbs", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7305,7 +7331,7 @@ $(() => {
 
   // make lbs-to-kg tool work
   //
-  mkTool("lbs-to-kg", text => {
+  mkTool("lbs-to-kg", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7323,7 +7349,7 @@ $(() => {
 
   // make scientific-to-decimal tool work
   //
-  mkTool("scientific-to-decimal", text => {
+  mkTool("scientific-to-decimal", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7337,7 +7363,7 @@ $(() => {
 
   // make numbers-to-words tool work
   //
-  mkTool("numbers-to-words", text => {
+  mkTool("numbers-to-words", (text) => {
     const lines = text.split("\n");
     let ret = "";
     for (let i = 0; i < lines.length; i++) {
@@ -7354,7 +7380,7 @@ $(() => {
   //
   mkTool(
     "words-to-numbers",
-    text => {
+    (text) => {
       text = text.replace(/,/g, " ");
       const lines = text.split("\n");
       let ret = "";
@@ -7375,7 +7401,7 @@ $(() => {
     }
   );
 
-  mkTool("hex-to-rgb", text => {
+  mkTool("hex-to-rgb", (text) => {
     $("#action-error").hide();
 
     const lines = text.split("\n");
@@ -7425,7 +7451,7 @@ $(() => {
     return ret;
   });
 
-  mkTool("rgb-to-hex", text => {
+  mkTool("rgb-to-hex", (text) => {
     $("#action-error").hide();
 
     const lines = text.split("\n");
@@ -7553,7 +7579,7 @@ $(() => {
     var selectedFile;
 
     // make file selector work
-    $(fileSelector).on("change", ev => {
+    $(fileSelector).on("change", (ev) => {
       $("#action-error").hide();
       const file = ev.target.files[0];
       selectedFile = file;
@@ -7561,27 +7587,27 @@ $(() => {
     });
 
     // make drag & drop work
-    $("#drag-and-drop").on("dragover", ev => {
+    $("#drag-and-drop").on("dragover", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").addClass("hover");
     });
-    $("#drag-and-drop").on("dragenter", ev => {
+    $("#drag-and-drop").on("dragenter", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").addClass("hover");
     });
-    $("#drag-and-drop").on("dragleave", ev => {
+    $("#drag-and-drop").on("dragleave", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").removeClass("hover");
     });
-    $("#drag-and-drop").on("dragend", ev => {
+    $("#drag-and-drop").on("dragend", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").removeClass("hover");
     });
-    $("#drag-and-drop").on("drop", ev => {
+    $("#drag-and-drop").on("drop", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").removeClass("hover");
@@ -7616,7 +7642,7 @@ $(() => {
     var selectedFile;
 
     // make file selector work
-    $(fileSelector).on("change", ev => {
+    $(fileSelector).on("change", (ev) => {
       $("#action-error").hide();
       const file = ev.target.files[0];
       selectedFile = file;
@@ -7624,27 +7650,27 @@ $(() => {
     });
 
     // make drag & drop work
-    $("#drag-and-drop").on("dragover", ev => {
+    $("#drag-and-drop").on("dragover", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").addClass("hover");
     });
-    $("#drag-and-drop").on("dragenter", ev => {
+    $("#drag-and-drop").on("dragenter", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").addClass("hover");
     });
-    $("#drag-and-drop").on("dragleave", ev => {
+    $("#drag-and-drop").on("dragleave", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").removeClass("hover");
     });
-    $("#drag-and-drop").on("dragend", ev => {
+    $("#drag-and-drop").on("dragend", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").removeClass("hover");
     });
-    $("#drag-and-drop").on("drop", ev => {
+    $("#drag-and-drop").on("drop", (ev) => {
       ev.preventDefault();
       ev.stopPropagation();
       $("#drag-and-drop").removeClass("hover");

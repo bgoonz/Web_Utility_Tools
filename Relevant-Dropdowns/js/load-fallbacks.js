@@ -1,5 +1,5 @@
-$('#search').relevantDropdown();
+$("#search").relevantDropdown();
 
-$('#name').relevantDropdown({
-  fadeOutSpeed: 0
+$("#name").relevantDropdown({
+  fadeOutSpeed: 0,
 });

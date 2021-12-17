@@ -33,23 +33,23 @@
 
 /* global ActiveXObject, DOMDocument */
 
-(global => {
+((global) => {
   "use strict";
 
   // Regular Expressions for parsing tags and attributes
   const singleAttrIdentifier = /([\w:\.-]+)/,
-        singleAttrAssign = /=/,
-        singleAttrAssigns = [singleAttrAssign],
-        singleAttrValues = [
-          /"((?:\\.|[^"])*)"/.source, // attr value double quotes
-          /'((?:\\.|[^'])*)'/.source, // attr value, single quotes
-          /([^>\s]+)/.source, // attr value, no quotes
-        ],
-        startTagOpen = /^<([\w:-]+)/,
-        startTagClose = /\s*(\/?)>/,
-        endTag = /^<\/([\w:-]+)[^>]*>/,
-        endingSlash = /\/>$/,
-        doctype = /^<!DOCTYPE [^>]+>/i;
+    singleAttrAssign = /=/,
+    singleAttrAssigns = [singleAttrAssign],
+    singleAttrValues = [
+      /"((?:\\.|[^"])*)"/.source, // attr value double quotes
+      /'((?:\\.|[^'])*)'/.source, // attr value, single quotes
+      /([^>\s]+)/.source, // attr value, no quotes
+    ],
+    startTagOpen = /^<([\w:-]+)/,
+    startTagClose = /\s*(\/?)>/,
+    endTag = /^<\/([\w:-]+)[^>]*>/,
+    endingSlash = /\/>$/,
+    doctype = /^<!DOCTYPE [^>]+>/i;
 
   let IS_REGEX_CAPTURING_BROKEN = false;
   "x".replace(/x(.)?/g, (m, g) => {
@@ -166,7 +166,7 @@
   function joinSingleAttrAssigns(handler) {
     return singleAttrAssigns
       .concat(handler.customAttrAssign || [])
-      .map(assign => {
+      .map((assign) => {
         return "(?:" + assign.source + ")";
       })
       .join("|");
@@ -350,7 +350,13 @@
       const attrs = [];
 
       rest.replace(attr, function () {
-        let name, value, fallbackValue, customOpen, customClose, customAssign, quote;
+        let name,
+          value,
+          fallbackValue,
+          customOpen,
+          customClose,
+          customAssign,
+          quote;
         const ncp = 7; // number of captured parts, scalar
 
         // hackish work around FF bug https://bugzilla.mozilla.org/show_bug.cgi?id=369778
@@ -402,7 +408,7 @@
           value: value,
           escaped:
             value &&
-            value.replace(/(^|.)("+)/g, match => {
+            value.replace(/(^|.)("+)/g, (match) => {
               return match.replace(/"/g, "&quot;");
             }),
           customAssign: customAssign || "=",
@@ -453,7 +459,7 @@
     }
   });
 
-  global.HTMLtoXML = html => {
+  global.HTMLtoXML = (html) => {
     let results = "";
 
     new HTMLParser(html, {
@@ -513,9 +519,9 @@
     }
 
     const elems = [],
-          documentElement =
-            doc.documentElement ||
-            (doc.getDocumentElement && doc.getDocumentElement());
+      documentElement =
+        doc.documentElement ||
+        (doc.getDocumentElement && doc.getDocumentElement());
 
     // If we're dealing with an empty document then we
     // need to pre-populate it with the HTML document structure
@@ -570,7 +576,7 @@
           curParentNode = elem;
         }
       },
-      end() /* tag */{
+      end() /* tag */ {
         elems.length -= 1;
 
         // Init the new parentNode
@@ -579,10 +585,10 @@
       chars(text) {
         curParentNode.appendChild(doc.createTextNode(text));
       },
-      comment() /*text*/{
+      comment() /*text*/ {
         // create comment node
       },
-      ignore() /* text */{
+      ignore() /* text */ {
         // What to do here?
       },
     });
@@ -591,7 +597,8 @@
   };
 
   function makeMap(str) {
-    const obj = {}, items = str.split(",");
+    const obj = {},
+      items = str.split(",");
     for (let i = 0; i < items.length; i++) {
       obj[items[i]] = true;
       obj[items[i].toUpperCase()] = true;
@@ -602,12 +609,12 @@
 
 /* global CleanCSS */
 
-(global => {
+((global) => {
   "use strict";
 
   let log, HTMLParser;
   if (global.console && global.console.log) {
-    log = message => {
+    log = (message) => {
       // "preserving" `this`
       global.console.log(message);
     };
@@ -621,14 +628,14 @@
     HTMLParser = require("./htmlparser").HTMLParser;
   }
 
-  let trimWhitespace = str => {
+  let trimWhitespace = (str) => {
     if (typeof str !== "string") {
       return str;
     }
     return str.replace(/^\s+/, "").replace(/\s+$/, "");
   };
   if (String.prototype.trim) {
-    trimWhitespace = str => {
+    trimWhitespace = (str) => {
       if (typeof str !== "string") {
         return str;
       }
@@ -643,46 +650,46 @@
   function collapseWhitespaceSmart(str, prevTag, nextTag, options) {
     // array of non-empty element tags that will maintain a single space outside of them
     const tags = [
-              "a",
-              "abbr",
-              "acronym",
-              "b",
-              "bdi",
-              "bdo",
-              "big",
-              "button",
-              "cite",
-              "code",
-              "del",
-              "dfn",
-              "em",
-              "font",
-              "i",
-              "ins",
-              "kbd",
-              "mark",
-              "q",
-              "rt",
-              "rp",
-              "s",
-              "samp",
-              "small",
-              "span",
-              "strike",
-              "strong",
-              "sub",
-              "sup",
-              "svg",
-              "time",
-              "tt",
-              "u",
-              "var",
-            ],
-          lineBreakBefore = /^[\t ]*[\n\r]+[\t\n\r ]*/,
-          lineBreakAfter = /[\t\n\r ]*[\n\r]+[\t ]*$/,
-          preserveBefore = lineBreakBefore.test(str) ? "\n" : " ",
-          preserveAfter = lineBreakAfter.test(str) ? "\n" : " ",
-          lineBreakStamp = "htmlmincollapsedlinebreak";
+        "a",
+        "abbr",
+        "acronym",
+        "b",
+        "bdi",
+        "bdo",
+        "big",
+        "button",
+        "cite",
+        "code",
+        "del",
+        "dfn",
+        "em",
+        "font",
+        "i",
+        "ins",
+        "kbd",
+        "mark",
+        "q",
+        "rt",
+        "rp",
+        "s",
+        "samp",
+        "small",
+        "span",
+        "strike",
+        "strong",
+        "sub",
+        "sup",
+        "svg",
+        "time",
+        "tt",
+        "u",
+        "var",
+      ],
+      lineBreakBefore = /^[\t ]*[\n\r]+[\t\n\r ]*/,
+      lineBreakAfter = /[\t\n\r ]*[\n\r]+[\t ]*$/,
+      preserveBefore = lineBreakBefore.test(str) ? "\n" : " ",
+      preserveAfter = lineBreakAfter.test(str) ? "\n" : " ",
+      lineBreakStamp = "htmlmincollapsedlinebreak";
 
     if (
       prevTag &&
@@ -1061,8 +1068,12 @@
     options,
     isLast
   ) {
-    const attrName = options.caseSensitive ? attr.name : attr.name.toLowerCase();
-    let attrValue = options.preventAttributesEscaping ? attr.value : attr.escaped;
+    const attrName = options.caseSensitive
+      ? attr.name
+      : attr.name.toLowerCase();
+    let attrValue = options.preventAttributesEscaping
+      ? attr.value
+      : attr.escaped;
 
     const attrQuote = options.preventAttributesEscaping
       ? attr.quote
@@ -1254,19 +1265,20 @@
     const t = new Date();
     const ignoredMarkupChunks = [];
     const ignoredCustomMarkupChunks = [];
-    const reIgnore = /<!-- htmlmin:ignore -->([\s\S]*?)<!-- htmlmin:ignore -->/g;
+    const reIgnore =
+      /<!-- htmlmin:ignore -->([\s\S]*?)<!-- htmlmin:ignore -->/g;
     const uidAttr = " htmlmin" + (Math.random() + "").slice(2) + " ";
     let reCustomIgnore;
     let customFragments;
 
     if (options.ignoreCustomFragments) {
-      customFragments = options.ignoreCustomFragments.map(re => {
+      customFragments = options.ignoreCustomFragments.map((re) => {
         return re.source;
       });
       reCustomIgnore = new RegExp("(?:" + customFragments.join("|") + ")", "g");
 
       // temporarily replace custom ignored fragments with unique attributes
-      value = value.replace(reCustomIgnore, match => {
+      value = value.replace(reCustomIgnore, (match) => {
         ignoredCustomMarkupChunks.push(match);
         return uidAttr;
       });
@@ -1541,7 +1553,7 @@
  *
  */
 
-(global => {
+((global) => {
   "use strict";
 
   function isPresentationalElement(tag) {
@@ -1696,7 +1708,8 @@
 
       if (this.log.length) {
         if (writeToElement) {
-          writeToElement.innerHTML = "<ol><li>" + this.log.join("<li>") + "</ol>";
+          writeToElement.innerHTML =
+            "<ol><li>" + this.log.join("<li>") + "</ol>";
         } else {
           const output =
             " - " +

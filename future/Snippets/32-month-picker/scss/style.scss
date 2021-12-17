@@ -1,6 +1,4 @@
-@import '../../shared/mixins',
-        '../../shared/reset',
-        '../../shared/about-light';
+@import "../../shared/mixins", "../../shared/reset", "../../shared/about-light";
 
 /*
  * Copyright (c) 2012-2013 Thibaut Courouble
@@ -10,10 +8,13 @@
  * http://www.opensource.org/licenses/mit-license.php
  */
 
-html, body { min-height: 100%; }
+html,
+body {
+  min-height: 100%;
+}
 
 body {
-  font: 12px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  font: 12px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
   color: #404040;
   background: #282537;
   @include radial-gradient(top, circle cover, #3c3b52, #252233 80%);
@@ -28,11 +29,13 @@ body {
 .month-picker-fieldset {
   display: inline-block;
   padding: 0 7px;
-  background: rgba(black, .4);
+  background: rgba(black, 0.4);
   border-radius: 5px;
-  @include box-shadow(inset 0 0 0 1px rgba(black, .7),
-                      inset 0 2px 2px rgba(black, .3),
-                      0 1px rgba(white, .1));
+  @include box-shadow(
+    inset 0 0 0 1px rgba(black, 0.7),
+    inset 0 2px 2px rgba(black, 0.3),
+    0 1px rgba(white, 0.1)
+  );
 
   > input {
     position: absolute;
@@ -40,16 +43,18 @@ body {
   }
 }
 
-.month-picker-label, .month-picker-nav {
+.month-picker-label,
+.month-picker-nav {
   display: inline-block;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   line-height: 25px;
   vertical-align: top;
   cursor: pointer;
 }
 
-input:focus + .month-picker-label, .month-picker-nav:focus {
-  outline: 2px solid  rgb(94, 158, 215);
+input:focus + .month-picker-label,
+.month-picker-nav:focus {
+  outline: 2px solid rgb(94, 158, 215);
   outline: 5px auto -webkit-focus-ring-color;
 }
 
@@ -62,10 +67,13 @@ input:focus + .month-picker-label, .month-picker-nav:focus {
   text-transform: uppercase;
   text-shadow: 0 1px 1px black;
 
-  &, &:before { @include transition(.15s ease-out); }
+  &,
+  &:before {
+    @include transition(0.15s ease-out);
+  }
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: -2px;
     bottom: -2px;
@@ -75,7 +83,7 @@ input:focus + .month-picker-label, .month-picker-nav:focus {
     border-color: #e4e0fb #b6b1d1 #b6b1d1;
     border-radius: 6px;
     opacity: 0;
-    @include box-shadow(0 0 1px rgba(black, .2));
+    @include box-shadow(0 0 1px rgba(black, 0.2));
   }
 
   input:checked + & {
@@ -83,7 +91,9 @@ input:focus + .month-picker-label, .month-picker-nav:focus {
     background: #302e42;
     @include linear-gradient(top, #302e42, #29253b);
 
-    &:before { opacity: 1; }
+    &:before {
+      opacity: 1;
+    }
   }
 }
 
@@ -91,8 +101,8 @@ input:focus + .month-picker-label, .month-picker-nav:focus {
   width: 25px;
   font-size: 16px;
   font-weight: bold;
-  color: rgba(black, .7);
+  color: rgba(black, 0.7);
   text-align: center;
   text-decoration: none;
-  text-shadow: 0 1px rgba(white, .1);
+  text-shadow: 0 1px rgba(white, 0.1);
 }

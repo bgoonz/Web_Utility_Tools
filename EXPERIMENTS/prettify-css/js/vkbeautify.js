@@ -175,7 +175,10 @@
           str += shift[deep] + ar[ix];
         }
         // xmlns //
-        else if (ar[ix].search(/xmlns\:/) > -1 || ar[ix].search(/xmlns\=/) > -1) {
+        else if (
+          ar[ix].search(/xmlns\:/) > -1 ||
+          ar[ix].search(/xmlns\=/) > -1
+        ) {
           str += shift[deep] + ar[ix];
         } else {
           str += ar[ix];
@@ -288,7 +291,10 @@
       var str = preserveComments
         ? text
         : text
-            .replace(/\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>/g, "")
+            .replace(
+              /\<![ \r\n\t]*(--([^\-]|[\r\n]|-[^\-])*--[ \r\n\t]*)\>/g,
+              ""
+            )
             .replace(/[ \r\n\t]{1,}xmlns/g, " xmlns");
       return str.replace(/>\s{0,}</g, "><");
     }

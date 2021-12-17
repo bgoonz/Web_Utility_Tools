@@ -27,20 +27,17 @@
     let token = "";
 
     // preserve strings so their content doesn't get accidentally minified
-    css = css.replace(
-      /("([^\\"]|\\.|\\)*")|('([^\\']|\\.|\\)*')/g,
-      match => {
-        const quote = match[0];
-        preservedTokens.push(match.slice(1, -1));
-        return (
-          quote +
-          "___YUICSSMIN_PRESERVED_TOKEN_" +
-          (preservedTokens.length - 1) +
-          "___" +
-          quote
-        );
-      }
-    );
+    css = css.replace(/("([^\\"]|\\.|\\)*")|('([^\\']|\\.|\\)*')/g, (match) => {
+      const quote = match[0];
+      preservedTokens.push(match.slice(1, -1));
+      return (
+        quote +
+        "___YUICSSMIN_PRESERVED_TOKEN_" +
+        (preservedTokens.length - 1) +
+        "___" +
+        quote
+      );
+    });
 
     // Remove all comment blocks...
     while ((startIndex = css.indexOf("/*", startIndex)) >= 0) {
@@ -85,7 +82,7 @@
     // Remove the spaces before the things that should not have spaces before them.
     // But, be careful not to turn "p :link {...}" into "p:link{...}"
     // Swap out any pseudo-class colons with the token, and then swap back.
-    css = css.replace(/(^|\})(([^\{:])+:)+([^\{]*\{)/g, m => {
+    css = css.replace(/(^|\})(([^\{:])+:)+([^\{]*\{)/g, (m) => {
       return m.replace(":", "___YUICSSMIN_PSEUDOCLASSCOLON___");
     });
     css = css.replace(/\s+([!{};:>+\(\)\],])/g, "$1");

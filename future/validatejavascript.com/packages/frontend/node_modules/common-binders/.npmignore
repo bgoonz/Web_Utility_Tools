@@ -1,8 +1,0 @@
-bundle
-coverage
-src
-test
-.babelrc
-.eslintrc.js
-.travis.yml
-webpack.config.js

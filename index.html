@@ -10,6 +10,22 @@
   <title> Web Dev Tools</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+  <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+  <script type="text/javascript">
+    algoliasearchNetlify( {
+      appId: 'Z41QMWJNBS',
+      apiKey: '4366284437e669e2fc3ae9d246da3874',
+      siteId: '7aab7639-a876-4ffb-8346-6d729c87fd38',
+      branch: 'master',
+      selector: 'div#search',
+    } );
+  </script>
+
   <script>
     document.getElementsByTagName( "html" )[ 0 ].className = "js";
     $( '.iframe' ).responsiveIframes();
@@ -21,7 +37,7 @@
 </head>
 
 <body>
-
+<div id="search"></div>
   <div class="wrapper">
 
 
@@ -34,8 +50,8 @@
       <div class="iframe">
         <iframe loading="lazy" src="./hp-n-the-chamber-of-where-is-my-invatation-2-hogwarts/harry-potter-quiz.html">
         </iframe>
-        </div>
-        </div>
+      </div>
+    </div>
 
 
     <div class="item">
@@ -190,29 +206,29 @@
       a2a_config.templates = a2a_config.templates || {};
 
       a2a_config.templates.email = {
-      subject: "Check this out: ${title}",
-      body: "Click the link:\n${link}"
+        subject: "Check this out: ${title}",
+        body: "Click the link:\n${link}"
       };
 
       a2a_config.templates.facebook = {
-      app_id: "5303202981",
-      redirect_uri: "https://static.addtoany.com/menu/thanks.html"
+        app_id: "5303202981",
+        redirect_uri: "https://static.addtoany.com/menu/thanks.html"
       };
 
       a2a_config.templates.sms = {
-      body: "Check this out: ${title} ${link}"
+        body: "Check this out: ${title} ${link}"
       };
 
       a2a_config.templates.twitter = {
-      text: "Reading: ${title} ${link}",
-      related: "AddToAny,Twitter"
+        text: "Reading: ${title} ${link}",
+        related: "AddToAny,Twitter"
       };
 
       a2a_config.templates.whatsapp = {
-      phone: "15551234567",
-      text: "I'm interested in ${title} posted here: ${link}"
+        phone: "15551234567",
+        text: "I'm interested in ${title} posted here: ${link}"
       };
-      </script>
+    </script>
 
     <script async src="https://static.addtoany.com/menu/page.js"></script>
 

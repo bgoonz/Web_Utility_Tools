@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta name="Author" content="Bryan Guner">
+    <title> directory </title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> Web Dev Tools</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        document.getElementsByTagName( "html" )[ 0 ].className = "js";
+        $( '.iframe' ).responsiveIframes();
+    </script>
+    <link rel="stylesheet" href="./iframe.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/twilight.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bgoonz/GIT-CDN-FILES/mdn-article.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+
+
+
+
+
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="./script.js"></script>
+    <script>
+        var a2a_config = a2a_config || {};
+        a2a_config.templates = a2a_config.templates || {};
+
+        a2a_config.templates.email = {
+            subject: "Check this out: ${title}",
+            body: "Click the link:\n${link}"
+        };
+
+        a2a_config.templates.facebook = {
+            app_id: "5303202981",
+            redirect_uri: "https://static.addtoany.com/menu/thanks.html"
+        };
+
+        a2a_config.templates.sms = {
+            body: "Check this out: ${title} ${link}"
+        };
+
+        a2a_config.templates.twitter = {
+            text: "Reading: ${title} ${link}",
+            related: "AddToAny,Twitter"
+        };
+
+        a2a_config.templates.whatsapp = {
+            phone: "15551234567",
+            text: "I'm interested in ${title} posted here: ${link}"
+        };
+    </script>
+
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60dcec1ece575946">
+    </script>
+
+
+
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60dcec1ece575946">
+    </script>
+
+
+
+    <a class="bookmarklet_button"
+        href="javascript:(function(){f='https://www.addtoany.com/share#url='+encodeURIComponent(window.location.href)+'&amp;title='+encodeURIComponent(document.title);a=function(){if(!window.open(f,'addtoany','width=800,height=600,toolbar=yes,location=yes,directories=yes,status=yes,menubar=yes,scrollbars=yes,resizable=yes'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
+        title="AddToAny"
+        onclick="alert('Drag this link onto your toolbar to add the AddToAny Bookmarklet');return false">Drag
+        to Bookmarks to add to Bookmarks!</a>
+
+</body>
+
+</html>

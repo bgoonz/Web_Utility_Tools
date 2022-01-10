@@ -88,7 +88,8 @@ table {
 }
 
 @media screen and (min-width: 769px) {
-  .modal-card, .modal-content {
+  .modal-card,
+  .modal-content {
     width: 660px !important; /* dialogs width */
   }
 }

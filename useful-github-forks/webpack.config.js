@@ -1,5 +1,3 @@
 module.exports = {
-  entry: [
-    './src/queries-logic.js'
-  ]
+  entry: ["./src/queries-logic.js"],
 };

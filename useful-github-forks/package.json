@@ -1,7 +1,7 @@
 {
   "name": "useful-forks-website",
   "description": "List of dependencies used by the Useful Forks website.",
-  "homepage": "https://useful-forks.github.io/",
+  "homepage": "https://web-dev-utility-tools-bgoonz.netlify.app/useful-github-forks/index.html",
   "version": "1.0.0",
   "author": "Jérémi Grenier-Berthiaume",
   "license": "MIT",
@@ -19,6 +19,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/useful-forks/useful-forks.github.io.git"
+    "url": "https://github.com/bgoonz/Web_Utility_Tools.git"
   }
 }

@@ -1,4 +1,5 @@
-const SELF_URL = "https://web-dev-utility-tools-bgoonz.netlify.app/useful-github-forks/index.html";
+const SELF_URL =
+  "https://web-dev-utility-tools-bgoonz.netlify.app/useful-github-forks/index.html";
 
 const JQ_REPO_FIELD = $("#repo");
 const JQ_SEARCH_BTN = $("#searchBtn");
@@ -22,7 +23,9 @@ const UF_MSG_API_RATE =
   "It's also possible that the queried repository has so many forks that it's impossible to scan it completely without running out of API calls.<br>" +
   ":(";
 
-const EXAMPLE_LINK_1 = `<a href="${buildAutoQueryURL("bgoonz/Web_Utility_Tools")}"
+const EXAMPLE_LINK_1 = `<a href="${buildAutoQueryURL(
+  "bgoonz/Web_Utility_Tools"
+)}"
                            onclick="ga_shortExampleLink();">bgoonz/Web_Utility_Tools</a>`;
 const EXAMPLE_LINK_2 = `<a href="${buildAutoQueryURL(
   "https://github.com/bgoonz/Web_Utility_Tools"

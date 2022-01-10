@@ -22,14 +22,14 @@ const UF_MSG_API_RATE =
   "It's also possible that the queried repository has so many forks that it's impossible to scan it completely without running out of API calls.<br>" +
   ":(";
 
-const EXAMPLE_LINK_1 = `<a href="${buildAutoQueryURL("payne911/PieMenu")}"
-                           onclick="ga_shortExampleLink();">payne911/PieMenu</a>`;
+const EXAMPLE_LINK_1 = `<a href="${buildAutoQueryURL("bgoonz/Web_Utility_Tools")}"
+                           onclick="ga_shortExampleLink();">bgoonz/Web_Utility_Tools</a>`;
 const EXAMPLE_LINK_2 = `<a href="${buildAutoQueryURL(
-  "https://github.com/payne911/PieMenu"
+  "https://github.com/bgoonz/Web_Utility_Tools"
 )}"
-                           onclick="ga_fullExampleLink();">https://github.com/payne911/PieMenu</a>`;
+                           onclick="ga_fullExampleLink();">https://github.com/bgoonz/Web_Utility_Tools</a>`;
 const BODY_REPO_LINK = `<a href="${buildGithubRepoURL(
-  "useful-forks/useful-forks.github.io"
+  "bgoonz/Web_Utility_Tools"
 )}"
                            onclick="ga_bodyRepoLink();">the GitHub project</a>`;
 const LANDING_PAGE_INIT_MSG =
